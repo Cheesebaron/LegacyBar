@@ -5,6 +5,12 @@ This is a a port of https://github.com/johannilsson/android-actionbar
 
 For usage check the project this has been ported from README, there is a detailed description on how to use it.
 
+## Screenshots
+![Home Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Home.png)
+![Other Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Other_Activity.png)
+
+For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
+
 ## TODO
 Break out the ActionBar out in its own Android Library project along with resources.
 
