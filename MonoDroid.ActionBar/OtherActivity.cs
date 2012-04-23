@@ -12,6 +12,7 @@ using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
+    [Activity(Label = "OtherActivity")]
     class OtherActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -23,10 +24,10 @@ namespace MonoDroid.ActionBarSample
             ActionBar actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
-            //actionBar.setTitle(R.string.some_title);
-            actionBar.SetHomeAction(new ActionBarAction(this, new Intent(this.ApplicationContext, typeof(HomeActivity)), Resource.Drawable.ic_title_home_default));
+            actionBar.SetTitle(Resource.String.some_title);
+            actionBar.SetHomeAction(new MyActionBarAction(this, new Intent(this, typeof(HomeActivity)), Resource.Drawable.ic_title_home_default));
             actionBar.SetDisplayHomeAsUpEnabled(true);
-            actionBar.AddAction(new ActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
+            actionBar.AddAction(new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
         }
 
         private Intent createShareIntent() {

@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="ActionBar\ActionBar.cs" />
     <Compile Include="ActionBar\ActionBarAction.cs" />
+    <Compile Include="ActionBar\IActionBarAction.cs" />
+    <Compile Include="ActionBar\MyActionBarAction.cs" />
     <Compile Include="ActionBar\ScrollingTextView.cs" />
     <Compile Include="HomeActivity.cs" />
     <Compile Include="OtherActivity.cs" />

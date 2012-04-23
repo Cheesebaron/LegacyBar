@@ -198,6 +198,9 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f060001
 			public const int app_name = 2131099649;
 			
+			// aapt resource value: 0x7f060003
+			public const int some_title = 2131099651;
+			
 			private String()
 			{
 			}

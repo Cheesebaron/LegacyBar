@@ -178,7 +178,7 @@ namespace MonoDroid.ActionBarSample
         /**
      * Removes all action views from this action bar
      */
-        public void removeAllActions()
+        public void RemoveAllActions()
         {
             mActionsView.RemoveAllViews();
         }
@@ -187,9 +187,18 @@ namespace MonoDroid.ActionBarSample
          * Remove a action from the action bar.
          * @param index position of action to remove
          */
-        public void removeActionAt(int index)
+        public void RemoveActionAt(int index)
         {
-            mActionsView.RemoveViewAt(index);
+            if (index >= 1)
+                mActionsView.RemoveViewAt(index);
+        }
+
+        public int ActionCount
+        {
+            get
+            {
+                return mActionsView.ChildCount;
+            }
         }
 
         /**
