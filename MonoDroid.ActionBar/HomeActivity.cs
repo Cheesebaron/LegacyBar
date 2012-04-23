@@ -1,5 +1,22 @@
-﻿using System;
+﻿/*
+ * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
+ * 
+ * Port from https://github.com/johannilsson/android-actionbar
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+using System;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -9,7 +26,7 @@ using Android.OS;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "MonoDroid.ActionBar", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Action Bar", MainLauncher = true, Icon = "@drawable/icon")]
     public class HomeActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -20,7 +37,7 @@ namespace MonoDroid.ActionBarSample
             SetContentView(Resource.Layout.Main);
 
             ActionBar actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
-            actionBar.SetTitle("bingabong");
+            actionBar.SetTitle("BingBong");
 
             ActionBarAction shareAction = new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default);
             actionBar.AddAction(shareAction);

@@ -1,6 +1,12 @@
-MonoDroid.ActionBar
+ActionBar for Mono for Android
 ===================
 
-A port of https://github.com/johannilsson/android-actionbar
+This is a a port of https://github.com/johannilsson/android-actionbar
 
-Not a lot of stuff works yet, it can show the Action Bar, show the progress bar. Work on getting Intents to work should be made.
+For usage check the project this has been ported from README, there is a detailed description on how to use it.
+
+## TODO
+Break out the ActionBar out in its own Android Library project along with resources.
+
+## License
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
