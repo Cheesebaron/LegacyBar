@@ -26,7 +26,7 @@ using Android.OS;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "Action Bar", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Action Bar", MainLauncher = true, Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar")]
     public class HomeActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

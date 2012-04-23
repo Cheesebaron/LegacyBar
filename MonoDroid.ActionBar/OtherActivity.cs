@@ -30,7 +30,7 @@ using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "OtherActivity")]
+    [Activity(Label = "OtherActivity", Theme = "@android:style/Theme.Black.NoTitleBar")]
     class OtherActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
