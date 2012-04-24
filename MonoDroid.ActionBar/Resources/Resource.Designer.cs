@@ -88,19 +88,31 @@ namespace MonoDroid.ActionBarSample
 			public const int actionbar_btn_pressed = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_title_export_default = 2130837509;
+			public const int ic_action_refresh_dark = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_title_home_default = 2130837510;
+			public const int ic_action_search_dark = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_title_home_demo = 2130837511;
+			public const int ic_menu_refresh = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ic_title_share_default = 2130837512;
+			public const int ic_menu_search = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Icon = 2130837513;
+			public const int ic_title_export_default = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int ic_title_home_default = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int ic_title_home_demo = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int ic_title_share_default = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int Icon = 2130837517;
 			
 			private Drawable()
 			{
@@ -110,56 +122,62 @@ namespace MonoDroid.ActionBarSample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f08000a
-			public const int actionbar = 2131230730;
+			// aapt resource value: 0x7f09000a
+			public const int actionbar = 2131296266;
 			
-			// aapt resource value: 0x7f080006
-			public const int actionbar_actions = 2131230726;
+			// aapt resource value: 0x7f090006
+			public const int actionbar_actions = 2131296262;
 			
-			// aapt resource value: 0x7f080001
-			public const int actionbar_home = 2131230721;
+			// aapt resource value: 0x7f090001
+			public const int actionbar_home = 2131296257;
 			
-			// aapt resource value: 0x7f080003
-			public const int actionbar_home_bg = 2131230723;
+			// aapt resource value: 0x7f090003
+			public const int actionbar_home_bg = 2131296259;
 			
-			// aapt resource value: 0x7f080004
-			public const int actionbar_home_btn = 2131230724;
+			// aapt resource value: 0x7f090004
+			public const int actionbar_home_btn = 2131296260;
 			
-			// aapt resource value: 0x7f080005
-			public const int actionbar_home_is_back = 2131230725;
+			// aapt resource value: 0x7f090005
+			public const int actionbar_home_is_back = 2131296261;
 			
-			// aapt resource value: 0x7f080002
-			public const int actionbar_home_logo = 2131230722;
+			// aapt resource value: 0x7f090002
+			public const int actionbar_home_logo = 2131296258;
 			
-			// aapt resource value: 0x7f080009
-			public const int actionbar_item = 2131230729;
+			// aapt resource value: 0x7f090009
+			public const int actionbar_item = 2131296265;
 			
-			// aapt resource value: 0x7f080007
-			public const int actionbar_progress = 2131230727;
+			// aapt resource value: 0x7f090007
+			public const int actionbar_progress = 2131296263;
 			
-			// aapt resource value: 0x7f080008
-			public const int actionbar_title = 2131230728;
+			// aapt resource value: 0x7f090008
+			public const int actionbar_title = 2131296264;
 			
-			// aapt resource value: 0x7f08000e
-			public const int add_action = 2131230734;
+			// aapt resource value: 0x7f09000e
+			public const int add_action = 2131296270;
 			
-			// aapt resource value: 0x7f08000f
-			public const int remove_action = 2131230735;
+			// aapt resource value: 0x7f090012
+			public const int menu_refresh = 2131296274;
 			
-			// aapt resource value: 0x7f08000d
-			public const int remove_actions = 2131230733;
+			// aapt resource value: 0x7f090011
+			public const int menu_search = 2131296273;
 			
-			// aapt resource value: 0x7f080010
-			public const int remove_share_action = 2131230736;
+			// aapt resource value: 0x7f09000f
+			public const int remove_action = 2131296271;
 			
-			// aapt resource value: 0x7f080000
-			public const int screen = 2131230720;
+			// aapt resource value: 0x7f09000d
+			public const int remove_actions = 2131296269;
 			
-			// aapt resource value: 0x7f08000b
-			public const int start_progress = 2131230731;
+			// aapt resource value: 0x7f090010
+			public const int remove_share_action = 2131296272;
 			
-			// aapt resource value: 0x7f08000c
-			public const int stop_progress = 2131230732;
+			// aapt resource value: 0x7f090000
+			public const int screen = 2131296256;
+			
+			// aapt resource value: 0x7f09000b
+			public const int start_progress = 2131296267;
+			
+			// aapt resource value: 0x7f09000c
+			public const int stop_progress = 2131296268;
 			
 			private Id()
 			{
@@ -182,6 +200,17 @@ namespace MonoDroid.ActionBarSample
 			public const int Other = 2130903043;
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int MainMenu = 2131230720;
+			
+			private Menu()
 			{
 			}
 		}

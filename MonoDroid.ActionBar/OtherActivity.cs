@@ -14,6 +14,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ *  Addition by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
  */
 
 using System;
@@ -43,7 +45,10 @@ namespace MonoDroid.ActionBarSample
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
             actionBar.SetTitle(Resource.String.some_title);
-            actionBar.SetHomeAction(new MyActionBarAction(this, new Intent(this, typeof(HomeActivity)), Resource.Drawable.ic_title_home_default));
+            var homeIntent = new Intent(this, typeof (HomeActivity));
+            homeIntent.AddFlags(ActivityFlags.ClearTop);
+            homeIntent.AddFlags(ActivityFlags.NewTask);
+            actionBar.SetHomeAction(new MyActionBarAction(this, homeIntent, Resource.Drawable.ic_title_home_default));
             actionBar.SetDisplayHomeAsUpEnabled(true);
             actionBar.AddAction(new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
         }

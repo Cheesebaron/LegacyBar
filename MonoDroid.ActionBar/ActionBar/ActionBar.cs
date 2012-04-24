@@ -14,6 +14,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * Changes by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
  */
 
 using System;
@@ -42,6 +44,10 @@ namespace MonoDroid.ActionBarSample
         private ImageButton mHomeBtn;
         private RelativeLayout mHomeLayout;
         private ProgressBar mProgress;
+
+
+        //Used to track what we need to hide in the pop up menu.
+        public List<int> MenuItemsToHide = new List<int>();
 
         public ActionBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
@@ -189,6 +195,11 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action, int index)
         {
+            //simply put it in the menu items to hide if we are a menu item.
+            var taskAction = action as MenuItemActionBarAction;
+            if (taskAction != null)
+                MenuItemsToHide.Add(taskAction.MenuItemId);
+
             mActionsView.AddView(inflateAction(action), index);
         }
 
@@ -198,6 +209,7 @@ namespace MonoDroid.ActionBarSample
         public void RemoveAllActions()
         {
             mActionsView.RemoveAllViews();
+            MenuItemsToHide.Clear();
         }
 
         /**
@@ -207,7 +219,13 @@ namespace MonoDroid.ActionBarSample
         public void RemoveActionAt(int index)
         {
             if (index >= 1)
+            {
+                var menuItemAction = mActionsView.GetChildAt(index).Tag as MenuItemActionBarAction;
+                if (menuItemAction != null)
+                    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+
                 mActionsView.RemoveViewAt(index);
+            }
         }
 
         public int ActionCount
@@ -222,14 +240,22 @@ namespace MonoDroid.ActionBarSample
          * Remove a action from the action bar.
          * @param action The action to remove
          */
-        public void RemoveAction(ActionBarAction action) {
+        public void RemoveAction(ActionBarAction action)
+        {
             int childCount = mActionsView.ChildCount;
-            for (int i = 0; i < childCount; i++) {
+            for (int i = 0; i < childCount; i++)
+            {
                 View view = mActionsView.GetChildAt(i);
-                if (view != null) {
+                if (view != null)
+                {
                     var tag = view.Tag;
-                    if (tag is ActionBarAction && tag.Equals(action))
+                    var actionBarAction = tag as ActionBarAction;
+                    if (actionBarAction != null && tag.Equals(action))
                     {
+                        var menuItemAction = tag as MenuItemActionBarAction;
+                        if (menuItemAction != null)
+                            MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+
                         mActionsView.RemoveView(view);
                     }
                 }
