@@ -44,7 +44,7 @@ namespace MonoDroid.ActionBarSample
         private ImageButton mHomeBtn;
         private RelativeLayout mHomeLayout;
         private ProgressBar mProgress;
-
+        private RelativeLayout mTitleLayout;
 
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
@@ -67,7 +67,7 @@ namespace MonoDroid.ActionBarSample
             mActionsView = mBarView.FindViewById<LinearLayout>(Resource.Id.actionbar_actions);
 
             mProgress = mBarView.FindViewById<ProgressBar>(Resource.Id.actionbar_progress);
-
+            mTitleLayout = mBarView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
             TypedArray a = context.ObtainStyledAttributes(attrs,
                     Resource.Styleable.ActionBar);
             string title = a.GetString(Resource.Styleable.ActionBar_title);
@@ -84,6 +84,7 @@ namespace MonoDroid.ActionBarSample
             mHomeBtn.Tag = action;
             mHomeBtn.SetImageResource(action.GetDrawable());
             mHomeLayout.Visibility = ViewStates.Visible;
+            ((RelativeLayout.LayoutParams)mTitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
         public void ClearHomeAction()
@@ -105,6 +106,7 @@ namespace MonoDroid.ActionBarSample
             mLogoView.SetImageResource(resId);
             mLogoView.Visibility = ViewStates.Visible;
             mHomeLayout.Visibility = ViewStates.Gone;
+            ((RelativeLayout.LayoutParams)mTitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
         }
 
         /* Emulating Honeycomb, setdisplayHomeAsUpEnabled takes a boolean
