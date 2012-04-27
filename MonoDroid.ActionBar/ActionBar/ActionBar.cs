@@ -49,6 +49,10 @@ namespace MonoDroid.ActionBarSample
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
 
+        public int TotalNumberOfActions { get; set; }
+
+        public Activity CurrentActivity { get; set; }
+
         public ActionBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
@@ -185,7 +189,8 @@ namespace MonoDroid.ActionBarSample
          * Adds a new {@link Action}.
          * @param action the action to add
          */
-        public void AddAction(ActionBarAction action) {
+        public void AddAction(ActionBarAction action) 
+        {
             int index = mActionsView.ChildCount;
             AddAction(action, index);
         }
@@ -197,6 +202,13 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action, int index)
         {
+            int totalActions = mActionsView.ChildCount;
+            if (TotalNumberOfActions < totalActions + 1)
+                TotalNumberOfActions = totalActions + 1;
+
+            if (!action.ForceInActionBar && !ActionBarUtils.ActionFits(CurrentActivity, index + 1, TotalNumberOfActions))
+                return;
+
             //simply put it in the menu items to hide if we are a menu item.
             var taskAction = action as MenuItemActionBarAction;
             if (taskAction != null)
@@ -210,6 +222,7 @@ namespace MonoDroid.ActionBarSample
      */
         public void RemoveAllActions()
         {
+            TotalNumberOfActions = 0;
             mActionsView.RemoveAllViews();
             MenuItemsToHide.Clear();
         }
@@ -227,6 +240,8 @@ namespace MonoDroid.ActionBarSample
                     MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
                 mActionsView.RemoveViewAt(index);
+
+                TotalNumberOfActions = mActionsView.ChildCount;
             }
         }
 
@@ -259,6 +274,8 @@ namespace MonoDroid.ActionBarSample
                             MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
                         mActionsView.RemoveView(view);
+
+                        TotalNumberOfActions = mActionsView.ChildCount;
                     }
                 }
             }

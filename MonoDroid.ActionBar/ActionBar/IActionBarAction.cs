@@ -14,6 +14,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * Modifications by: James Montemagno <motz2k1@oh.rr.com>
  */
 
 using Android.Views;
@@ -24,5 +26,9 @@ namespace MonoDroid.ActionBarSample
     {
         int GetDrawable();
         void PerformAction(View view);
+        //sets the current position to determine if it shoudl be put in the action bar or not.
+        int CurrentPosition { get; set;}
+        //if set to true then no matter what this actionbaritem will be in the action bar.
+        bool ForceInActionBar { get; set; }
     }
 }

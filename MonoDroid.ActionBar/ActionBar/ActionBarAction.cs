@@ -32,9 +32,12 @@ namespace MonoDroid.ActionBarSample
         protected Context mContext;
         protected Intent mIntent;
 
+
         public abstract int GetDrawable();
 
         public abstract void PerformAction(View view);
 
+        public int CurrentPosition { get; set; }
+        public bool ForceInActionBar { get; set; }
     }
 }

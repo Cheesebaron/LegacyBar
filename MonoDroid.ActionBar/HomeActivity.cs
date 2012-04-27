@@ -41,6 +41,8 @@ namespace MonoDroid.ActionBarSample
 
             var actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             m_ActionBar = actionBar;
+            m_ActionBar.CurrentActivity = this;
+            m_ActionBar.TotalNumberOfActions = 5;
             actionBar.SetTitle("BingBong");
 
             ActionBarAction shareAction = new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default);
@@ -49,7 +51,14 @@ namespace MonoDroid.ActionBarSample
             ActionBarAction otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
+            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
+            actionBar.AddAction(otherAction);
+
+            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
+            actionBar.AddAction(otherAction);
+
             var searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark);
+            searchMenuItemAction.ForceInActionBar = true;
             actionBar.AddAction(searchMenuItemAction);
 
             Button startProgress = FindViewById<Button>(Resource.Id.start_progress);
