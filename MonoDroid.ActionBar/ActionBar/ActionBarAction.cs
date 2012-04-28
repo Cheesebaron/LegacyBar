@@ -39,5 +39,6 @@ namespace MonoDroid.ActionBarSample
 
         public int CurrentPosition { get; set; }
         public bool ForceInActionBar { get; set; }
+        public int PopUpMessage { get; set; }
     }
 }

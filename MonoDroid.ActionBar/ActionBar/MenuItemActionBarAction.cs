@@ -202,13 +202,14 @@ namespace MonoDroid.ActionBarSample
         private Activity m_Activity;
         private ActionBarMenuItem m_MenuItem;
         public int MenuItemId;
-        public MenuItemActionBarAction(Context context, Activity activity, int menuId, int drawable)
+        public MenuItemActionBarAction(Context context, Activity activity, int menuId, int drawable, int popupID)
         {
             mDrawable = drawable;
             mContext = context;
             m_Activity = activity;
             MenuItemId = menuId;
             m_MenuItem = new ActionBarMenuItem(menuId);
+            PopUpMessage = popupID;
         }
 
         public override int GetDrawable()

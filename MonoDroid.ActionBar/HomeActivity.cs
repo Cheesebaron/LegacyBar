@@ -57,7 +57,7 @@ namespace MonoDroid.ActionBarSample
             otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
-            var searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark);
+            var searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.pop_up_sample);
             searchMenuItemAction.ForceInActionBar = true;
             actionBar.AddAction(searchMenuItemAction);
 

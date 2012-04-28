@@ -30,5 +30,6 @@ namespace MonoDroid.ActionBarSample
         int CurrentPosition { get; set;}
         //if set to true then no matter what this actionbaritem will be in the action bar.
         bool ForceInActionBar { get; set; }
+        int PopUpMessage { get; set; }//displays if user holds down action bar item.
     }
 }

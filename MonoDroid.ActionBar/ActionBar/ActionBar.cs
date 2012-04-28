@@ -33,7 +33,7 @@ using Android.Content.Res;
 
 namespace MonoDroid.ActionBarSample
 {
-    public class ActionBar : RelativeLayout, Android.Views.View.IOnClickListener
+    public class ActionBar : RelativeLayout, Android.Views.View.IOnClickListener, View.IOnLongClickListener
     {
         private LayoutInflater mInflater;
         private RelativeLayout mBarView;
@@ -45,6 +45,7 @@ namespace MonoDroid.ActionBarSample
         private RelativeLayout mHomeLayout;
         private ProgressBar mProgress;
         private RelativeLayout mTitleLayout;
+        private Context m_Context;
 
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
@@ -56,7 +57,7 @@ namespace MonoDroid.ActionBarSample
         public ActionBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
-
+            m_Context = context;
             mInflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
 
             mBarView = (RelativeLayout)mInflater.Inflate(Resource.Layout.ActionBar, null);
@@ -303,7 +304,28 @@ namespace MonoDroid.ActionBarSample
 
             view.Tag = action;
             view.SetOnClickListener(this);
+            view.SetOnLongClickListener(this);
             return view;
+        }
+
+        public bool OnLongClick(View v)
+        {
+            var tag = v.Tag;
+            if (tag is ActionBarAction)
+            {
+                ActionBarAction action = (ActionBarAction)tag;
+                if (action.PopUpMessage == 0)
+                    return true;
+
+                if (CurrentActivity == null)
+                    return false;
+
+                Toast.MakeText(m_Context, action.PopUpMessage, ToastLength.Short).Show();
+
+                return false;
+            }
+
+            return false;
         }
     }
 }
