@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- *  Addition by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
+ *  Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
 using System;
@@ -33,24 +33,39 @@ using Android.Widget;
 namespace MonoDroid.ActionBarSample
 {
     [Activity(Label = "OtherActivity", Theme = "@android:style/Theme.Black.NoTitleBar")]
-    class OtherActivity : Activity
+    class OtherActivity : ActionBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
+            
             SetContentView(Resource.Layout.Other);
 
-            ActionBar actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
+            DarkMenuId = Resource.Menu.MainMenu;//could add a dark menu if you are in dark theme for icons.
+            MenuId = Resource.Menu.MainMenu;
+
+            ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
-            actionBar.SetTitle(Resource.String.some_title);
-            var homeIntent = new Intent(this, typeof (HomeActivity));
-            homeIntent.AddFlags(ActivityFlags.ClearTop);
-            homeIntent.AddFlags(ActivityFlags.NewTask);
-            actionBar.SetHomeAction(new MyActionBarAction(this, homeIntent, Resource.Drawable.ic_title_home_default));
-            actionBar.SetDisplayHomeAsUpEnabled(true);
-            actionBar.AddAction(new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
+            ActionBar.SetTitle("Other Activity");
+            AddHomeAction();
+            ActionBar.TotalNumberOfActions = 1;
+            ActionBar.CurrentActivity = this;
+
+            ActionBar.AddAction(new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
+
+            var bottomActionBar = FindViewById<BottomActionBar>(Resource.Id.bottomActionbar);
+
+            var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down);
+            bottomActionBar.AddAction(action);
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down, Resource.String.menu_string_down);
+            bottomActionBar.AddAction(action);
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left, Resource.String.menu_string_left);
+            bottomActionBar.AddAction(action);
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right, Resource.String.menu_string_right);
+            bottomActionBar.AddAction(action);
+
         }
 
         private Intent createShareIntent() {

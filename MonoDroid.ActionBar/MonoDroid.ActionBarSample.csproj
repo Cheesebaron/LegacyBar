@@ -51,9 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionBarBase\ActionBarActivity.cs" />
+    <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
     <Compile Include="ActionBar\ActionBar.cs" />
     <Compile Include="ActionBar\ActionBarAction.cs" />
     <Compile Include="ActionBar\ActionBarUtils.cs" />
+    <Compile Include="ActionBar\BottomActionBar.cs" />
     <Compile Include="ActionBar\IActionBarAction.cs" />
     <Compile Include="ActionBar\MyActionBarAction.cs" />
     <Compile Include="ActionBar\ScrollingTextView.cs" />
@@ -78,6 +81,8 @@
     <AndroidResource Include="Resources\Layout\Other.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BottomActionBar.axml" />
+    <AndroidResource Include="Resources\Layout\BottomActionBar_Item.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\Main.axml" />
@@ -147,6 +152,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_background.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn_normal.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn_pressed.xml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_down.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_left.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_right.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_up.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_down.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_left.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_right.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_up.png" />
+    <AndroidResource Include="Resources\Menu\BottomActionBarMenus.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

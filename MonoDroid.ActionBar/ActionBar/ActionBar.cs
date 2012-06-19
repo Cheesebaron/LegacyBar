@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Changes by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
+ * Changes by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
 using System;
@@ -246,6 +246,33 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
+        /**
+       * Remove a action from the action bar.
+       * @param index position of action to remove
+       */
+        public void RemoveActionAtMenuId(int id)
+        {
+            int childCount = mActionsView.ChildCount;
+            for (int i = 0; i < childCount; i++)
+            {
+                View view = mActionsView.GetChildAt(i);
+                if (view != null)
+                {
+                    var tag = view.Tag;
+                    var actionBarAction = tag as MenuItemActionBarAction;
+                    if (actionBarAction != null && id == actionBarAction.MenuItemId)
+                    {
+
+                        MenuItemsToHide.Remove(actionBarAction.MenuItemId);
+
+                        mActionsView.RemoveView(view);
+
+                        TotalNumberOfActions = mActionsView.ChildCount;
+                    }
+                }
+            }
+        }
+
         public int ActionCount
         {
             get
@@ -268,7 +295,7 @@ namespace MonoDroid.ActionBarSample
                 {
                     var tag = view.Tag;
                     var actionBarAction = tag as ActionBarAction;
-                    if (actionBarAction != null && tag.Equals(action))
+                    if (actionBarAction != null && actionBarAction.Equals(action))
                     {
                         var menuItemAction = tag as MenuItemActionBarAction;
                         if (menuItemAction != null)

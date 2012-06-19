@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Modifications by: James Montemagno <motz2k1@oh.rr.com>
+ * Modifications by: James Montemagno <http://www.montemagno.com>
  */
 
 using Android.Views;

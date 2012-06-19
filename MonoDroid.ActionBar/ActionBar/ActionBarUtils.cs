@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 James Montemagno <motz2k1@oh.rr.com>
+ * Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
  * 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

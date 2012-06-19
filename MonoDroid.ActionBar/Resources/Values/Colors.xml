@@ -12,6 +12,8 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
+     
+     *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
 -->
 <resources>
   <color name="actionbar_separator">#8B1A1A</color>
@@ -20,4 +22,11 @@
   <color name="actionbar_background_end">#CD2626</color>
   <color name="actionbar_background_item_pressed_start">#FF7F00</color>
   <color name="actionbar_background_item_pressed_end">#EE7600</color>
+
+  <color name="bottomactionbar_separator">#8B1A1A</color>
+  <color name="bottomactionbar_title">#FFFFFF</color>
+  <color name="bottomactionbar_background_end">#CD2626</color>
+  <color name="bottomactionbar_background_start">#8B1A1A</color>
+  <color name="bottomactionbar_background_item_pressed_start">#FF7F00</color>
+  <color name="bottomactionbar_background_item_pressed_end">#EE7600</color>
 </resources>

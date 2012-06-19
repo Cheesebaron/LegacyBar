@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Addition by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
+ * Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
 using System;
@@ -52,6 +52,7 @@ namespace MonoDroid.ActionBarSample
             actionBar.AddAction(otherAction);
 
             otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
+            otherAction.ForceInActionBar = true;
             actionBar.AddAction(otherAction);
 
             otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);

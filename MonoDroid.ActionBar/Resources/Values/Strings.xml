@@ -5,4 +5,8 @@
   <string name="actionbar_activity_not_found">Failed to open intent...</string>
   <string name="some_title">Some Title</string>
   <string name="pop_up_sample">Some pop up message goes here.</string>
+  <string name="menu_string_up">up</string>
+  <string name="menu_string_down">down</string>
+  <string name="menu_string_left">left</string>
+  <string name="menu_string_right">right</string>
 </resources>

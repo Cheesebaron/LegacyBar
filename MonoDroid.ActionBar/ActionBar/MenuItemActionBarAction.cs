@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Addition by: Copyright (C) 2012 James Montemagno (motz2k1@oh.rr.com)
+ * Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
 using System;
@@ -40,159 +40,164 @@ namespace MonoDroid.ActionBarSample
             m_ItemId = id;
         }
 
-        char  IMenuItem.AlphabeticShortcut
+        char IMenuItem.AlphabeticShortcut
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        int  IMenuItem.GroupId
+        int IMenuItem.GroupId
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        bool  IMenuItem.HasSubMenu
+        bool IMenuItem.HasSubMenu
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        Android.Graphics.Drawables.Drawable  IMenuItem.Icon
+        Android.Graphics.Drawables.Drawable IMenuItem.Icon
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        Intent  IMenuItem.Intent
+        Intent IMenuItem.Intent
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        bool  IMenuItem.IsCheckable
+        bool IMenuItem.IsCheckable
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        bool  IMenuItem.IsChecked
+        bool IMenuItem.IsChecked
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        bool  IMenuItem.IsEnabled
+        bool IMenuItem.IsEnabled
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        bool  IMenuItem.IsVisible
+        bool IMenuItem.IsVisible
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
         private int m_ItemId;
         int IMenuItem.ItemId { get { return m_ItemId; } }
 
-        IContextMenuContextMenuInfo  IMenuItem.MenuInfo
+        IContextMenuContextMenuInfo IMenuItem.MenuInfo
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        char  IMenuItem.NumericShortcut
+        char IMenuItem.NumericShortcut
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        int  IMenuItem.Order
+        int IMenuItem.Order
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        IMenuItem  IMenuItem.SetAlphabeticShortcut(char alphaChar)
+        IMenuItem IMenuItem.SetAlphabeticShortcut(char alphaChar)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetCheckable(bool checkable)
+        IMenuItem IMenuItem.SetCheckable(bool checkable)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetChecked(bool @checked)
+        IMenuItem IMenuItem.SetChecked(bool @checked)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetEnabled(bool enabled)
+        IMenuItem IMenuItem.SetEnabled(bool enabled)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetIcon(int iconRes)
+        IMenuItem IMenuItem.SetIcon(int iconRes)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetIcon(Android.Graphics.Drawables.Drawable icon)
+        IMenuItem IMenuItem.SetIcon(Android.Graphics.Drawables.Drawable icon)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetIntent(Intent intent)
+        IMenuItem IMenuItem.SetIntent(Intent intent)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetNumericShortcut(char numericChar)
+        IMenuItem IMenuItem.SetNumericShortcut(char numericChar)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetOnMenuItemClickListener(IMenuItemOnMenuItemClickListener menuItemClickListener)
+        IMenuItem IMenuItem.SetOnMenuItemClickListener(IMenuItemOnMenuItemClickListener menuItemClickListener)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetShortcut(char numericChar, char alphaChar)
+        IMenuItem IMenuItem.SetShortcut(char numericChar, char alphaChar)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetTitle(Java.Lang.ICharSequence title)
+        IMenuItem IMenuItem.SetTitle(Java.Lang.ICharSequence title)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetTitle(int title)
+        IMenuItem IMenuItem.SetTitle(int title)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetTitleCondensed(Java.Lang.ICharSequence title)
+        IMenuItem IMenuItem.SetTitleCondensed(Java.Lang.ICharSequence title)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        IMenuItem  IMenuItem.SetVisible(bool visible)
+        IMenuItem IMenuItem.SetVisible(bool visible)
         {
- 	        throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        ISubMenu  IMenuItem.SubMenu
+        ISubMenu IMenuItem.SubMenu
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        Java.Lang.ICharSequence  IMenuItem.TitleCondensedFormatted
+        Java.Lang.ICharSequence IMenuItem.TitleCondensedFormatted
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        Java.Lang.ICharSequence  IMenuItem.TitleFormatted
+        Java.Lang.ICharSequence IMenuItem.TitleFormatted
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
 
-        IntPtr  Android.Runtime.IJavaObject.Handle
+        IntPtr Android.Runtime.IJavaObject.Handle
         {
-	        get { throw new NotImplementedException(); }
+            get { throw new NotImplementedException(); }
         }
-}
+
+        public void Dispose()
+        {
+            //throw new NotImplementedException();
+        }
+    }
 
     /// <summary>
     /// MenuItemActionBarAction will call teh main activitiess "OnOptionsItemSelected", which allows us to re-use code.
