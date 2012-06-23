@@ -165,6 +165,10 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_right.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_up.png" />
     <AndroidResource Include="Resources\Menu\BottomActionBarMenus.xml" />
+    <AndroidResource Include="Resources\Values-land\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-xlarge\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp\Dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
