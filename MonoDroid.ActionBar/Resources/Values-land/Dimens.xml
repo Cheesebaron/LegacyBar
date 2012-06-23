@@ -18,6 +18,6 @@
 <resources>
   <dimen name="actionbar_height">40dp</dimen>
   <dimen name="actionbar_item_height">40dp</dimen>
-  <dimen name="actionbar_item_width">40dp</dimen>
+  <dimen name="actionbar_item_width">48dp</dimen>
   <dimen name="actionbar_home_item_width">48dp</dimen>
 </resources>
