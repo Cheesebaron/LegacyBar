@@ -28,7 +28,7 @@ namespace MonoDroid.ActionBarSample
          * Definition of an action that could be performed, along with a icon to
          * show.
          */
-    public abstract class ActionBarAction : Java.Lang.Object, IActionBarAction 
+    public abstract class ActionBarAction : Java.Lang.Object, IActionBarAction
     {
         protected int mDrawable;
         protected Context mContext;
@@ -40,7 +40,10 @@ namespace MonoDroid.ActionBarSample
         public abstract void PerformAction(View view);
 
         public int CurrentPosition { get; set; }
-        public bool ForceInActionBar { get; set; }
         public int PopUpMessage { get; set; }
+
+
+
+        public ActionType ActionType { get; set; }
     }
 }

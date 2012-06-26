@@ -27,6 +27,9 @@ using Android.Views;
 using Android.Widget;
 using Android.Util;
 using Android.Content.Res;
+#if MONODROID
+using VeronaAndroid;
+#endif
 
 namespace MonoDroid.ActionBarSample
 {

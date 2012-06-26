@@ -59,6 +59,7 @@
     <Compile Include="ActionBar\BottomActionBar.cs" />
     <Compile Include="ActionBar\IActionBarAction.cs" />
     <Compile Include="ActionBar\MyActionBarAction.cs" />
+    <Compile Include="ActionBar\OverflowActionBarAction.cs" />
     <Compile Include="ActionBar\ScrollingTextView.cs" />
     <Compile Include="ActionBar\MenuItemActionBarAction.cs" />
     <Compile Include="HomeActivity.cs" />
@@ -83,6 +84,12 @@
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\BottomActionBar.axml" />
     <AndroidResource Include="Resources\Layout\BottomActionBar_Item.axml" />
+    <AndroidResource Include="Resources\Layout\OverflowActionBar_Item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BlankSpinner.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\Main.axml" />
@@ -154,7 +161,9 @@
     <AndroidResource Include="Resources\Menu\MainMenu.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Menu-v11\MainMenu.xml" />
+    <AndroidResource Include="Resources\Menu-v11\MainMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
@@ -171,10 +180,17 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_right.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_up.png" />
     <AndroidResource Include="Resources\Menu\BottomActionBarMenus.xml" />
-    <AndroidResource Include="Resources\Values-land\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-land\Dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\Values-large-land\Dimens.xml" />
     <AndroidResource Include="Resources\Values-xlarge\Dimens.xml" />
     <AndroidResource Include="Resources\Values-sw600dp\Dimens.xml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Values-v11\Themes.xml" />
+    <AndroidResource Include="Resources\Values-v14\Themes.xml" />
+    <AndroidResource Include="Resources\Values\Themes.xml" />
+    <AndroidResource Include="Resources\Menu\OtherMainMenu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

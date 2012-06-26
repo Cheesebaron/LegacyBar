@@ -28,7 +28,7 @@ using Android.OS;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/icon", Theme = "@android:style/Theme.Black.NoTitleBar")]
+    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     public class HomeActivity : Activity
     {
         private ActionBar m_ActionBar;
@@ -42,7 +42,6 @@ namespace MonoDroid.ActionBarSample
             var actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             m_ActionBar = actionBar;
             m_ActionBar.CurrentActivity = this;
-            m_ActionBar.TotalNumberOfActions = 5;
             actionBar.SetTitle("BingBong");
 
             ActionBarAction shareAction = new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default);
@@ -51,15 +50,18 @@ namespace MonoDroid.ActionBarSample
             ActionBarAction otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
-            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
-            otherAction.ForceInActionBar = true;
+            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_action_refresh_dark);
             actionBar.AddAction(otherAction);
 
             otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
             var searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.pop_up_sample);
-            searchMenuItemAction.ForceInActionBar = true;
+            searchMenuItemAction.ActionType = ActionType.Always;
+            actionBar.AddAction(searchMenuItemAction);
+
+            searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_refresh, Resource.Drawable.ic_action_refresh_dark, Resource.String.menu_string_refresh);
+            searchMenuItemAction.ActionType = ActionType.Never;
             actionBar.AddAction(searchMenuItemAction);
 
             Button startProgress = FindViewById<Button>(Resource.Id.start_progress);

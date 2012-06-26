@@ -22,14 +22,21 @@ using Android.Views;
 
 namespace MonoDroid.ActionBarSample
 {
+    public enum ActionType
+    {
+        IfRoom,
+        Never,
+        WithText,//not supported
+        Always,
+        CollapseActionView
+    }
     public interface IActionBarAction
     {
         int GetDrawable();
         void PerformAction(View view);
         //sets the current position to determine if it shoudl be put in the action bar or not.
         int CurrentPosition { get; set;}
-        //if set to true then no matter what this actionbaritem will be in the action bar.
-        bool ForceInActionBar { get; set; }
+        ActionType ActionType { get; set; }
         int PopUpMessage { get; set; }//displays if user holds down action bar item.
     }
 }

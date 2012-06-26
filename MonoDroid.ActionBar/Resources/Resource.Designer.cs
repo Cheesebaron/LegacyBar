@@ -127,49 +127,52 @@ namespace MonoDroid.ActionBarSample
 			public const int ic_action_left = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int ic_action_refresh_dark = 2130837515;
+			public const int ic_action_overflow_dark = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int ic_action_right = 2130837516;
+			public const int ic_action_refresh_dark = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int ic_action_search_dark = 2130837517;
+			public const int ic_action_right = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int ic_action_up = 2130837518;
+			public const int ic_action_search_dark = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int ic_menu_down = 2130837519;
+			public const int ic_action_up = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int ic_menu_left = 2130837520;
+			public const int ic_menu_down = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int ic_menu_refresh = 2130837521;
+			public const int ic_menu_left = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int ic_menu_right = 2130837522;
+			public const int ic_menu_refresh = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int ic_menu_search = 2130837523;
+			public const int ic_menu_right = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int ic_menu_up = 2130837524;
+			public const int ic_menu_search = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int ic_title_export_default = 2130837525;
+			public const int ic_menu_up = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int ic_title_home_default = 2130837526;
+			public const int ic_title_export_default = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int ic_title_home_demo = 2130837527;
+			public const int ic_title_home_default = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int ic_title_share_default = 2130837528;
+			public const int ic_title_home_demo = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int Icon = 2130837529;
+			public const int ic_title_share_default = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int Icon = 2130837530;
 			
 			private Drawable()
 			{
@@ -221,23 +224,26 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f09000b
 			public const int bottomactionbar_item = 2131296267;
 			
-			// aapt resource value: 0x7f090017
-			public const int menu_down = 2131296279;
-			
-			// aapt resource value: 0x7f090015
-			public const int menu_left = 2131296277;
-			
-			// aapt resource value: 0x7f090019
-			public const int menu_refresh = 2131296281;
-			
-			// aapt resource value: 0x7f090014
-			public const int menu_right = 2131296276;
-			
 			// aapt resource value: 0x7f090018
-			public const int menu_search = 2131296280;
+			public const int menu_down = 2131296280;
 			
 			// aapt resource value: 0x7f090016
-			public const int menu_up = 2131296278;
+			public const int menu_left = 2131296278;
+			
+			// aapt resource value: 0x7f09001a
+			public const int menu_refresh = 2131296282;
+			
+			// aapt resource value: 0x7f090015
+			public const int menu_right = 2131296277;
+			
+			// aapt resource value: 0x7f090019
+			public const int menu_search = 2131296281;
+			
+			// aapt resource value: 0x7f090017
+			public const int menu_up = 2131296279;
+			
+			// aapt resource value: 0x7f090014
+			public const int overflow_spinner = 2131296276;
 			
 			// aapt resource value: 0x7f090011
 			public const int remove_action = 2131296273;
@@ -272,16 +278,22 @@ namespace MonoDroid.ActionBarSample
 			public const int ActionBar_Item = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int BottomActionBar = 2130903042;
+			public const int BlankSpinner = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int BottomActionBar_Item = 2130903043;
+			public const int BottomActionBar = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Main = 2130903044;
+			public const int BottomActionBar_Item = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Other = 2130903045;
+			public const int Main = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Other = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int OverflowActionBar_Item = 2130903047;
 			
 			private Layout()
 			{
@@ -296,6 +308,9 @@ namespace MonoDroid.ActionBarSample
 			
 			// aapt resource value: 0x7f080001
 			public const int MainMenu = 2131230721;
+			
+			// aapt resource value: 0x7f080002
+			public const int OtherMainMenu = 2131230722;
 			
 			private Menu()
 			{
@@ -319,6 +334,9 @@ namespace MonoDroid.ActionBarSample
 			
 			// aapt resource value: 0x7f060007
 			public const int menu_string_left = 2131099655;
+			
+			// aapt resource value: 0x7f060009
+			public const int menu_string_refresh = 2131099657;
 			
 			// aapt resource value: 0x7f060008
 			public const int menu_string_right = 2131099656;
@@ -357,6 +375,9 @@ namespace MonoDroid.ActionBarSample
 			
 			// aapt resource value: 0x7f070001
 			public const int BottomActionBar = 2131165185;
+			
+			// aapt resource value: 0x7f070006
+			public const int MyTheme = 2131165190;
 			
 			private Style()
 			{

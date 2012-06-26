@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Xml;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -46,11 +46,13 @@ namespace MonoDroid.ActionBarSample
         private ProgressBar mProgress;
         private RelativeLayout mTitleLayout;
         private Context m_Context;
+        private OverflowActionBarAction m_OverflowAction;
+        private bool m_HasMenuButton;
+
 
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
 
-        public int TotalNumberOfActions { get; set; }
 
         public Activity CurrentActivity { get; set; }
 
@@ -75,7 +77,15 @@ namespace MonoDroid.ActionBarSample
             mTitleLayout = mBarView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
             TypedArray a = context.ObtainStyledAttributes(attrs,
                     Resource.Styleable.ActionBar);
+
+            m_OverflowAction = new OverflowActionBarAction(context);
             string title = a.GetString(Resource.Styleable.ActionBar_title);
+
+            //check if pre-honeycomb. Ideally here you would actually want to check if a menu button exists.
+            //however on all pre-honeycomb phones they basically did.
+            int currentapiVersion = (int)Android.OS.Build.VERSION.SdkInt;
+            m_HasMenuButton = currentapiVersion <= 10;
+
             if (title != null)
             {
                 SetTitle(title);
@@ -194,6 +204,18 @@ namespace MonoDroid.ActionBarSample
         {
             int index = mActionsView.ChildCount;
             AddAction(action, index);
+            
+        }
+
+        /**
+      * Adds a new {@link Action}.
+      * @param action the action to add
+      */
+        public void AddOverflowAction(ActionBarAction action)
+        {
+            int index = mActionsView.ChildCount;
+            mActionsView.AddView(InflateOverflowAction(action), index);
+            m_OverflowAction.Index = index;
         }
 
         /**
@@ -203,19 +225,35 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action, int index)
         {
-            int totalActions = mActionsView.ChildCount;
-            if (TotalNumberOfActions < totalActions + 1)
-                TotalNumberOfActions = totalActions + 1;
+            bool addActionBar = false;
 
-            if (!action.ForceInActionBar && !ActionBarUtils.ActionFits(CurrentActivity, index + 1, TotalNumberOfActions))
-                return;
+            bool hideAction = false;
+            if (!ActionBarUtils.ActionFits(CurrentActivity, index + 1, m_HasMenuButton, action.ActionType))
+            {
+                if(!m_HasMenuButton)
+                {
+                    addActionBar = m_OverflowAction.ActionList.Count == 0;
+                    m_OverflowAction.AddAction(action);
+                    hideAction = true;
+                }
+            }
+            else
+            {
+                if (m_OverflowAction.ActionList.Count != 0)//exists
+                    index = m_OverflowAction.Index;//bring it inside
+
+                hideAction = true;
+
+                mActionsView.AddView(InflateAction(action), index);
+            }
 
             //simply put it in the menu items to hide if we are a menu item.
             var taskAction = action as MenuItemActionBarAction;
-            if (taskAction != null)
+            if (taskAction != null && hideAction)
                 MenuItemsToHide.Add(taskAction.MenuItemId);
 
-            mActionsView.AddView(inflateAction(action), index);
+            if (addActionBar)
+                AddOverflowAction(m_OverflowAction);
         }
 
         /**
@@ -223,7 +261,6 @@ namespace MonoDroid.ActionBarSample
      */
         public void RemoveAllActions()
         {
-            TotalNumberOfActions = 0;
             mActionsView.RemoveAllViews();
             MenuItemsToHide.Clear();
         }
@@ -241,8 +278,6 @@ namespace MonoDroid.ActionBarSample
                     MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
                 mActionsView.RemoveViewAt(index);
-
-                TotalNumberOfActions = mActionsView.ChildCount;
             }
         }
 
@@ -266,8 +301,6 @@ namespace MonoDroid.ActionBarSample
                         MenuItemsToHide.Remove(actionBarAction.MenuItemId);
 
                         mActionsView.RemoveView(view);
-
-                        TotalNumberOfActions = mActionsView.ChildCount;
                     }
                 }
             }
@@ -302,8 +335,6 @@ namespace MonoDroid.ActionBarSample
                             MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
                         mActionsView.RemoveView(view);
-
-                        TotalNumberOfActions = mActionsView.ChildCount;
                     }
                 }
             }
@@ -316,12 +347,13 @@ namespace MonoDroid.ActionBarSample
         {
         }
 
+
         /**
          * Inflates a {@link View} with the given {@link Action}.
          * @param action the action to inflate
          * @return a view
          */
-        private View inflateAction(ActionBarAction action)
+        private View InflateAction(ActionBarAction action)
         {
             View view = mInflater.Inflate(Resource.Layout.ActionBar_Item, mActionsView, false);
 
@@ -332,6 +364,25 @@ namespace MonoDroid.ActionBarSample
             view.Tag = action;
             view.SetOnClickListener(this);
             view.SetOnLongClickListener(this);
+            return view;
+        }
+
+        private View InflateOverflowAction(ActionBarAction action)
+        {
+            View view = mInflater.Inflate(Resource.Layout.OverflowActionBar_Item, mActionsView, false);
+
+            ImageButton labelView =
+                view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
+            labelView.SetImageResource(action.GetDrawable());
+
+            var spinner = view.FindViewById<Spinner>(Resource.Id.overflow_spinner);
+            m_OverflowAction.OverflowSpinner = spinner;
+
+            labelView.Tag = action;
+            labelView.SetOnClickListener(this);
+            //view.SetOnLongClickListener(this);
+
+            m_OverflowAction.Activity = CurrentActivity;
             return view;
         }
 
@@ -355,4 +406,6 @@ namespace MonoDroid.ActionBarSample
             return false;
         }
     }
+
+ 
 }

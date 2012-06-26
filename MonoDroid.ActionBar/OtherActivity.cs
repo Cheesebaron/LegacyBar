@@ -32,7 +32,7 @@ using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "OtherActivity", Theme = "@android:style/Theme.Black.NoTitleBar")]
+    [Activity(Label = "OtherActivity", Theme = "@style/MyTheme")]
     class OtherActivity : ActionBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -50,10 +50,15 @@ namespace MonoDroid.ActionBarSample
             // CharSequence or resource id.
             ActionBar.SetTitle("Other Activity");
             AddHomeAction();
-            ActionBar.TotalNumberOfActions = 1;
             ActionBar.CurrentActivity = this;
 
-            ActionBar.AddAction(new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default));
+            var itemActionBarAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.pop_up_sample);
+            itemActionBarAction.ActionType = ActionType.Always;
+            ActionBar.AddAction(itemActionBarAction);
+
+            itemActionBarAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_refresh, Resource.Drawable.ic_action_refresh_dark, Resource.String.menu_string_refresh);
+            itemActionBarAction.ActionType = ActionType.Never;
+            ActionBar.AddAction(itemActionBarAction);
 
             var bottomActionBar = FindViewById<BottomActionBar>(Resource.Id.bottomActionbar);
 

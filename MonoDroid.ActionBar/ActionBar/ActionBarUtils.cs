@@ -27,10 +27,16 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         /// <param name="activity">Current Activity, needed for orientation and density</param>
         /// <param name="currentNumber">current position of the action</param>
-        /// <param name="totalActions">Total actions</param>
+        /// <param name="hasMenuButton"></param>
+        /// <param name="actionType"></param>
         /// <returns>If it will fit :)</returns>
-        public static bool ActionFits(Activity activity, int currentNumber, int totalActions)
+        public static bool ActionFits(Activity activity, int currentNumber, bool hasMenuButton, ActionType actionType)
         {
+            if (actionType == ActionType.Always)
+                return true;
+
+            if (actionType == ActionType.Never)
+                return false;
 
             if (activity == null)
                 return true;
@@ -55,8 +61,8 @@ namespace MonoDroid.ActionBarSample
                 max = 4;
             }
 
-            if (totalActions <= max)
-                return true;
+            if (hasMenuButton)
+                max--;
 
             if (currentNumber < max)
                 return true;
