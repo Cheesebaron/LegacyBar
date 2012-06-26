@@ -92,7 +92,7 @@ namespace MonoDroid.ActionBarSample
                 return;
             }
 
-            ActionList[position].PerformAction(view);
+            ActionList[position-1].PerformAction(view);//subtract 1 for default.
         }
 
         public void OnNothingSelected(AdapterView parent)
