@@ -6,6 +6,7 @@ This is a a port of https://github.com/johannilsson/android-actionbar
 For usage check the project this has been ported from README, there is a detailed description on how to use it.
 
 ## Screenshots
+![Bottom and Overflow](https://githubcom/james.montemagno/MonoDroid.ActionBar/raw/master/Screenshots/BottomAction_Overflow.png)
 ![Home Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Home.png)
 ![Other Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Other_Activity.png)
 

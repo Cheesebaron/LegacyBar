@@ -56,7 +56,7 @@ namespace MonoDroid.ActionBarSample
             {
                 max = 3;
             }
-            else if(density < 600)
+            else if(density < 598)//should be 600, but Galaxy nexus returns 598
             {
                 max = 4;
             }
