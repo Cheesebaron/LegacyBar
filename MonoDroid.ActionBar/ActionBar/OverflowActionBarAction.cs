@@ -122,7 +122,7 @@ namespace MonoDroid.ActionBarSample
             View view = null;
             var item = m_Items.ElementAt(position);
             if (!string.IsNullOrEmpty(item))
-                view = m_Context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleSpinnerDropDownItem, parent, false);
+                view = m_Context.LayoutInflater.Inflate(Resource.Layout.SpinnerItem, parent, false);
             else
             {
                 view = m_Context.LayoutInflater.Inflate(Resource.Layout.BlankSpinner, parent, false);//hack to get first item blank.

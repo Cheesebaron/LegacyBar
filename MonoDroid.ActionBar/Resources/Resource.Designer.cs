@@ -295,6 +295,9 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f030007
 			public const int OverflowActionBar_Item = 2130903047;
 			
+			// aapt resource value: 0x7f030008
+			public const int SpinnerItem = 2130903048;
+			
 			private Layout()
 			{
 			}
