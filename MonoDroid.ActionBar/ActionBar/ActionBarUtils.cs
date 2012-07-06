@@ -60,7 +60,7 @@ namespace MonoDroid.ActionBarSample
                 max = 4;
             }
 
-            if (hasMenuButton)
+            if (!hasMenuButton)
                 max--;
 
             return currentNumber < max;
