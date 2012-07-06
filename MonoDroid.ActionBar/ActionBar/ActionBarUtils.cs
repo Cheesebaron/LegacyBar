@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
- * 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +46,7 @@ namespace MonoDroid.ActionBarSample
             density = (int)(activity.Resources.DisplayMetrics.WidthPixels / density);//calculator DP of width.
 
 
-            int max = 5;
+            var max = 5;
             if(density < 360)
             {
                 max = 2;
@@ -64,10 +63,7 @@ namespace MonoDroid.ActionBarSample
             if (hasMenuButton)
                 max--;
 
-            if (currentNumber < max)
-                return true;
-
-            return false;
+            return currentNumber < max;
         }
     }
 }

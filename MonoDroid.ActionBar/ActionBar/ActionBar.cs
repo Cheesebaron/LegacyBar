@@ -4,6 +4,8 @@
  * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
  * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
+ * Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,17 +18,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Changes by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
@@ -34,7 +32,7 @@ using Android.Content.Res;
 
 namespace MonoDroid.ActionBarSample
 {
-    public class ActionBar : RelativeLayout, Android.Views.View.IOnClickListener, View.IOnLongClickListener
+    public class ActionBar : RelativeLayout, View.IOnClickListener, View.IOnLongClickListener
     {
         private LayoutInflater mInflater;
         private RelativeLayout mBarView;
@@ -84,7 +82,7 @@ namespace MonoDroid.ActionBarSample
 
             //check if pre-honeycomb. Ideally here you would actually want to check if a menu button exists.
             //however on all pre-honeycomb phones they basically did.
-            int currentapiVersion = (int)Android.OS.Build.VERSION.SdkInt;
+            var currentapiVersion = (int)Build.VERSION.SdkInt;
             m_HasMenuButton = currentapiVersion <= 10;
 
             if (title != null)
@@ -178,8 +176,9 @@ namespace MonoDroid.ActionBarSample
         public void OnClick(View v)
         {
             var tag = v.Tag;
-            if (tag is ActionBarAction) {
-                ActionBarAction action = (ActionBarAction)tag;
+            var action = tag as ActionBarAction;
+            if (action != null)
+            {
                 action.PerformAction(v);
             }
         }
@@ -190,8 +189,7 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddActions(ActionList actionList)
         {
-            int actions = actionList.Count;
-            for (int i = 0; i < actions; i++)
+            for (var i = 0; i < actionList.Count; i++)
             {
                 AddAction(actionList.ElementAt(i));
             }
@@ -203,9 +201,7 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action) 
         {
-            int index = mActionsView.ChildCount;
-            AddAction(action, index);
-            
+            AddAction(action, mActionsView.ChildCount);
         }
 
         /**
@@ -214,7 +210,7 @@ namespace MonoDroid.ActionBarSample
       */
         public void AddOverflowAction(ActionBarAction action)
         {
-            int index = mActionsView.ChildCount;
+            var index = mActionsView.ChildCount;
             mActionsView.AddView(InflateOverflowAction(action), index);
             m_OverflowAction.Index = index;
         }
@@ -226,9 +222,9 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action, int index)
         {
-            bool addActionBar = false;
+            var addActionBar = false;
 
-            bool hideAction = false;
+            var hideAction = false;
             if (!ActionBarUtils.ActionFits(CurrentActivity, index + 1, m_HasMenuButton, action.ActionType))
             {
                 if(!m_HasMenuButton)
@@ -272,14 +268,13 @@ namespace MonoDroid.ActionBarSample
          */
         public void RemoveActionAt(int index)
         {
-            if (index >= 1)
-            {
-                var menuItemAction = mActionsView.GetChildAt(index).Tag as MenuItemActionBarAction;
-                if (menuItemAction != null)
-                    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+            if (index < 1) return;
 
-                mActionsView.RemoveViewAt(index);
-            }
+            var menuItemAction = mActionsView.GetChildAt(index).Tag as MenuItemActionBarAction;
+            if (menuItemAction != null)
+                MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+
+            mActionsView.RemoveViewAt(index);
         }
 
         /**
@@ -288,22 +283,20 @@ namespace MonoDroid.ActionBarSample
        */
         public void RemoveActionAtMenuId(int id)
         {
-            int childCount = mActionsView.ChildCount;
-            for (int i = 0; i < childCount; i++)
+            for (var i = 0; i < mActionsView.ChildCount; i++)
             {
-                View view = mActionsView.GetChildAt(i);
-                if (view != null)
-                {
-                    var tag = view.Tag;
-                    var actionBarAction = tag as MenuItemActionBarAction;
-                    if (actionBarAction != null && id == actionBarAction.MenuItemId)
-                    {
+                var view = mActionsView.GetChildAt(i);
+                
+                if (view == null) continue;
 
-                        MenuItemsToHide.Remove(actionBarAction.MenuItemId);
+                var tag = view.Tag;
+                var actionBarAction = tag as MenuItemActionBarAction;
+                
+                if (actionBarAction == null || id != actionBarAction.MenuItemId) continue;
 
-                        mActionsView.RemoveView(view);
-                    }
-                }
+                MenuItemsToHide.Remove(actionBarAction.MenuItemId);
+
+                mActionsView.RemoveView(view);
             }
         }
 
@@ -321,23 +314,22 @@ namespace MonoDroid.ActionBarSample
          */
         public void RemoveAction(ActionBarAction action)
         {
-            int childCount = mActionsView.ChildCount;
-            for (int i = 0; i < childCount; i++)
+            for (var i = 0; i < mActionsView.ChildCount; i++)
             {
-                View view = mActionsView.GetChildAt(i);
-                if (view != null)
-                {
-                    var tag = view.Tag;
-                    var actionBarAction = tag as ActionBarAction;
-                    if (actionBarAction != null && actionBarAction.Equals(action))
-                    {
-                        var menuItemAction = tag as MenuItemActionBarAction;
-                        if (menuItemAction != null)
-                            MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+                var view = mActionsView.GetChildAt(i);
 
-                        mActionsView.RemoveView(view);
-                    }
-                }
+                if (view == null) continue;
+
+                var tag = view.Tag;
+                var actionBarAction = tag as ActionBarAction;
+
+                if (actionBarAction == null || !actionBarAction.Equals(action)) continue;
+
+                var menuItemAction = tag as MenuItemActionBarAction;
+                if (menuItemAction != null)
+                    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+
+                mActionsView.RemoveView(view);
             }
         }
 
@@ -356,9 +348,9 @@ namespace MonoDroid.ActionBarSample
          */
         private View InflateAction(ActionBarAction action)
         {
-            View view = mInflater.Inflate(Resource.Layout.ActionBar_Item, mActionsView, false);
+            var view = mInflater.Inflate(Resource.Layout.ActionBar_Item, mActionsView, false);
 
-            ImageButton labelView =
+            var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
             labelView.SetImageResource(action.GetDrawable());
 
@@ -370,9 +362,9 @@ namespace MonoDroid.ActionBarSample
 
         private View InflateOverflowAction(ActionBarAction action)
         {
-            View view = mInflater.Inflate(Resource.Layout.OverflowActionBar_Item, mActionsView, false);
+            var view = mInflater.Inflate(Resource.Layout.OverflowActionBar_Item, mActionsView, false);
 
-            ImageButton labelView =
+            var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
             labelView.SetImageResource(action.GetDrawable());
 
@@ -390,9 +382,9 @@ namespace MonoDroid.ActionBarSample
         public bool OnLongClick(View v)
         {
             var tag = v.Tag;
-            if (tag is ActionBarAction)
+            var action = tag as ActionBarAction;
+            if (action != null)
             {
-                ActionBarAction action = (ActionBarAction)tag;
                 if (action.PopUpMessage == 0)
                     return true;
 
@@ -407,6 +399,4 @@ namespace MonoDroid.ActionBarSample
             return false;
         }
     }
-
- 
 }

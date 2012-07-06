@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-=======
 /*
+ * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
  * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
- * Port from https://github.com/johannilsson/android-actionbar
- *
+ * Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,25 +16,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- *  Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
->>>>>>> james/master
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "OtherActivity", Theme = "@style/MyTheme")]
+    [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     class OtherActivity : ActionBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -55,12 +43,20 @@ namespace MonoDroid.ActionBarSample
             AddHomeAction();
             ActionBar.CurrentActivity = this;
 
-            var itemActionBarAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.pop_up_sample);
-            itemActionBarAction.ActionType = ActionType.Always;
+            var itemActionBarAction = new MenuItemActionBarAction(
+                this, this, Resource.Id.menu_search,
+                Resource.Drawable.ic_action_search_dark,
+                Resource.String.pop_up_sample)
+                                          {
+                                              ActionType = ActionType.Always
+                                          };
             ActionBar.AddAction(itemActionBarAction);
 
-            itemActionBarAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_refresh, Resource.Drawable.ic_action_refresh_dark, Resource.String.menu_string_refresh);
-            itemActionBarAction.ActionType = ActionType.Never;
+            itemActionBarAction = new MenuItemActionBarAction(
+                this, this, Resource.Id.menu_refresh,
+                Resource.Drawable.ic_action_refresh_dark,
+                Resource.String.menu_string_refresh)
+                                      {ActionType = ActionType.Never};
             ActionBar.AddAction(itemActionBarAction);
 
             var bottomActionBar = FindViewById<BottomActionBar>(Resource.Id.bottomActionbar);
@@ -74,13 +70,6 @@ namespace MonoDroid.ActionBarSample
             action = new MenuItemActionBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right, Resource.String.menu_string_right);
             bottomActionBar.AddAction(action);
 
-        }
-
-        private Intent createShareIntent() {
-            Intent intent = new Intent(Intent.ActionSend);
-            intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraText, "Shared from the ActionBar widget.");
-            return Intent.CreateChooser(intent, "Share");
         }
     }
 }

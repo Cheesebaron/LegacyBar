@@ -1,8 +1,11 @@
 ﻿/*
+ * Copyright (C) 2010 Johan Nilsson <http://markupartist.com>
+ *
+ * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
  * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
- * Port from https://github.com/johannilsson/android-actionbar
- *
+ * Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,16 +18,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Views;
-using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
@@ -228,7 +227,7 @@ namespace MonoDroid.ActionBarSample
             {
                 m_Activity.OnOptionsItemSelected(m_MenuItem);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
             }
         }

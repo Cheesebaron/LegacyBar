@@ -1,7 +1,5 @@
 /*
- * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
- * 
- * Port from https://github.com/johannilsson/android-actionbar
+ * Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +12,6 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * Modifications by: James Montemagno <http://www.montemagno.com>
  */
 
 using System.Collections.Generic;
@@ -26,10 +22,6 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
-using Android.Content.Res;
-#if MONODROID
-using VeronaAndroid;
-#endif
 
 namespace MonoDroid.ActionBarSample
 {
@@ -92,9 +84,9 @@ namespace MonoDroid.ActionBarSample
         public void OnClick(View v)
         {
             var tag = v.Tag;
-            if (tag is ActionBarAction)
+            var action = tag as ActionBarAction;
+            if (action != null)
             {
-                ActionBarAction action = (ActionBarAction)tag;
                 action.PerformAction(v);
             }
         }
@@ -105,8 +97,7 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddActions(ActionList actionList)
         {
-            int actions = actionList.Count;
-            for (int i = 0; i < actions; i++)
+            for (var i = 0; i < actionList.Count; i++)
             {
                 AddAction(actionList.ElementAt(i));
             }
@@ -118,8 +109,7 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action)
         {
-            int index = mActionsView.ChildCount;
-            AddAction(action, index);
+            AddAction(action, mActionsView.ChildCount);
         }
 
         /**
@@ -129,7 +119,7 @@ namespace MonoDroid.ActionBarSample
          */
         public void AddAction(ActionBarAction action, int index)
         {
-            var newAction = inflateAction(action);
+            var newAction = InflateAction(action);
             mActionsView.AddView(newAction, index);
         }
 
@@ -154,11 +144,11 @@ namespace MonoDroid.ActionBarSample
          * @param action the action to inflate
          * @return a view
          */
-        private View inflateAction(ActionBarAction action)
+        private View InflateAction(ActionBarAction action)
         {
-            View view = mInflater.Inflate(Resource.Layout.BottomActionBar_Item, mActionsView, false);
+            var view = mInflater.Inflate(Resource.Layout.BottomActionBar_Item, mActionsView, false);
 
-            ImageButton labelView =
+            var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.bottomactionbar_item);
             labelView.SetImageResource(action.GetDrawable());
 
@@ -171,9 +161,9 @@ namespace MonoDroid.ActionBarSample
         public bool OnLongClick(View v)
         {
             var tag = v.Tag;
-            if (tag is ActionBarAction)
+            var action = tag as ActionBarAction;
+            if (action != null)
             {
-                ActionBarAction action = (ActionBarAction)tag;
                 if (action.PopUpMessage == 0)
                     return true;
 

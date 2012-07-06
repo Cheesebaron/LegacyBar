@@ -4,6 +4,8 @@
  * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
  * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
+ * Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +18,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
  */
 
 using Android.Content;
 using Android.Views;
-using Android.Widget;
 
 namespace MonoDroid.ActionBarSample
 {
@@ -35,15 +35,12 @@ namespace MonoDroid.ActionBarSample
         protected Context mContext;
         protected Intent mIntent;
 
-
         public abstract int GetDrawable();
 
         public abstract void PerformAction(View view);
 
         public int CurrentPosition { get; set; }
         public int PopUpMessage { get; set; }
-
-
 
         public ActionType ActionType { get; set; }
     }

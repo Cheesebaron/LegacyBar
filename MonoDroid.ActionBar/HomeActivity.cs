@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-﻿using System;
-=======
 ﻿/*
+ * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
  * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
- * Port from https://github.com/johannilsson/android-actionbar
- *
+ * Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,14 +16,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * 
- * Addition by: Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
  */
 
-using System;
->>>>>>> james/master
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -48,9 +42,9 @@ namespace MonoDroid.ActionBarSample
             m_ActionBar.CurrentActivity = this;
             actionBar.SetTitle("BingBong");
 
-            ActionBarAction shareAction = new MyActionBarAction(this, createShareIntent(), Resource.Drawable.ic_title_share_default);
+            ActionBarAction shareAction = new MyActionBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default);
             actionBar.AddAction(shareAction);
-
+            
             ActionBarAction otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
@@ -60,46 +54,44 @@ namespace MonoDroid.ActionBarSample
             otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
             actionBar.AddAction(otherAction);
 
-            var searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.pop_up_sample);
-            searchMenuItemAction.ActionType = ActionType.Always;
+            var searchMenuItemAction = new MenuItemActionBarAction(
+                this, this, Resource.Id.menu_search,
+                Resource.Drawable.ic_action_search_dark,
+                Resource.String.pop_up_sample)
+                                           {
+                                               ActionType = ActionType.Always
+                                           };
             actionBar.AddAction(searchMenuItemAction);
-
-            searchMenuItemAction = new MenuItemActionBarAction(this, this, Resource.Id.menu_refresh, Resource.Drawable.ic_action_refresh_dark, Resource.String.menu_string_refresh);
-            searchMenuItemAction.ActionType = ActionType.Never;
-            actionBar.AddAction(searchMenuItemAction);
-
-            Button startProgress = FindViewById<Button>(Resource.Id.start_progress);
-            startProgress.Click += (s, e) =>
-            {
-                actionBar.SetProgressBarVisibility(ViewStates.Visible);
-            };
-
-            Button stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
-            stopProgress.Click += (s, e) =>
-            {
-                actionBar.SetProgressBarVisibility(ViewStates.Gone);
-            };
-
-            Button removeActions = FindViewById<Button>(Resource.Id.remove_actions);
-            removeActions.Click += (s, e) =>
-            {
-                actionBar.RemoveAllActions();
-            };
-
-            Button removeShareAction = FindViewById<Button>(Resource.Id.remove_share_action);
-            removeShareAction.Click += (s, e) =>
-            {
-                actionBar.RemoveAction(shareAction);
-            };
             
-            Button addAction = FindViewById<Button>(Resource.Id.add_action);
+            searchMenuItemAction = new MenuItemActionBarAction(
+                this, this, Resource.Id.menu_refresh,
+                Resource.Drawable.ic_action_refresh_dark,
+                Resource.String.menu_string_refresh)
+                                       {
+                                           ActionType = ActionType.Never
+                                       };
+            actionBar.AddAction(searchMenuItemAction);
+            
+            var startProgress = FindViewById<Button>(Resource.Id.start_progress);
+            startProgress.Click += (s, e) => actionBar.SetProgressBarVisibility(ViewStates.Visible);
+
+            var stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
+            stopProgress.Click += (s, e) => actionBar.SetProgressBarVisibility(ViewStates.Gone);
+
+            var removeActions = FindViewById<Button>(Resource.Id.remove_actions);
+            removeActions.Click += (s, e) => actionBar.RemoveAllActions();
+
+            var removeShareAction = FindViewById<Button>(Resource.Id.remove_share_action);
+            removeShareAction.Click += (s, e) => actionBar.RemoveAction(shareAction);
+            
+            var addAction = FindViewById<Button>(Resource.Id.add_action);
             addAction.Click += (s, e) =>
             {
-                MyOtherActionBarAction action = new MyOtherActionBarAction(this, null, Resource.Drawable.ic_title_share_default);
+                var action = new MyOtherActionBarAction(this, null, Resource.Drawable.ic_title_share_default);
                 actionBar.AddAction(action);
             };
 
-            Button removeAction = FindViewById<Button>(Resource.Id.remove_action);
+            var removeAction = FindViewById<Button>(Resource.Id.remove_action);
             removeAction.Click += (s, e) =>
             {
                 actionBar.RemoveActionAt(actionBar.ActionCount - 1);
@@ -135,7 +127,7 @@ namespace MonoDroid.ActionBarSample
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
 
-            for (int i = 0; i < menu.Size(); i++)
+            for (var i = 0; i < menu.Size(); i++)
             {
                 var menuItem = menu.GetItem(i);
                 menuItem.SetVisible(!m_ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
@@ -163,9 +155,9 @@ namespace MonoDroid.ActionBarSample
             return base.OnOptionsItemSelected(item);
         }
 
-
-        private Intent createShareIntent() {
-            Intent intent = new Intent(Intent.ActionSend);
+        private static Intent CreateShareIntent()
+        {
+            var intent = new Intent(Intent.ActionSend);
             intent.SetType("text/plain");
             intent.PutExtra(Intent.ExtraText, "Shared from the ActionBar widget.");
             return Intent.CreateChooser(intent, "Share");

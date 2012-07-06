@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
- * 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -119,7 +118,7 @@ namespace MonoDroid.ActionBarSample
             if (position < 0)
                 return null;
 
-            View view = null;
+            View view;
             var item = m_Items.ElementAt(position);
             if (!string.IsNullOrEmpty(item))
                 view = m_Context.LayoutInflater.Inflate(Resource.Layout.SpinnerItem, parent, false);
