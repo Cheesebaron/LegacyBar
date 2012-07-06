@@ -46,7 +46,7 @@ namespace MonoDroid.ActionBarSample
             var itemActionBarAction = new MenuItemActionBarAction(
                 this, this, Resource.Id.menu_search,
                 Resource.Drawable.ic_action_search_dark,
-                Resource.String.pop_up_sample)
+                Resource.String.menu_string_search)
                                           {
                                               ActionType = ActionType.Always
                                           };

@@ -42,27 +42,31 @@ namespace MonoDroid.ActionBarSample
             m_ActionBar.CurrentActivity = this;
             actionBar.SetTitle("BingBong");
 
-            ActionBarAction shareAction = new MyActionBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default);
+            //always put these 2 in there since they are NOT in my menu.xml
+            ActionBarAction shareAction = new MyActionBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default)
+            {
+                ActionType = ActionType.Always
+            };
             actionBar.AddAction(shareAction);
             
-            ActionBarAction otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
+
+            var otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default)
+            {
+                ActionType = ActionType.Always
+            };
             actionBar.AddAction(otherAction);
 
-            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_action_refresh_dark);
-            actionBar.AddAction(otherAction);
-
-            otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default);
-            actionBar.AddAction(otherAction);
-
+            //only put in if there is room
             var searchMenuItemAction = new MenuItemActionBarAction(
                 this, this, Resource.Id.menu_search,
                 Resource.Drawable.ic_action_search_dark,
-                Resource.String.pop_up_sample)
+                Resource.String.menu_string_search)
                                            {
-                                               ActionType = ActionType.Always
+                                               ActionType = ActionType.IfRoom
                                            };
             actionBar.AddAction(searchMenuItemAction);
             
+            //never put this guy in there
             searchMenuItemAction = new MenuItemActionBarAction(
                 this, this, Resource.Id.menu_refresh,
                 Resource.Drawable.ic_action_refresh_dark,
@@ -147,8 +151,11 @@ namespace MonoDroid.ActionBarSample
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
+                    OnSearchRequested();
+                    Toast.MakeText(this, "you pressed SEARCH!!!!", ToastLength.Short).Show();
                     return true;
                 case Resource.Id.menu_refresh:
+                    Toast.MakeText(this, "you pressed REFRESH!!!", ToastLength.Short).Show();
                     return true;
             }
 
