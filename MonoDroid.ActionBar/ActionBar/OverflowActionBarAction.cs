@@ -36,8 +36,7 @@ namespace MonoDroid.ActionBarSample
             mDrawable = Resource.Drawable.ic_action_overflow_dark;
             mContext = context;
             ActionList = new List<ActionBarAction>();
-            m_StringIds = new List<string>();
-            m_StringIds.Add(string.Empty);//first one to hide
+            m_StringIds = new List<string> {string.Empty/*first one to hide*/};
             ActionType = ActionType.Always;
         }
 

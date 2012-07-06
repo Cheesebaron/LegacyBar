@@ -106,14 +106,15 @@ namespace MonoDroid.ActionBarSample
             mHomeLayout.Visibility = ViewStates.Gone;
         }
 
-        /**
-         * Shows the provided logo to the left in the action bar.
-         * 
-         * This is ment to be used instead of the setHomeAction and does not draw
-         * a divider to the left of the provided logo.
-         * 
-         * @param resId The drawable resource id
-         */
+        
+
+        /// <summary>
+        /// Shows the provided logo to the left in the action bar.
+        /// 
+        /// This is ment to be used instead of the setHomeAction and does not draw
+        /// a divider to the left of the provided logo.
+        /// </summary>
+        /// <param name="resId">The drawable resource id</param>
         public void SetHomeLogo(int resId)
         {
             // TODO: Add possibility to add an IntentAction as well.
@@ -123,9 +124,12 @@ namespace MonoDroid.ActionBarSample
             ((RelativeLayout.LayoutParams)mTitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
         }
 
-        /* Emulating Honeycomb, setdisplayHomeAsUpEnabled takes a boolean
-         * and toggles whether the "home" view should have a little triangle
-         * indicating "up" */
+        /// <summary>
+        /// Emulating Honeycomb, setdisplayHomeAsUpEnabled takes a boolean
+        /// and toggles whether the "home" view should have a little triangle
+        /// indicating "up"
+        /// </summary>
+        /// <param name="show"></param>
         public void SetDisplayHomeAsUpEnabled(bool show)
         {
             mBackIndicator.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
@@ -141,33 +145,19 @@ namespace MonoDroid.ActionBarSample
             mTitleView.SetText(resid);
         }
 
-        /**
-         * Set the enabled state of the progress bar.
-         * 
-         * @param One of {@link View#VISIBLE}, {@link View#INVISIBLE},
-         *   or {@link View#GONE}.
-         */
-        public void SetProgressBarVisibility(ViewStates visibility)
+        /// <summary>
+        /// The visibility of the circular progress bar in the Action Bar
+        /// </summary>
+        public ViewStates ProgressBarVisibility
         {
-            mProgress.Visibility = visibility;
+            get { return mProgress.Visibility; }
+            set { mProgress.Visibility = value; }
         }
 
-        /**
-         * Returns the visibility status for the progress bar.
-         * 
-         * @param One of {@link View#VISIBLE}, {@link View#INVISIBLE},
-         *   or {@link View#GONE}.
-         */
-        public ViewStates GetProgressBarVisibility()
-        {
-            return mProgress.Visibility;
-        }
-
-        /**
-         * Function to set a click listener for Title TextView
-         * 
-         * @param listener the onClickListener
-         */
+        /// <summary>
+        /// Function to set a click listener for Title TextView
+        /// </summary>
+        /// <param name="listener"></param>
         public void SetOnTitleClickListener(IOnClickListener listener)
         {
             mTitleView.SetOnClickListener(listener);
@@ -183,11 +173,11 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * Adds a list of {@link Action}s.
-         * @param actionList the actions to add
-         */
-        public void AddActions(ActionList actionList)
+        /// <summary>
+        /// Adds a list of Actions.
+        /// </summary>
+        /// <param name="actionList">List of Actions</param>
+        public void AddActions(ActionBarUtils.ActionList actionList)
         {
             for (var i = 0; i < actionList.Count; i++)
             {
@@ -195,19 +185,19 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * Adds a new {@link Action}.
-         * @param action the action to add
-         */
+        /// <summary>
+        /// Adds a new Action.
+        /// </summary>
+        /// <param name="action">Action to add.</param>
         public void AddAction(ActionBarAction action) 
         {
             AddAction(action, mActionsView.ChildCount);
         }
 
-        /**
-      * Adds a new {@link Action}.
-      * @param action the action to add
-      */
+        /// <summary>
+        /// Adds new action in the overflow
+        /// </summary>
+        /// <param name="action">Action to add.</param>
         public void AddOverflowAction(ActionBarAction action)
         {
             var index = mActionsView.ChildCount;
@@ -215,11 +205,11 @@ namespace MonoDroid.ActionBarSample
             m_OverflowAction.Index = index;
         }
 
-        /**
-         * Adds a new {@link Action} at the specified index.
-         * @param action the action to add
-         * @param index the position at which to add the action
-         */
+        /// <summary>
+        /// Adds a new Action at the specified index.
+        /// </summary>
+        /// <param name="action">the action to add</param>
+        /// <param name="index">the position at which to add the action</param>
         public void AddAction(ActionBarAction action, int index)
         {
             var addActionBar = false;
@@ -253,19 +243,19 @@ namespace MonoDroid.ActionBarSample
                 AddOverflowAction(m_OverflowAction);
         }
 
-        /**
-     * Removes all action views from this action bar
-     */
+        /// <summary>
+        /// Removes all action views from this action bar
+        /// </summary>
         public void RemoveAllActions()
         {
             mActionsView.RemoveAllViews();
             MenuItemsToHide.Clear();
         }
 
-        /**
-         * Remove a action from the action bar.
-         * @param index position of action to remove
-         */
+        /// <summary>
+        /// Remove a action from the action bar.
+        /// </summary>
+        /// <param name="index">position of action to remove</param>
         public void RemoveActionAt(int index)
         {
             if (index < 1) return;
@@ -277,10 +267,10 @@ namespace MonoDroid.ActionBarSample
             mActionsView.RemoveViewAt(index);
         }
 
-        /**
-       * Remove a action from the action bar.
-       * @param index position of action to remove
-       */
+        /// <summary>
+        /// Remove a action from the action bar.
+        /// </summary>
+        /// <param name="id">position of action to remove</param>
         public void RemoveActionAtMenuId(int id)
         {
             for (var i = 0; i < mActionsView.ChildCount; i++)
@@ -308,10 +298,10 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * Remove a action from the action bar.
-         * @param action The action to remove
-         */
+        /// <summary>
+        /// Remove a action from the action bar.
+        /// </summary>
+        /// <param name="action">The action to remove</param>
         public void RemoveAction(ActionBarAction action)
         {
             for (var i = 0; i < mActionsView.ChildCount; i++)
@@ -333,19 +323,12 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * A {@link LinkedList} that holds a list of {@link Action}s.
-         */
-        public class ActionList : LinkedList<ActionBarAction>
-        {
-        }
-
-
-        /**
-         * Inflates a {@link View} with the given {@link Action}.
-         * @param action the action to inflate
-         * @return a view
-         */
+        
+        /// <summary>
+        /// Inflates a View with the given Action.
+        /// </summary>
+        /// <param name="action">the action to inflate</param>
+        /// <returns>a view</returns>
         private View InflateAction(ActionBarAction action)
         {
             var view = mInflater.Inflate(Resource.Layout.ActionBar_Item, mActionsView, false);

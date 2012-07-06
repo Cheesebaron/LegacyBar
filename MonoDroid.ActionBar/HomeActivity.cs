@@ -77,10 +77,10 @@ namespace MonoDroid.ActionBarSample
             actionBar.AddAction(searchMenuItemAction);
             
             var startProgress = FindViewById<Button>(Resource.Id.start_progress);
-            startProgress.Click += (s, e) => actionBar.SetProgressBarVisibility(ViewStates.Visible);
+            startProgress.Click += (s, e) => actionBar.ProgressBarVisibility = ViewStates.Visible;
 
             var stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
-            stopProgress.Click += (s, e) => actionBar.SetProgressBarVisibility(ViewStates.Gone);
+            stopProgress.Click += (s, e) => actionBar.ProgressBarVisibility = ViewStates.Gone;
 
             var removeActions = FindViewById<Button>(Resource.Id.remove_actions);
             removeActions.Click += (s, e) => actionBar.RemoveAllActions();

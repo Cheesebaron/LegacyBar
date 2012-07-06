@@ -35,10 +35,19 @@ namespace MonoDroid.ActionBarSample
     public interface IActionBarAction
     {
         int GetDrawable();
+
         void PerformAction(View view);
-        //sets the current position to determine if it shoudl be put in the action bar or not.
+
+        /// <summary>
+        /// Sets the current position to determine if it shoudl be put in the action bar or not.
+        /// </summary>
         int CurrentPosition { get; set;}
+
         ActionType ActionType { get; set; }
-        int PopUpMessage { get; set; }//displays if user holds down action bar item.
+
+        /// <summary>
+        /// Displays if user holds down action bar item.
+        /// </summary>
+        int PopUpMessage { get; set; }
     }
 }

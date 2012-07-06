@@ -1,5 +1,7 @@
 /*
  * Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
+ * 
+ * Modified by Tomaz Cielecki Copyright (C) 2012 <tomasz@ostebaronen.dk>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +16,7 @@
  * limitations under the License.
  */
 
+using System.Collections.Generic;
 using Android.App;
 
 namespace MonoDroid.ActionBarSample
@@ -64,6 +67,13 @@ namespace MonoDroid.ActionBarSample
                 max--;
 
             return currentNumber < max;
+        }
+
+        /// <summary>
+        /// A LinkedList that holds a list of Action.
+        /// </summary>
+        public class ActionList : LinkedList<ActionBarAction>
+        {
         }
     }
 }

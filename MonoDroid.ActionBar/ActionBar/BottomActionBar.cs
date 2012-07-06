@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-using System.Collections.Generic;
 using System.Linq;
-
 using Android.App;
 using Android.Content;
 using Android.Views;
@@ -71,11 +69,10 @@ namespace MonoDroid.ActionBarSample
             mTitleView.SetText(resid);
         }
 
-        /**
-         * Function to set a click listener for Title TextView
-         * 
-         * @param listener the onClickListener
-         */
+        /// <summary>
+        /// Function to set a click listener for Title TextView
+        /// </summary>
+        /// <param name="listener">the onClickListener</param>
         public void SetOnTitleClickListener(IOnClickListener listener)
         {
             mTitleView.SetOnClickListener(listener);
@@ -91,11 +88,11 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * Adds a list of {@link Action}s.
-         * @param actionList the actions to add
-         */
-        public void AddActions(ActionList actionList)
+        /// <summary>
+        /// Adds a list of Actions.
+        /// </summary>
+        /// <param name="actionList"> the actions to add</param>
+        public void AddActions(ActionBarUtils.ActionList actionList)
         {
             for (var i = 0; i < actionList.Count; i++)
             {
@@ -103,20 +100,20 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
-        /**
-         * Adds a new {@link Action}.
-         * @param action the action to add
-         */
+        /// <summary>
+        /// Adds a new Action.
+        /// </summary>
+        /// <param name="action">the action to add</param>
         public void AddAction(ActionBarAction action)
         {
             AddAction(action, mActionsView.ChildCount);
         }
 
-        /**
-         * Adds a new {@link Action} at the specified index.
-         * @param action the action to add
-         * @param index the position at which to add the action
-         */
+        /// <summary>
+        /// Adds a new Action at the specified index.
+        /// </summary>
+        /// <param name="action">the action to add</param>
+        /// <param name="index">the position at which to add the action</param>
         public void AddAction(ActionBarAction action, int index)
         {
             var newAction = InflateAction(action);
@@ -129,14 +126,6 @@ namespace MonoDroid.ActionBarSample
             {
                 return mActionsView.ChildCount;
             }
-        }
-
-
-        /**
-         * A {@link LinkedList} that holds a list of {@link Action}s.
-         */
-        public class ActionList : LinkedList<ActionBarAction>
-        {
         }
 
         /**
