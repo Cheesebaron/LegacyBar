@@ -15,6 +15,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
  */
 
 using Android.Content;
@@ -27,15 +29,22 @@ namespace MonoDroid.ActionBarSample
          * Definition of an action that could be performed, along with a icon to
          * show.
          */
-    public abstract class ActionBarAction : Java.Lang.Object, IActionBarAction 
+    public abstract class ActionBarAction : Java.Lang.Object, IActionBarAction
     {
         protected int mDrawable;
         protected Context mContext;
         protected Intent mIntent;
 
+
         public abstract int GetDrawable();
 
         public abstract void PerformAction(View view);
 
+        public int CurrentPosition { get; set; }
+        public int PopUpMessage { get; set; }
+
+
+
+        public ActionType ActionType { get; set; }
     }
 }

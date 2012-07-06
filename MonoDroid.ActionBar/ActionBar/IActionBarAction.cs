@@ -15,15 +15,29 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * Modifications by: James Montemagno <http://www.montemagno.com>
  */
 
 using Android.Views;
 
 namespace MonoDroid.ActionBarSample
 {
+    public enum ActionType
+    {
+        IfRoom,
+        Never,
+        WithText,//not supported
+        Always,
+        CollapseActionView
+    }
     public interface IActionBarAction
     {
         int GetDrawable();
         void PerformAction(View view);
+        //sets the current position to determine if it shoudl be put in the action bar or not.
+        int CurrentPosition { get; set;}
+        ActionType ActionType { get; set; }
+        int PopUpMessage { get; set; }//displays if user holds down action bar item.
     }
 }

@@ -12,6 +12,9 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
+     
+     *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+     -Added bottom action bar
 -->
 <resources>
   <style name="ActionBar">
@@ -20,6 +23,12 @@
     <item name="android:orientation">horizontal</item>
     <item name="android:background">@drawable/actionbar_background</item>
   </style>
+  <style name="BottomActionBar">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">@dimen/actionbar_height</item>
+    <item name="android:orientation">horizontal</item>
+    <item name="android:background">@drawable/bottomactionbar_background</item>
+  </style>
   <style name="ActionBarItem">
     <item name="android:layout_width">@dimen/actionbar_item_width</item>
     <item name="android:layout_height">@dimen/actionbar_height</item>
@@ -27,6 +36,7 @@
     <item name="android:layout_marginLeft">1px</item>
   </style>
   <style name="ActionBarHomeItem" parent="ActionBarItem">
+    <item name="android:layout_width">@dimen/actionbar_home_item_width</item>
     <item name="android:layout_marginRight">1px</item>
     <item name="android:layout_marginLeft">0px</item>
   </style>

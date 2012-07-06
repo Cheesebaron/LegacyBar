@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 Johan Nilsson <http://markupartist.com>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 James Montemagno <http://www.montemagno.com>
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,12 +12,9 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
-     
-     *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+    
 -->
-<resources>
-  <dimen name="actionbar_height">48dp</dimen>
-  <dimen name="actionbar_item_height">48dp</dimen>
-  <dimen name="actionbar_item_width">48dp</dimen>
-  <dimen name="actionbar_home_item_width">56dp</dimen>
-</resources>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="fill_parent"
+    android:layout_height="0dp"/>
