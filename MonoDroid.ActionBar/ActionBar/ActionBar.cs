@@ -259,6 +259,7 @@ namespace MonoDroid.ActionBarSample
         public void RemoveAllActions()
         {
             mActionsView.RemoveAllViews();
+            m_OverflowAction.ClearActions();
             MenuItemsToHide.Clear();
         }
 
