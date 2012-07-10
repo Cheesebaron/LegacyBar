@@ -29,4 +29,12 @@
   <color name="bottomactionbar_background_start">#8B1A1A</color>
   <color name="bottomactionbar_background_item_pressed_start">#FF7F00</color>
   <color name="bottomactionbar_background_item_pressed_end">#EE7600</color>
+
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+  <color name="green">#00FF00</color>
+  <color name="red">#FF0000</color>
+  <color name="blue">#0000FF</color>
+  <color name="grey">#CCCCCC</color>
+  <color name="yellow">#FFFF00</color>
 </resources>

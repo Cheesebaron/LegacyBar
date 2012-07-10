@@ -18,8 +18,20 @@ namespace MonoDroid.ActionBarSample
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010003
+			public const int background = 2130771971;
+			
+			// aapt resource value: 0x7f010004
+			public const int background_item = 2130771972;
+			
+			// aapt resource value: 0x7f010002
+			public const int separator = 2130771970;
+			
 			// aapt resource value: 0x7f010000
 			public const int title = 2130771968;
+			
+			// aapt resource value: 0x7f010001
+			public const int title_color = 2130771969;
 			
 			private Attribute()
 			{
@@ -47,6 +59,12 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f040001
 			public const int actionbar_title = 2130968577;
 			
+			// aapt resource value: 0x7f04000d
+			public const int black = 2130968589;
+			
+			// aapt resource value: 0x7f040010
+			public const int blue = 2130968592;
+			
 			// aapt resource value: 0x7f040008
 			public const int bottomactionbar_background_end = 2130968584;
 			
@@ -64,6 +82,21 @@ namespace MonoDroid.ActionBarSample
 			
 			// aapt resource value: 0x7f040007
 			public const int bottomactionbar_title = 2130968583;
+			
+			// aapt resource value: 0x7f04000e
+			public const int green = 2130968590;
+			
+			// aapt resource value: 0x7f040011
+			public const int grey = 2130968593;
+			
+			// aapt resource value: 0x7f04000f
+			public const int red = 2130968591;
+			
+			// aapt resource value: 0x7f04000c
+			public const int white = 2130968588;
+			
+			// aapt resource value: 0x7f040012
+			public const int yellow = 2130968594;
 			
 			private Color()
 			{
@@ -100,79 +133,91 @@ namespace MonoDroid.ActionBarSample
 			public const int actionbar_background = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int actionbar_btn = 2130837506;
+			public const int actionbar_background_alt = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int actionbar_btn_normal = 2130837507;
+			public const int actionbar_btn = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int actionbar_btn_pressed = 2130837508;
+			public const int actionbar_btn_alt = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int bottomactionbar_background = 2130837509;
+			public const int actionbar_btn_normal = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int bottomactionbar_btn = 2130837510;
+			public const int actionbar_btn_normal_alt = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int bottomactionbar_btn_normal = 2130837511;
+			public const int actionbar_btn_pressed = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int bottomactionbar_btn_pressed = 2130837512;
+			public const int actionbar_btn_pressed_alt = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int ic_action_down = 2130837513;
+			public const int bottomactionbar_background = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int ic_action_left = 2130837514;
+			public const int bottomactionbar_btn = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int ic_action_overflow_dark = 2130837515;
+			public const int bottomactionbar_btn_normal = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int ic_action_refresh_dark = 2130837516;
+			public const int bottomactionbar_btn_pressed = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int ic_action_right = 2130837517;
+			public const int ic_action_down = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int ic_action_search_dark = 2130837518;
+			public const int ic_action_left = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int ic_action_up = 2130837519;
+			public const int ic_action_overflow_dark = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int ic_menu_down = 2130837520;
+			public const int ic_action_refresh_dark = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int ic_menu_left = 2130837521;
+			public const int ic_action_right = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int ic_menu_refresh = 2130837522;
+			public const int ic_action_search_dark = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int ic_menu_right = 2130837523;
+			public const int ic_action_up = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int ic_menu_search = 2130837524;
+			public const int ic_menu_down = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int ic_menu_up = 2130837525;
+			public const int ic_menu_left = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int ic_title_export_default = 2130837526;
+			public const int ic_menu_refresh = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int ic_title_home_default = 2130837527;
+			public const int ic_menu_right = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int ic_title_home_demo = 2130837528;
+			public const int ic_menu_search = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int ic_title_share_default = 2130837529;
+			public const int ic_menu_up = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int Icon = 2130837530;
+			public const int ic_title_export_default = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int ic_title_home_default = 2130837531;
+			
+			// aapt resource value: 0x7f02001c
+			public const int ic_title_home_demo = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int ic_title_share_default = 2130837533;
+			
+			// aapt resource value: 0x7f02001e
+			public const int Icon = 2130837534;
 			
 			private Drawable()
 			{
@@ -391,10 +436,26 @@ namespace MonoDroid.ActionBarSample
 		{
 			
 			public static int[] ActionBar = new int[] {
-					2130771968};
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972};
+			
+			// aapt resource value: 3
+			public const int ActionBar_background = 3;
+			
+			// aapt resource value: 4
+			public const int ActionBar_background_item = 4;
+			
+			// aapt resource value: 2
+			public const int ActionBar_separator = 2;
 			
 			// aapt resource value: 0
 			public const int ActionBar_title = 0;
+			
+			// aapt resource value: 1
+			public const int ActionBar_title_color = 1;
 			
 			private Styleable()
 			{

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- xmlns:ab must match your namespace -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ab= "http://schemas.android.com/apk/res/monodroid.actionbarsample"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,6 +10,10 @@
   <monodroid.actionbarsample.ActionBar
       android:id="@+id/actionbar"
       style="@style/ActionBar"
+      ab:title="Hingst!"
+      ab:separator="@color/white"
+      ab:background="@drawable/actionbar_background_alt"
+      ab:background_item="@drawable/actionbar_btn_alt"
         />
   <ScrollView
       android:layout_width="fill_parent"
