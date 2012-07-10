@@ -194,6 +194,10 @@
     <AndroidResource Include="Resources\Values-v14\Themes.xml" />
     <AndroidResource Include="Resources\Values\Themes.xml" />
     <AndroidResource Include="Resources\Menu\OtherMainMenu.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_background_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_normal_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed_alt.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

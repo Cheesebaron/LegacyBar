@@ -40,7 +40,25 @@ namespace MonoDroid.ActionBarSample
             var actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             m_ActionBar = actionBar;
             m_ActionBar.CurrentActivity = this;
-            actionBar.SetTitle("BingBong");
+
+            /*
+             * You can also set the title of the ActionBar with: 
+             * actionBar.Title = "MyAwesomeTitle";
+             * 
+             * or
+             * 
+             * actionBar.Title = Resource.String.<yourStringId>;
+             * 
+             * Title Color can be set with:
+             * actionBar.TitleColor = Color.Blue; //Or any other Color you want
+             * 
+             * The Separator between the Action Bar Items can be set with:
+             * actionBar.SeparatorColor = Color.Blue;
+             * 
+             * and with a drawable:
+             * 
+             * actionBar.SeparatorDrawable = myDrawable;
+             */
 
             //always put these 2 in there since they are NOT in my menu.xml
             ActionBarAction shareAction = new MyActionBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default)

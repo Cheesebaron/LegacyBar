@@ -39,7 +39,7 @@ namespace MonoDroid.ActionBarSample
             ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
-            ActionBar.SetTitle("Other Activity");
+            ActionBar.Title = "Other Activity";
             AddHomeAction();
             ActionBar.CurrentActivity = this;
 
