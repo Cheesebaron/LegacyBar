@@ -52,6 +52,13 @@ namespace MonoDroid.ActionBarSample
             }
         }
 
+        public void ClearActions()
+        {
+            ActionList.Clear();
+            m_StringIds.Clear();
+            m_StringIds.Add(string.Empty);//add back in first one cause we have to.
+        }
+
         public override int GetDrawable()
         {
             return mDrawable;

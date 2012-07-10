@@ -278,7 +278,7 @@ namespace MonoDroid.ActionBarSample
             var addActionBar = false;
 
             var hideAction = false;
-            if (!ActionBarUtils.ActionFits(CurrentActivity, index + 1, m_HasMenuButton, action.ActionType))
+            if (!ActionBarUtils.ActionFits(CurrentActivity, index, m_HasMenuButton, action.ActionType))
             {
                 if(!m_HasMenuButton)
                 {
@@ -312,6 +312,7 @@ namespace MonoDroid.ActionBarSample
         public void RemoveAllActions()
         {
             m_ActionsView.RemoveAllViews();
+            m_OverflowAction.ClearActions();
             MenuItemsToHide.Clear();
         }
 
@@ -406,13 +407,16 @@ namespace MonoDroid.ActionBarSample
         {
             var view = m_Inflater.Inflate(Resource.Layout.OverflowActionBar_Item, m_ActionsView, false);
 
-            if (null != ItemBackgroundDrawable)
-            {
-                view.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
-            }
 
             var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
+
+
+            if (null != ItemBackgroundDrawable)
+            {
+                labelView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+
             labelView.SetImageResource(action.GetDrawable());
 
             var spinner = view.FindViewById<Spinner>(Resource.Id.overflow_spinner);
