@@ -407,13 +407,16 @@ namespace MonoDroid.ActionBarSample
         {
             var view = m_Inflater.Inflate(Resource.Layout.OverflowActionBar_Item, m_ActionsView, false);
 
-            if (null != ItemBackgroundDrawable)
-            {
-                view.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
-            }
 
             var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
+
+
+            if (null != ItemBackgroundDrawable)
+            {
+                labelView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+
             labelView.SetImageResource(action.GetDrawable());
 
             var spinner = view.FindViewById<Spinner>(Resource.Id.overflow_spinner);
