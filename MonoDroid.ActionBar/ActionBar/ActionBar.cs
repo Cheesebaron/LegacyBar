@@ -103,7 +103,7 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public Color BackgroundColor
         {
-            set { m_BarView.SetBackgroundColor(value); }
+            set { SetBackgroundColor(value); }
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public Drawable BackgroundDrawable
         {
-            set { m_BarView.SetBackgroundDrawable(value); }
+            set { SetBackgroundDrawable(value); }
         }
 
         /// <summary>
@@ -222,6 +222,12 @@ namespace MonoDroid.ActionBarSample
             m_LogoView.SetImageResource(resId);
             m_LogoView.Visibility = ViewStates.Visible;
             m_HomeLayout.Visibility = ViewStates.Gone;
+
+            if (null != ItemBackgroundDrawable)
+            {
+                m_LogoView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+
             ((LayoutParams)m_TitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
         }
 
@@ -400,6 +406,10 @@ namespace MonoDroid.ActionBarSample
             view.Tag = action;
             view.SetOnClickListener(this);
             view.SetOnLongClickListener(this);
+
+            if (action.PopUpMessage > 0)
+                view.ContentDescription = Resources.GetString(action.PopUpMessage);
+
             return view;
         }
 
