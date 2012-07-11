@@ -23,7 +23,7 @@ using Android.OS;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+    [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
     class OtherActivity : ActionBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -33,7 +33,6 @@ namespace MonoDroid.ActionBarSample
             
             SetContentView(Resource.Layout.Other);
 
-            DarkMenuId = Resource.Menu.MainMenu;//could add a dark menu if you are in dark theme for icons.
             MenuId = Resource.Menu.MainMenu;
 
             ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
@@ -59,15 +58,30 @@ namespace MonoDroid.ActionBarSample
                                       {ActionType = ActionType.Never};
             ActionBar.AddAction(itemActionBarAction);
 
-            var bottomActionBar = FindViewById<BottomActionBar>(Resource.Id.bottomActionbar);
+            var bottomActionBar = FindViewById<ActionBar>(Resource.Id.bottomActionbar);
 
-            var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down);
+            var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down)
+                             {
+                               ActionType = ActionType.Always
+                             };
+
             bottomActionBar.AddAction(action);
-            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down, Resource.String.menu_string_down);
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down, Resource.String.menu_string_down)
+                            {
+                                ActionType = ActionType.Always
+                            };
             bottomActionBar.AddAction(action);
-            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left, Resource.String.menu_string_left);
+
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left, Resource.String.menu_string_left)
+                            {
+                                ActionType = ActionType.Always
+                            };
             bottomActionBar.AddAction(action);
-            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right, Resource.String.menu_string_right);
+
+            action = new MenuItemActionBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right, Resource.String.menu_string_right)
+                            {
+                                ActionType = ActionType.Always
+                            };
             bottomActionBar.AddAction(action);
 
         }

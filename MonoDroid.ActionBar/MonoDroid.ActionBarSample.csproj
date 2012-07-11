@@ -56,7 +56,6 @@
     <Compile Include="ActionBar\ActionBar.cs" />
     <Compile Include="ActionBar\ActionBarAction.cs" />
     <Compile Include="ActionBar\ActionBarUtils.cs" />
-    <Compile Include="ActionBar\BottomActionBar.cs" />
     <Compile Include="ActionBar\IActionBarAction.cs" />
     <Compile Include="ActionBar\MyActionBarAction.cs" />
     <Compile Include="ActionBar\OverflowActionBarAction.cs" />
@@ -82,8 +81,6 @@
     <AndroidResource Include="Resources\Layout\Other.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Layout\BottomActionBar.axml" />
-    <AndroidResource Include="Resources\Layout\BottomActionBar_Item.axml" />
     <AndroidResource Include="Resources\Layout\OverflowActionBar_Item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -99,9 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Dimens.xml">
@@ -137,13 +131,7 @@
     <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\ic_title_home_demo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\Drawable-hdpi\ic_title_export_default.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Drawable-hdpi\ic_title_home_default.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable-hdpi\ic_title_share_default.png" />
@@ -198,6 +186,12 @@
     <AndroidResource Include="Resources\Drawable\actionbar_btn_alt.xml" />
     <AndroidResource Include="Resources\Drawable\actionbar_btn_normal_alt.xml" />
     <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed_alt.xml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-ldpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow_dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
