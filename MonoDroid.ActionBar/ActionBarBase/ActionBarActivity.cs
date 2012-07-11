@@ -22,9 +22,7 @@ namespace MonoDroid.ActionBarSample
     public class ActionBarActivity : Activity
     {
         public ActionBar ActionBar { get; set; }
-        public int DarkMenuId { get; set; }
         public int MenuId { get; set; }
-        public bool IsDarkTheme { get; set; }
 
 
         protected override void OnStart()
@@ -45,7 +43,7 @@ namespace MonoDroid.ActionBarSample
                 return base.OnPrepareOptionsMenu(menu);
 
             menu.Clear();
-            MenuInflater.Inflate(IsDarkTheme ? DarkMenuId : MenuId, menu);
+            MenuInflater.Inflate(MenuId, menu);
 
             for (int i = 0; i < menu.Size(); i++)
             {
@@ -57,7 +55,7 @@ namespace MonoDroid.ActionBarSample
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(IsDarkTheme ? DarkMenuId : MenuId, menu);
+            MenuInflater.Inflate(MenuId, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -66,7 +64,7 @@ namespace MonoDroid.ActionBarSample
             var homeIntent = new Intent(this, typeof(HomeActivity));
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new MyActionBarAction(this, homeIntent, Resource.Drawable.ic_title_home_default));
+            ActionBar.SetHomeAction(new MyActionBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
             ActionBar.SetDisplayHomeAsUpEnabled(true);
         }
     }

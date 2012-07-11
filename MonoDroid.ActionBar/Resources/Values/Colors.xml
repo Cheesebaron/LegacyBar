@@ -23,12 +23,19 @@
   <color name="actionbar_background_item_pressed_start">#FF7F00</color>
   <color name="actionbar_background_item_pressed_end">#EE7600</color>
 
-  <color name="bottomactionbar_separator">#8B1A1A</color>
+  <color name="actionbar_separator_alt">#366184</color>
+  <color name="actionbar_title_alt">#FFFFFF</color>
+  <color name="actionbar_background_start_alt">#6da2ca</color>
+  <color name="actionbar_background_end_alt">#366184</color>
+  <color name="actionbar_background_item_pressed_start_alt">#FF7F00</color>
+  <color name="actionbar_background_item_pressed_end_alt">#EE7600</color>
+
+  <color name="bottomactionbar_separator">#00000000</color>
   <color name="bottomactionbar_title">#FFFFFF</color>
-  <color name="bottomactionbar_background_end">#CD2626</color>
-  <color name="bottomactionbar_background_start">#8B1A1A</color>
-  <color name="bottomactionbar_background_item_pressed_start">#FF7F00</color>
-  <color name="bottomactionbar_background_item_pressed_end">#EE7600</color>
+  <color name="bottomactionbar_background_start">#CD2626</color>
+  <color name="bottomactionbar_background_end">#8B1A1A</color>
+  <color name="bottomactionbar_background_item_pressed_end">#FF7F00</color>
+  <color name="bottomactionbar_background_item_pressed_start">#EE7600</color>
 
   <color name="white">#FFFFFF</color>
   <color name="black">#000000</color>

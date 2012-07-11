@@ -23,12 +23,6 @@
     <item name="android:orientation">horizontal</item>
     <item name="android:background">@drawable/actionbar_background</item>
   </style>
-  <style name="BottomActionBar">
-    <item name="android:layout_width">fill_parent</item>
-    <item name="android:layout_height">@dimen/actionbar_height</item>
-    <item name="android:orientation">horizontal</item>
-    <item name="android:background">@drawable/bottomactionbar_background</item>
-  </style>
   <style name="ActionBarItem">
     <item name="android:layout_width">@dimen/actionbar_item_width</item>
     <item name="android:layout_height">@dimen/actionbar_height</item>

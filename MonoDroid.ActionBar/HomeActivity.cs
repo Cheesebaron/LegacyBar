@@ -26,7 +26,7 @@ using Android.OS;
 
 namespace MonoDroid.ActionBarSample
 {
-    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/icon", Theme = "@style/MyTheme")]
+    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
     public class HomeActivity : Activity
     {
         private ActionBar m_ActionBar;
@@ -119,6 +119,13 @@ namespace MonoDroid.ActionBarSample
                 actionBar.RemoveActionAt(actionBar.ActionCount - 1);
                 Toast.MakeText(this, "Removed action.", ToastLength.Short).Show();
             };
+
+            var otherActivity = FindViewById<Button>(Resource.Id.other_activity);
+            otherActivity.Click += (s, e) =>
+                                       {
+                                           var intent = new Intent(this, typeof (OtherActivity));
+                                           StartActivity(intent);
+                                       };
         }
 
         private class MyOtherActionBarAction : ActionBarAction
