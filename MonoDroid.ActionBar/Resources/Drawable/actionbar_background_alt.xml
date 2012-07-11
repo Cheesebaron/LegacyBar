@@ -15,8 +15,8 @@
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <gradient
-        android:startColor="@color/green"
-        android:endColor="@color/white"
-        android:angle="-90" />
+  <gradient
+      android:startColor="@color/actionbar_background_start_alt"
+      android:endColor="@color/actionbar_background_end_alt"
+      android:angle="-90" />
 </shape>
