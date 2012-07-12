@@ -63,12 +63,20 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public Color SeparatorColor
         {
-            set { m_ActionsView.SetBackgroundColor(value); }
+            set
+            {
+                m_ActionsView.SetBackgroundColor(value);
+                m_HomeLayout.SetBackgroundColor(value);
+            }
         }
 
         public int SeparatorColorRaw
         {
-            set   {m_ActionsView.SetBackgroundResource(value);}
+            set
+            {
+                m_ActionsView.SetBackgroundResource(value);
+                m_HomeLayout.SetBackgroundResource(value);
+            }
         }
 
         /// <summary>
@@ -76,13 +84,22 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public Drawable SeparatorDrawable
         {
-            set { m_ActionsView.SetBackgroundDrawable(value); }
+            set
+            {
+                m_ActionsView.SetBackgroundDrawable(value);
+                m_HomeLayout.SetBackgroundDrawable(value);
+            }
         }
 
         public int SeparatorDrawableRaw
         {
-            set {m_ActionsView.SetBackgroundResource(value);}   
+            set
+            {
+                m_ActionsView.SetBackgroundResource(value);
+                m_HomeLayout.SetBackgroundResource(value);
+            }
         }
+
 
         /// <summary>
         /// Set the color of the Title in the Action Bar
@@ -229,6 +246,17 @@ namespace MonoDroid.ActionBarSample
             m_HomeBtn.Tag = action;
             m_HomeBtn.SetImageResource(action.GetDrawable());
             m_HomeLayout.Visibility = ViewStates.Visible;
+
+            if (null != ItemBackgroundDrawable)
+            {
+                m_HomeBtn.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+            else if (ItemBackgroundDrawableRaw > 0)
+            {
+                m_HomeBtn.SetBackgroundResource(ItemBackgroundDrawableRaw);
+            }
+
+
             ((LayoutParams)m_TitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
@@ -461,6 +489,10 @@ namespace MonoDroid.ActionBarSample
             if (null != ItemBackgroundDrawable)
             {
                 labelView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+            else if (ItemBackgroundDrawableRaw > 0)
+            {
+                labelView.SetBackgroundResource(ItemBackgroundDrawableRaw);
             }
 
             labelView.SetImageResource(action.GetDrawable());
