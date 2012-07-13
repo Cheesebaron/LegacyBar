@@ -39,6 +39,7 @@ namespace MonoDroid.ActionBarSample
 
             var actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
             m_ActionBar = actionBar;
+            m_ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
             m_ActionBar.CurrentActivity = this;
 
             /*
