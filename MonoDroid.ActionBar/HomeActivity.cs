@@ -27,9 +27,9 @@ using Android.OS;
 namespace MonoDroid.ActionBarSample
 {
     [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
-    public class HomeActivity : Activity
+    public class HomeActivity : ActionBarActivity
     {
-        private ActionBar m_ActionBar;
+        
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -37,9 +37,10 @@ namespace MonoDroid.ActionBarSample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            var actionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
-            m_ActionBar = actionBar;
-            m_ActionBar.CurrentActivity = this;
+            ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
+            ActionBar.CurrentActivity = this;
+            ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
+            
 
             /*
              * You can also set the title of the ActionBar with: 
@@ -65,14 +66,14 @@ namespace MonoDroid.ActionBarSample
             {
                 ActionType = ActionType.Always
             };
-            actionBar.AddAction(shareAction);
+            ActionBar.AddAction(shareAction);
             
 
             var otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default)
             {
                 ActionType = ActionType.Always
             };
-            actionBar.AddAction(otherAction);
+            ActionBar.AddAction(otherAction);
 
             //only put in if there is room
             var searchMenuItemAction = new MenuItemActionBarAction(
@@ -82,7 +83,7 @@ namespace MonoDroid.ActionBarSample
                                            {
                                                ActionType = ActionType.IfRoom
                                            };
-            actionBar.AddAction(searchMenuItemAction);
+            ActionBar.AddAction(searchMenuItemAction);
             
             //never put this guy in there
             searchMenuItemAction = new MenuItemActionBarAction(
@@ -92,31 +93,31 @@ namespace MonoDroid.ActionBarSample
                                        {
                                            ActionType = ActionType.Never
                                        };
-            actionBar.AddAction(searchMenuItemAction);
+            ActionBar.AddAction(searchMenuItemAction);
             
             var startProgress = FindViewById<Button>(Resource.Id.start_progress);
-            startProgress.Click += (s, e) => actionBar.ProgressBarVisibility = ViewStates.Visible;
+            startProgress.Click += (s, e) => ActionBar.ProgressBarVisibility = ViewStates.Visible;
 
             var stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
-            stopProgress.Click += (s, e) => actionBar.ProgressBarVisibility = ViewStates.Gone;
+            stopProgress.Click += (s, e) => ActionBar.ProgressBarVisibility = ViewStates.Gone;
 
             var removeActions = FindViewById<Button>(Resource.Id.remove_actions);
-            removeActions.Click += (s, e) => actionBar.RemoveAllActions();
+            removeActions.Click += (s, e) => ActionBar.RemoveAllActions();
 
             var removeShareAction = FindViewById<Button>(Resource.Id.remove_share_action);
-            removeShareAction.Click += (s, e) => actionBar.RemoveAction(shareAction);
+            removeShareAction.Click += (s, e) => ActionBar.RemoveAction(shareAction);
             
             var addAction = FindViewById<Button>(Resource.Id.add_action);
             addAction.Click += (s, e) =>
             {
                 var action = new MyOtherActionBarAction(this, null, Resource.Drawable.ic_title_share_default);
-                actionBar.AddAction(action);
+                ActionBar.AddAction(action);
             };
 
             var removeAction = FindViewById<Button>(Resource.Id.remove_action);
             removeAction.Click += (s, e) =>
             {
-                actionBar.RemoveActionAt(actionBar.ActionCount - 1);
+                ActionBar.RemoveActionAt(ActionBar.ActionCount - 1);
                 Toast.MakeText(this, "Removed action.", ToastLength.Short).Show();
             };
 
@@ -146,29 +147,6 @@ namespace MonoDroid.ActionBarSample
             {
                 Toast.MakeText(mContext, "Added action", ToastLength.Short).Show();
             }
-        }
-
-        /// <summary>
-        /// Since we can add/remove items let's go ahead ane update the visible state
-        /// </summary>
-        /// <param name="menu"></param>
-        /// <returns></returns>
-        public override bool OnPrepareOptionsMenu(IMenu menu)
-        {
-
-            for (var i = 0; i < menu.Size(); i++)
-            {
-                var menuItem = menu.GetItem(i);
-                menuItem.SetVisible(!m_ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
-            }
-            return base.OnPrepareOptionsMenu(menu);
-        }
-
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.MainMenu, menu);
-
-            return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
