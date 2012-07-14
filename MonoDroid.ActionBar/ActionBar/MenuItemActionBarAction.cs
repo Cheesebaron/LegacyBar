@@ -34,9 +34,11 @@ namespace MonoDroid.ActionBarSample
     /// </summary>
     public class ActionBarMenuItem : IMenuItem
     {
-        public ActionBarMenuItem(int id)
+        private IntPtr m_Handle;
+        public ActionBarMenuItem(int id, IntPtr handle)
         {
             m_ItemId = id;
+            m_Handle = handle;
         }
 
         char IMenuItem.AlphabeticShortcut
@@ -187,9 +189,10 @@ namespace MonoDroid.ActionBarSample
             get { throw new NotImplementedException(); }
         }
 
+
         IntPtr Android.Runtime.IJavaObject.Handle
         {
-            get { throw new NotImplementedException(); }
+            get { return m_Handle; }
         }
 
         public void Dispose()
@@ -212,7 +215,7 @@ namespace MonoDroid.ActionBarSample
             mContext = context;
             m_Activity = activity;
             MenuItemId = menuId;
-            m_MenuItem = new ActionBarMenuItem(menuId);
+            m_MenuItem = new ActionBarMenuItem(menuId, Handle);
             PopUpMessage = popupID;
         }
 
