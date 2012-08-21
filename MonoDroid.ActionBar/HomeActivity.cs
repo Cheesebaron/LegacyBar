@@ -127,6 +127,14 @@ namespace MonoDroid.ActionBarSample
                                            var intent = new Intent(this, typeof (OtherActivity));
                                            StartActivity(intent);
                                        };
+
+
+            var fragmentActivity = FindViewById<Button>(Resource.Id.fragment_activity);
+            fragmentActivity.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(FragmentTabActivity));
+                StartActivity(intent);
+            };
         }
 
         private class MyOtherActionBarAction : ActionBarAction
