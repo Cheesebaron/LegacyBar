@@ -113,6 +113,8 @@ namespace MonoDroid.ActionBarSample
         {
             
             var view = inflater.Inflate(Resource.Layout.simple_fragment, container, false);
+
+
             view.FindViewById<TextView>(Resource.Id.fragment_text).Text = "Fragment 1";
             return view;
         }

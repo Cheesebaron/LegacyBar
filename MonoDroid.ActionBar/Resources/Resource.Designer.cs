@@ -41,6 +41,9 @@ namespace MonoDroid.ActionBarSample
 		public partial class Color
 		{
 			
+			// aapt resource value: 0x7f040019
+			public const int Red = 2130968601;
+			
 			// aapt resource value: 0x7f040003
 			public const int actionbar_background_end = 2130968579;
 			
@@ -127,14 +130,20 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f050000
 			public const int actionbar_height = 2131034112;
 			
-			// aapt resource value: 0x7f050003
-			public const int actionbar_home_item_width = 2131034115;
+			// aapt resource value: 0x7f050004
+			public const int actionbar_home_item_width = 2131034116;
 			
 			// aapt resource value: 0x7f050001
 			public const int actionbar_item_height = 2131034113;
 			
+			// aapt resource value: 0x7f050005
+			public const int actionbar_item_height_over = 2131034117;
+			
 			// aapt resource value: 0x7f050002
-			public const int actionbar_item_width = 2131034114;
+			public const int actionbar_item_height_overflow = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int actionbar_item_width = 2131034115;
 			
 			private Dimension()
 			{
@@ -430,20 +439,23 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f070000
 			public const int ActionBar = 2131165184;
 			
-			// aapt resource value: 0x7f070002
-			public const int ActionBarHomeItem = 2131165186;
-			
 			// aapt resource value: 0x7f070003
-			public const int ActionBarHomeLogo = 2131165187;
+			public const int ActionBarHomeItem = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int ActionBarHomeLogo = 2131165188;
 			
 			// aapt resource value: 0x7f070001
 			public const int ActionBarItem = 2131165185;
 			
-			// aapt resource value: 0x7f070004
-			public const int ActionBarProgressBar = 2131165188;
-			
 			// aapt resource value: 0x7f070005
-			public const int MyTheme = 2131165189;
+			public const int ActionBarProgressBar = 2131165189;
+			
+			// aapt resource value: 0x7f070002
+			public const int ClearButton = 2131165186;
+			
+			// aapt resource value: 0x7f070006
+			public const int MyTheme = 2131165190;
 			
 			private Style()
 			{

@@ -17,8 +17,9 @@
      -Added bottom action bar
 -->
 <resources>
+  <color name="Red">#FFFF0000</color>
   <style name="ActionBar">
-    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">@dimen/actionbar_height</item>
     <item name="android:orientation">horizontal</item>
     <item name="android:background">@drawable/actionbar_background</item>
@@ -29,15 +30,21 @@
     <item name="android:padding">5dp</item>
     <item name="android:layout_marginLeft">1px</item>
   </style>
+  <style name="ClearButton">
+    <item name="android:layout_width">@dimen/actionbar_item_width</item>
+    <item name="android:layout_height">@dimen/actionbar_item_height</item>
+    <item name="android:padding">2dp</item>
+  </style>
   <style name="ActionBarHomeItem" parent="ActionBarItem">
     <item name="android:layout_width">@dimen/actionbar_home_item_width</item>
+    <item name="android:layout_height">@dimen/actionbar_item_height</item>
     <item name="android:layout_marginRight">1px</item>
     <item name="android:layout_marginLeft">0px</item>
-    <item name="android:padding">2dp</item>
+    <item name="android:padding">4dp</item>
   </style>
   <style name="ActionBarHomeLogo">
     <item name="android:layout_marginRight">1px</item>
-    <item name="android:layout_marginLeft">0px</item>
+    <item name="android:layout_marginLeft">6dp</item>
   </style>
   <style name="ActionBarProgressBar" parent="@android:style/Widget.ProgressBar.Small">
   </style>

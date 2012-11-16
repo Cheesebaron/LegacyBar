@@ -17,7 +17,6 @@
     android:id="@+id/actionbar_item"
     style="@style/ActionBarItem"
     android:background="@drawable/actionbar_btn"
-    android:layout_centerVertical="true"
+    android:layout_height="@dimen/actionbar_item_height"
     android:singleLine="true"
-    android:visibility="visible"
-    />
+    android:visibility="visible"/>
