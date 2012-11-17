@@ -15,12 +15,12 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidSupportedAbis>armeabi%3bx86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi%3barmeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <DeployExternal>False</DeployExternal>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Support.v4" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionBarBase\ActionBarActivity.cs" />
+    <Compile Include="ActionBarBase\ActionBarFragmentActivity.cs" />
     <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
     <Compile Include="ActionBar\ActionBar.cs" />
     <Compile Include="ActionBar\ActionBarAction.cs" />
@@ -62,10 +64,12 @@
     <Compile Include="ActionBar\OverflowActionBarAction.cs" />
     <Compile Include="ActionBar\ScrollingTextView.cs" />
     <Compile Include="ActionBar\MenuItemActionBarAction.cs" />
+    <Compile Include="FragmentTabActivity.cs" />
     <Compile Include="HomeActivity.cs" />
     <Compile Include="OtherActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupportLib\TabsAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -89,6 +93,12 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\SpinnerItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\fragment_tabs.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\simple_fragment.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -193,7 +203,16 @@
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow_dark.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Values-large-hdpi-1024x600\Dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values-large-land-hdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land-mdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-mdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp-land\Dimens.xml" />
+    <AndroidJavaLibrary Include="SupportLib\android-support-v4.jar" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

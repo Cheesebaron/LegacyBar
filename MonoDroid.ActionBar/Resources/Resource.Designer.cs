@@ -47,6 +47,9 @@ namespace MonoDroid.ActionBarSample
 		public partial class Color
 		{
 			
+			// aapt resource value: 0x7f040019
+			public const int Red = 2130968601;
+			
 			// aapt resource value: 0x7f040003
 			public const int actionbar_background_end = 2130968579;
 			
@@ -133,14 +136,20 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f050000
 			public const int actionbar_height = 2131034112;
 			
-			// aapt resource value: 0x7f050003
-			public const int actionbar_home_item_width = 2131034115;
+			// aapt resource value: 0x7f050004
+			public const int actionbar_home_item_width = 2131034116;
 			
 			// aapt resource value: 0x7f050001
 			public const int actionbar_item_height = 2131034113;
 			
+			// aapt resource value: 0x7f050005
+			public const int actionbar_item_height_over = 2131034117;
+			
 			// aapt resource value: 0x7f050002
-			public const int actionbar_item_width = 2131034114;
+			public const int actionbar_item_height_overflow = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int actionbar_item_width = 2131034115;
 			
 			private Dimension()
 			{
@@ -278,53 +287,62 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f090007
 			public const int actionbar_title_layout = 2131296263;
 			
-			// aapt resource value: 0x7f09000f
-			public const int add_action = 2131296271;
-			
-			// aapt resource value: 0x7f090013
-			public const int bottomActionbar = 2131296275;
-			
-			// aapt resource value: 0x7f090018
-			public const int menu_down = 2131296280;
-			
-			// aapt resource value: 0x7f090016
-			public const int menu_left = 2131296278;
-			
-			// aapt resource value: 0x7f09001a
-			public const int menu_refresh = 2131296282;
+			// aapt resource value: 0x7f090010
+			public const int add_action = 2131296272;
 			
 			// aapt resource value: 0x7f090015
-			public const int menu_right = 2131296277;
-			
-			// aapt resource value: 0x7f090019
-			public const int menu_search = 2131296281;
-			
-			// aapt resource value: 0x7f090017
-			public const int menu_up = 2131296279;
-			
-			// aapt resource value: 0x7f090012
-			public const int other_activity = 2131296274;
+			public const int bottomActionbar = 2131296277;
 			
 			// aapt resource value: 0x7f090014
-			public const int overflow_spinner = 2131296276;
+			public const int fragment_activity = 2131296276;
 			
-			// aapt resource value: 0x7f090010
-			public const int remove_action = 2131296272;
+			// aapt resource value: 0x7f090017
+			public const int fragment_text = 2131296279;
 			
-			// aapt resource value: 0x7f09000e
-			public const int remove_actions = 2131296270;
+			// aapt resource value: 0x7f09001b
+			public const int menu_down = 2131296283;
+			
+			// aapt resource value: 0x7f090019
+			public const int menu_left = 2131296281;
+			
+			// aapt resource value: 0x7f09001d
+			public const int menu_refresh = 2131296285;
+			
+			// aapt resource value: 0x7f090018
+			public const int menu_right = 2131296280;
+			
+			// aapt resource value: 0x7f09001c
+			public const int menu_search = 2131296284;
+			
+			// aapt resource value: 0x7f09001a
+			public const int menu_up = 2131296282;
+			
+			// aapt resource value: 0x7f090013
+			public const int other_activity = 2131296275;
+			
+			// aapt resource value: 0x7f090016
+			public const int overflow_spinner = 2131296278;
+			
+			// aapt resource value: 0x7f09000c
+			public const int pager = 2131296268;
 			
 			// aapt resource value: 0x7f090011
-			public const int remove_share_action = 2131296273;
+			public const int remove_action = 2131296273;
+			
+			// aapt resource value: 0x7f09000f
+			public const int remove_actions = 2131296271;
+			
+			// aapt resource value: 0x7f090012
+			public const int remove_share_action = 2131296274;
 			
 			// aapt resource value: 0x7f090000
 			public const int screen = 2131296256;
 			
-			// aapt resource value: 0x7f09000c
-			public const int start_progress = 2131296268;
-			
 			// aapt resource value: 0x7f09000d
-			public const int stop_progress = 2131296269;
+			public const int start_progress = 2131296269;
+			
+			// aapt resource value: 0x7f09000e
+			public const int stop_progress = 2131296270;
 			
 			private Id()
 			{
@@ -344,16 +362,22 @@ namespace MonoDroid.ActionBarSample
 			public const int BlankSpinner = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Main = 2130903043;
+			public const int fragment_tabs = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Other = 2130903044;
+			public const int Main = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int OverflowActionBar_Item = 2130903045;
+			public const int Other = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int SpinnerItem = 2130903046;
+			public const int OverflowActionBar_Item = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int simple_fragment = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int SpinnerItem = 2130903048;
 			
 			private Layout()
 			{
@@ -421,20 +445,23 @@ namespace MonoDroid.ActionBarSample
 			// aapt resource value: 0x7f070000
 			public const int ActionBar = 2131165184;
 			
-			// aapt resource value: 0x7f070002
-			public const int ActionBarHomeItem = 2131165186;
-			
 			// aapt resource value: 0x7f070003
-			public const int ActionBarHomeLogo = 2131165187;
+			public const int ActionBarHomeItem = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int ActionBarHomeLogo = 2131165188;
 			
 			// aapt resource value: 0x7f070001
 			public const int ActionBarItem = 2131165185;
 			
-			// aapt resource value: 0x7f070004
-			public const int ActionBarProgressBar = 2131165188;
-			
 			// aapt resource value: 0x7f070005
-			public const int MyTheme = 2131165189;
+			public const int ActionBarProgressBar = 2131165189;
+			
+			// aapt resource value: 0x7f070002
+			public const int ClearButton = 2131165186;
+			
+			// aapt resource value: 0x7f070006
+			public const int MyTheme = 2131165190;
 			
 			private Style()
 			{

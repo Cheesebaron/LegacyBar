@@ -18,6 +18,7 @@
 <resources>
   <dimen name="actionbar_height">56dp</dimen>
   <dimen name="actionbar_item_height">56dp</dimen>
+  <dimen name="actionbar_item_height_overflow">55dp</dimen>
   <dimen name="actionbar_item_width">56dp</dimen>
   <dimen name="actionbar_home_item_width">64dp</dimen>
 </resources>

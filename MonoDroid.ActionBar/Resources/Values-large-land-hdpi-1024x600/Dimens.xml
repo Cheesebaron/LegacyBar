@@ -12,13 +12,11 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
-     
-     *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
 -->
 <resources>
   <dimen name="actionbar_height">40dp</dimen>
-  <dimen name="actionbar_item_height">40dp</dimen>
-  <dimen name="actionbar_item_height_overflow">39dp</dimen>
-  <dimen name="actionbar_item_width">48dp</dimen>
-  <dimen name="actionbar_home_item_width">48dp</dimen>
+  <dimen name="actionbar_item_height">38dp</dimen>
+  <dimen name="actionbar_item_height_over">37dp</dimen>
+  <dimen name="actionbar_item_width">42dp</dimen>
+  <dimen name="actionbar_home_item_width">42dp</dimen>
 </resources>
