@@ -26,7 +26,6 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
@@ -37,25 +36,43 @@ namespace MonoDroid.ActionBarSample
     {
 
         #region Fields
-        private LayoutInflater m_Inflater;
-        private RelativeLayout m_BarView;
-        private ImageView m_LogoView;
-        private View m_BackIndicator;
-        private TextView m_TitleView;
-        private LinearLayout m_ActionsView;
-        private ImageButton m_HomeBtn;
-        private RelativeLayout m_HomeLayout;
-        private ProgressBar m_Progress;
-        private RelativeLayout m_TitleLayout;
-        private Context m_Context;
-        private OverflowActionBarAction m_OverflowAction;
-        private bool m_HasMenuButton;
+        private LayoutInflater _inflater;
+        private RelativeLayout _barView;
+        private ImageView _logoView;
+        private View _backIndicator;
+        private TextView _titleView;
+        private LinearLayout _actionsView;
+        private ImageButton _homeBtn;
+        private RelativeLayout _homeLayout;
+        private ProgressBar _progress;
+        private RelativeLayout _titleLayout;
+        private Context _context;
+        private OverflowActionBarAction _overflowAction;
 
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
         #endregion
 
         #region Properties
+        /// <summary>
+        /// According to Android documentation, all devices prior to Android 3.0 (API11) were required to have a menu button.
+        /// From API11 it was optional, and in API14 a method to detect if a button was present was presented.
+        /// Some devices like Samsung Galaxy S2 and S3 still have hardware buttons!
+        /// </summary>
+        public bool HasMenuButton
+        {
+            get 
+            {
+#if __ANDROID_14__
+                return Android.Views.ViewConfiguration.HasPermanentMenuKey;
+#elif __ANDROID_10__
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
+
         public Activity CurrentActivity { get; set; }
 
         /// <summary>
@@ -65,8 +82,8 @@ namespace MonoDroid.ActionBarSample
         {
             set
             {
-                m_ActionsView.SetBackgroundColor(value);
-                m_HomeLayout.SetBackgroundColor(value);
+                _actionsView.SetBackgroundColor(value);
+                _homeLayout.SetBackgroundColor(value);
             }
         }
 
@@ -74,8 +91,8 @@ namespace MonoDroid.ActionBarSample
         {
             set
             {
-                m_ActionsView.SetBackgroundResource(value);
-                m_HomeLayout.SetBackgroundResource(value);
+                _actionsView.SetBackgroundResource(value);
+                _homeLayout.SetBackgroundResource(value);
             }
         }
 
@@ -86,8 +103,8 @@ namespace MonoDroid.ActionBarSample
         {
             set
             {
-                m_ActionsView.SetBackgroundDrawable(value);
-                m_HomeLayout.SetBackgroundDrawable(value);
+                _actionsView.SetBackgroundDrawable(value);
+                _homeLayout.SetBackgroundDrawable(value);
             }
         }
 
@@ -95,8 +112,8 @@ namespace MonoDroid.ActionBarSample
         {
             set
             {
-                m_ActionsView.SetBackgroundResource(value);
-                m_HomeLayout.SetBackgroundResource(value);
+                _actionsView.SetBackgroundResource(value);
+                _homeLayout.SetBackgroundResource(value);
             }
         }
 
@@ -106,12 +123,12 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public Color TitleColor
         {
-            set { m_TitleView.SetTextColor(value); }
+            set { _titleView.SetTextColor(value); }
         }
 
         public int TitleColorRaw
         {
-          set {m_TitleView.SetTextColor(Resources.GetColor(value));}   
+          set {_titleView.SetTextColor(Resources.GetColor(value));}   
         }
 
         /// <summary>
@@ -119,7 +136,7 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public string Title
         {
-            set { m_TitleView.Text = value; }
+            set { _titleView.Text = value; }
         }
 
         /// <summary>
@@ -127,7 +144,7 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public int TitleRaw
         {
-            set { m_TitleView.SetText(value); }
+            set { _titleView.SetText(value); }
         }
 
 
@@ -171,7 +188,7 @@ namespace MonoDroid.ActionBarSample
         {
             get
             {
-                return m_ActionsView.ChildCount;
+                return _actionsView.ChildCount;
             }
         }
 
@@ -180,8 +197,8 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public ViewStates ProgressBarVisibility
         {
-            get { return m_Progress.Visibility; }
-            set { m_Progress.Visibility = value; }
+            get { return _progress.Visibility; }
+            set { _progress.Visibility = value; }
         }
 
         #endregion
@@ -189,29 +206,24 @@ namespace MonoDroid.ActionBarSample
         public ActionBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
-            m_Context = context;
-            m_Inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
+            _context = context;
+            _inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
 
-            m_BarView = (RelativeLayout)m_Inflater.Inflate(Resource.Layout.ActionBar, null);
-            AddView(m_BarView);
+            _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.ActionBar, null);
+            AddView(_barView);
 
-            m_LogoView = m_BarView.FindViewById<ImageView>(Resource.Id.actionbar_home_logo);
-            m_HomeLayout = m_BarView.FindViewById<RelativeLayout>(Resource.Id.actionbar_home_bg);
-            m_HomeBtn = m_BarView.FindViewById<ImageButton>(Resource.Id.actionbar_home_btn);
-            m_BackIndicator = m_BarView.FindViewById(Resource.Id.actionbar_home_is_back);
+            _logoView = _barView.FindViewById<ImageView>(Resource.Id.actionbar_home_logo);
+            _homeLayout = _barView.FindViewById<RelativeLayout>(Resource.Id.actionbar_home_bg);
+            _homeBtn = _barView.FindViewById<ImageButton>(Resource.Id.actionbar_home_btn);
+            _backIndicator = _barView.FindViewById(Resource.Id.actionbar_home_is_back);
 
-            m_TitleView = m_BarView.FindViewById<TextView>(Resource.Id.actionbar_title);
-            m_ActionsView = m_BarView.FindViewById<LinearLayout>(Resource.Id.actionbar_actions);
+            _titleView = _barView.FindViewById<TextView>(Resource.Id.actionbar_title);
+            _actionsView = _barView.FindViewById<LinearLayout>(Resource.Id.actionbar_actions);
 
-            m_Progress = m_BarView.FindViewById<ProgressBar>(Resource.Id.actionbar_progress);
-            m_TitleLayout = m_BarView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
-            
-            //check if pre-honeycomb. Ideally here you would actually want to check if a menu button exists.
-            //however on all pre-honeycomb phones they basically did.
-            var currentapiVersion = (int)Build.VERSION.SdkInt;
-            m_HasMenuButton = currentapiVersion <= 10;
+            _progress = _barView.FindViewById<ProgressBar>(Resource.Id.actionbar_progress);
+            _titleLayout = _barView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
 
-            m_OverflowAction = new OverflowActionBarAction(context);
+            _overflowAction = new OverflowActionBarAction(context);
 
             //Custom Attributes (defined in Attrs.xml)
             var a = context.ObtainStyledAttributes(attrs,
@@ -225,7 +237,7 @@ namespace MonoDroid.ActionBarSample
             TitleColor = titleColor;
 
             var separatorColor = a.GetColor(Resource.Styleable.ActionBar_separator, Resources.GetColor(Resource.Color.actionbar_separator));
-            m_ActionsView.SetBackgroundColor(separatorColor);
+            _actionsView.SetBackgroundColor(separatorColor);
 
             using (var background = a.GetDrawable(Resource.Styleable.ActionBar_background)) //recycling the drawable immediately
             {
@@ -242,27 +254,27 @@ namespace MonoDroid.ActionBarSample
 
         public void SetHomeAction(ActionBarAction action)
         {
-            m_HomeBtn.SetOnClickListener(this);
-            m_HomeBtn.Tag = action;
-            m_HomeBtn.SetImageResource(action.GetDrawable());
-            m_HomeLayout.Visibility = ViewStates.Visible;
+            _homeBtn.SetOnClickListener(this);
+            _homeBtn.Tag = action;
+            _homeBtn.SetImageResource(action.GetDrawable());
+            _homeLayout.Visibility = ViewStates.Visible;
 
             if (null != ItemBackgroundDrawable)
             {
-                m_HomeBtn.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+                _homeBtn.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
             }
             else if (ItemBackgroundDrawableRaw > 0)
             {
-                m_HomeBtn.SetBackgroundResource(ItemBackgroundDrawableRaw);
+                _homeBtn.SetBackgroundResource(ItemBackgroundDrawableRaw);
             }
 
 
-            ((LayoutParams)m_TitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
+            ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
         public void ClearHomeAction()
         {
-            m_HomeLayout.Visibility = ViewStates.Gone;
+            _homeLayout.Visibility = ViewStates.Gone;
         }
 
         /// <summary>
@@ -275,20 +287,20 @@ namespace MonoDroid.ActionBarSample
         public void SetHomeLogo(int resId)
         {
             // TODO: Add possibility to add an IntentAction as well.
-            m_LogoView.SetImageResource(resId);
-            m_LogoView.Visibility = ViewStates.Visible;
-            m_HomeLayout.Visibility = ViewStates.Gone;
+            _logoView.SetImageResource(resId);
+            _logoView.Visibility = ViewStates.Visible;
+            _homeLayout.Visibility = ViewStates.Gone;
 
             if (null != ItemBackgroundDrawable)
             {
-                m_LogoView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+                _logoView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
             }
             else if(ItemBackgroundDrawableRaw > 0)
             {
-                m_LogoView.SetBackgroundResource(ItemBackgroundDrawableRaw);
+                _logoView.SetBackgroundResource(ItemBackgroundDrawableRaw);
             }
 
-            ((LayoutParams)m_TitleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
+            ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
         }
 
         /// <summary>
@@ -299,7 +311,7 @@ namespace MonoDroid.ActionBarSample
         /// <param name="show"></param>
         public void SetDisplayHomeAsUpEnabled(bool show)
         {
-            m_BackIndicator.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
+            _backIndicator.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
         }
 
         /// <summary>
@@ -320,7 +332,7 @@ namespace MonoDroid.ActionBarSample
         /// <param name="action">Action to add.</param>
         public void AddAction(ActionBarAction action) 
         {
-            AddAction(action, m_ActionsView.ChildCount);
+            AddAction(action, _actionsView.ChildCount);
         }
 
         /// <summary>
@@ -329,9 +341,9 @@ namespace MonoDroid.ActionBarSample
         /// <param name="action">Action to add.</param>
         public void AddOverflowAction(ActionBarAction action)
         {
-            var index = m_ActionsView.ChildCount;
-            m_ActionsView.AddView(InflateOverflowAction(action), index);
-            m_OverflowAction.Index = index;
+            var index = _actionsView.ChildCount;
+            _actionsView.AddView(InflateOverflowAction(action), index);
+            _overflowAction.Index = index;
         }
 
         /// <summary>
@@ -344,23 +356,23 @@ namespace MonoDroid.ActionBarSample
             var addActionBar = false;
 
             var hideAction = false;
-            if (!ActionBarUtils.ActionFits(CurrentActivity, index, m_HasMenuButton, action.ActionType))
+            if (!ActionBarUtils.ActionFits(CurrentActivity, index, HasMenuButton, action.ActionType))
             {
-                if(!m_HasMenuButton)
+                if (!HasMenuButton)
                 {
-                    addActionBar = m_OverflowAction.ActionList.Count == 0;
-                    m_OverflowAction.AddAction(action);
+                    addActionBar = _overflowAction.ActionList.Count == 0;
+                    _overflowAction.AddAction(action);
                     hideAction = true;
                 }
             }
             else
             {
-                if (m_OverflowAction.ActionList.Count != 0)//exists
-                    index = m_OverflowAction.Index;//bring it inside
+                if (_overflowAction.ActionList.Count != 0)//exists
+                    index = _overflowAction.Index;//bring it inside
 
                 hideAction = true;
 
-                m_ActionsView.AddView(InflateAction(action), index);
+                _actionsView.AddView(InflateAction(action), index);
             }
 
             //simply put it in the menu items to hide if we are a menu item.
@@ -369,7 +381,7 @@ namespace MonoDroid.ActionBarSample
                 MenuItemsToHide.Add(taskAction.MenuItemId);
 
             if (addActionBar)
-                AddOverflowAction(m_OverflowAction);
+                AddOverflowAction(_overflowAction);
         }
 
         /// <summary>
@@ -377,8 +389,8 @@ namespace MonoDroid.ActionBarSample
         /// </summary>
         public void RemoveAllActions()
         {
-            m_ActionsView.RemoveAllViews();
-            m_OverflowAction.ClearActions();
+            _actionsView.RemoveAllViews();
+            _overflowAction.ClearActions();
             MenuItemsToHide.Clear();
         }
 
@@ -390,11 +402,11 @@ namespace MonoDroid.ActionBarSample
         {
             if (index < 1) return;
 
-            var menuItemAction = m_ActionsView.GetChildAt(index).Tag as MenuItemActionBarAction;
+            var menuItemAction = _actionsView.GetChildAt(index).Tag as MenuItemActionBarAction;
             if (menuItemAction != null)
                 MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
-            m_ActionsView.RemoveViewAt(index);
+            _actionsView.RemoveViewAt(index);
         }
 
         /// <summary>
@@ -403,9 +415,9 @@ namespace MonoDroid.ActionBarSample
         /// <param name="id">position of action to remove</param>
         public void RemoveActionAtMenuId(int id)
         {
-            for (var i = 0; i < m_ActionsView.ChildCount; i++)
+            for (var i = 0; i < _actionsView.ChildCount; i++)
             {
-                var view = m_ActionsView.GetChildAt(i);
+                var view = _actionsView.GetChildAt(i);
                 
                 if (view == null) continue;
 
@@ -416,7 +428,7 @@ namespace MonoDroid.ActionBarSample
 
                 MenuItemsToHide.Remove(actionBarAction.MenuItemId);
 
-                m_ActionsView.RemoveView(view);
+                _actionsView.RemoveView(view);
             }
         }
 
@@ -426,9 +438,9 @@ namespace MonoDroid.ActionBarSample
         /// <param name="action">The action to remove</param>
         public void RemoveAction(ActionBarAction action)
         {
-            for (var i = 0; i < m_ActionsView.ChildCount; i++)
+            for (var i = 0; i < _actionsView.ChildCount; i++)
             {
-                var view = m_ActionsView.GetChildAt(i);
+                var view = _actionsView.GetChildAt(i);
 
                 if (view == null) continue;
 
@@ -441,7 +453,7 @@ namespace MonoDroid.ActionBarSample
                 if (menuItemAction != null)
                     MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
-                m_ActionsView.RemoveView(view);
+                _actionsView.RemoveView(view);
             }
         }
         
@@ -452,7 +464,7 @@ namespace MonoDroid.ActionBarSample
         /// <returns>a view</returns>
         private View InflateAction(ActionBarAction action)
         {
-            var view = m_Inflater.Inflate(Resource.Layout.ActionBar_Item, m_ActionsView, false);
+            var view = _inflater.Inflate(Resource.Layout.ActionBar_Item, _actionsView, false);
 
             if (null != ItemBackgroundDrawable)
             {
@@ -479,7 +491,7 @@ namespace MonoDroid.ActionBarSample
 
         private View InflateOverflowAction(ActionBarAction action)
         {
-            var view = m_Inflater.Inflate(Resource.Layout.OverflowActionBar_Item, m_ActionsView, false);
+            var view = _inflater.Inflate(Resource.Layout.OverflowActionBar_Item, _actionsView, false);
 
 
             var labelView =
@@ -498,13 +510,13 @@ namespace MonoDroid.ActionBarSample
             labelView.SetImageResource(action.GetDrawable());
 
             var spinner = view.FindViewById<Spinner>(Resource.Id.overflow_spinner);
-            m_OverflowAction.OverflowSpinner = spinner;
+            _overflowAction.OverflowSpinner = spinner;
 
             labelView.Tag = action;
             labelView.SetOnClickListener(this);
             //view.SetOnLongClickListener(this);
 
-            m_OverflowAction.Activity = CurrentActivity;
+            _overflowAction.Activity = CurrentActivity;
             return view;
         }
 
@@ -515,7 +527,7 @@ namespace MonoDroid.ActionBarSample
         /// <param name="listener"></param>
         public void SetOnTitleClickListener(IOnClickListener listener)
         {
-            m_TitleView.SetOnClickListener(listener);
+            _titleView.SetOnClickListener(listener);
         }
 
         public void OnClick(View v)
@@ -540,7 +552,7 @@ namespace MonoDroid.ActionBarSample
                 if (CurrentActivity == null)
                     return false;
 
-                Toast.MakeText(m_Context, action.PopUpMessage, ToastLength.Short).Show();
+                Toast.MakeText(_context, action.PopUpMessage, ToastLength.Short).Show();
 
                 return false;
             }
@@ -555,23 +567,23 @@ namespace MonoDroid.ActionBarSample
             {
                 if (null != ItemBackgroundDrawable)
                     ItemBackgroundDrawable.Dispose();
-                if (null != m_Inflater)
-                    m_Inflater.Dispose();
-                if (null != m_OverflowAction)
-                    m_OverflowAction.Dispose();
+                if (null != _inflater)
+                    _inflater.Dispose();
+                if (null != _overflowAction)
+                    _overflowAction.Dispose();
                 ItemBackgroundDrawable = null;
-                m_Inflater = null;
-                m_BarView = null;
-                m_LogoView = null;
-                m_BackIndicator = null;
-                m_TitleView = null;
-                m_ActionsView = null;
-                m_HomeBtn = null;
-                m_HomeLayout = null;
-                m_Progress = null;
-                m_TitleLayout = null;
-                m_Context = null;
-                m_OverflowAction = null;
+                _inflater = null;
+                _barView = null;
+                _logoView = null;
+                _backIndicator = null;
+                _titleView = null;
+                _actionsView = null;
+                _homeBtn = null;
+                _homeLayout = null;
+                _progress = null;
+                _titleLayout = null;
+                _context = null;
+                _overflowAction = null;
             }
 
             base.Dispose(disposing);

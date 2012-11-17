@@ -27,8 +27,8 @@ namespace MonoDroid.ActionBarSample
     class OverflowActionBarAction : ActionBarAction, AdapterView.IOnItemSelectedListener
     {
         public int MenuItemId;
-        private readonly List<string> m_StringIds;
-        private Spinner m_OverflowSpinner;
+        private readonly List<string> _stringIds;
+        private Spinner _overflowSpinner;
         public Activity Activity { get; set; }
         public int Index { get; set; }
         public OverflowActionBarAction(Context context)
@@ -36,7 +36,7 @@ namespace MonoDroid.ActionBarSample
             mDrawable = Resource.Drawable.ic_action_overflow_dark;
             mContext = context;
             ActionList = new List<ActionBarAction>();
-            m_StringIds = new List<string> {string.Empty/*first one to hide*/};
+            _stringIds = new List<string> {string.Empty/*first one to hide*/};
             ActionType = ActionType.Always;
         }
 
@@ -44,19 +44,19 @@ namespace MonoDroid.ActionBarSample
 
         public Spinner OverflowSpinner
         {
-            get { return m_OverflowSpinner; }
+            get { return _overflowSpinner; }
             set 
             { 
-                m_OverflowSpinner = value;
-                m_OverflowSpinner.OnItemSelectedListener = this;
+                _overflowSpinner = value;
+                _overflowSpinner.OnItemSelectedListener = this;
             }
         }
 
         public void ClearActions()
         {
             ActionList.Clear();
-            m_StringIds.Clear();
-            m_StringIds.Add(string.Empty);//add back in first one cause we have to.
+            _stringIds.Clear();
+            _stringIds.Add(string.Empty);//add back in first one cause we have to.
         }
 
         public override int GetDrawable()
@@ -67,21 +67,21 @@ namespace MonoDroid.ActionBarSample
         public void AddAction(ActionBarAction actionBarAction)
         {
             ActionList.Add(actionBarAction);
-            m_StringIds.Add(actionBarAction.PopUpMessage == 0 ? "ERROR" : mContext.Resources.GetString(actionBarAction.PopUpMessage));
+            _stringIds.Add(actionBarAction.PopUpMessage == 0 ? "ERROR" : mContext.Resources.GetString(actionBarAction.PopUpMessage));
         }
 
-        private bool m_FirstClick;
+        private bool _firstClick;
         public override void PerformAction(View view)
         {
             try
             {
-                if(m_OverflowSpinner == null)
+                if(_overflowSpinner == null)
                     return;
 
-                m_OverflowSpinner.Adapter = new OverflowSpinnerAdapter(Activity, m_StringIds);
-                m_FirstClick = true;
-                m_OverflowSpinner.SetSelection(0);
-                m_OverflowSpinner.PerformClick();
+                _overflowSpinner.Adapter = new OverflowSpinnerAdapter(Activity, _stringIds);
+                _firstClick = true;
+                _overflowSpinner.SetSelection(0);
+                _overflowSpinner.PerformClick();
                 
             }
             catch (Exception ex)
@@ -91,9 +91,9 @@ namespace MonoDroid.ActionBarSample
 
         public void OnItemSelected(AdapterView parent, View view, int position, long id)
         {
-            if(m_FirstClick)
+            if(_firstClick)
             {
-                m_FirstClick = false;
+                _firstClick = false;
                 return;
             }
 
@@ -108,15 +108,13 @@ namespace MonoDroid.ActionBarSample
 
     class OverflowSpinnerAdapter : BaseAdapter
     {
-        private readonly Activity m_Context;
-        private readonly IEnumerable<string> m_Items;
-
-
+        private readonly Activity _context;
+        private readonly IEnumerable<string> _items;
 
         public OverflowSpinnerAdapter(Activity context, IEnumerable<string> items)
         {
-            m_Context = context;
-            m_Items = items;
+            _context = context;
+            _items = items;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
@@ -125,12 +123,12 @@ namespace MonoDroid.ActionBarSample
                 return null;
 
             View view;
-            var item = m_Items.ElementAt(position);
+            var item = _items.ElementAt(position);
             if (!string.IsNullOrEmpty(item))
-                view = m_Context.LayoutInflater.Inflate(Resource.Layout.SpinnerItem, parent, false);
+                view = _context.LayoutInflater.Inflate(Resource.Layout.SpinnerItem, parent, false);
             else
             {
-                view = m_Context.LayoutInflater.Inflate(Resource.Layout.BlankSpinner, parent, false);//hack to get first item blank.
+                view = _context.LayoutInflater.Inflate(Resource.Layout.BlankSpinner, parent, false);//hack to get first item blank.
                 return view;
             }
 
@@ -147,7 +145,7 @@ namespace MonoDroid.ActionBarSample
 
         public override int Count
         {
-            get { return m_Items.Count(); }
+            get { return _items.Count(); }
         }
 
         public override Java.Lang.Object GetItem(int position)
