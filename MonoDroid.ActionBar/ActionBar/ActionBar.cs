@@ -63,12 +63,12 @@ namespace MonoDroid.ActionBarSample
         {
             get 
             {
-#if __ANDROID_14__
+#if __ANDROID_14__//ICS+ we can tell
                 return Android.Views.ViewConfiguration.HasPermanentMenuKey;
-#elif __ANDROID_10__
-                return true;
-#else
+#elif __ANDROID_10__//Honey Comb never does
                 return false;
+#else//Pre 3.0 always has menu button
+                return true;
 #endif
             }
         }
