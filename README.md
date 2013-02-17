@@ -4,11 +4,11 @@ ActionBar for Mono for Android
 This project is under rapid development by both Tomasz Cielecki and James Montemagno. Please hang with us while we get documentation ready and fully stablize the code.
 
 Featured:
-*Fully customizeable Action Bar
-*Integrates with current Menus
-*Overflow on API 11+ Devices
-*Dynamic Action Bar Item Count based on screen resolution
-*Bottom Action Bar (beta)
+* Fully customizeable Action Bar
+* Integrates with current Menus
+* Overflow on API 11+ Devices
+* Dynamic Action Bar Item Count based on screen resolution
+* Bottom Action Bar (beta)
 
 TO see a work in progress of a project that implements the MonoDroid Action Bar please see:
 https://github.com/jamesmontemagno/TasksSimplified
@@ -26,11 +26,11 @@ For usage check the project this has been ported from README, there is a detaile
 For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
 
 ## TODO
-*Refactor Bottom Action Bar
-*Implement Base Themes
-*Put implementation into Library Project
-*More samples
-*Docs
+* Refactor Bottom Action Bar
+* Implement Base Themes
+* Put implementation into Library Project
+* More samples
+* Docs
 
 
 ## License
