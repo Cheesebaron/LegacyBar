@@ -26,8 +26,11 @@ For usage check the project this has been ported from README, there is a detaile
 For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
 
 ## TODO
-Refactor Bottom Action Bar
-Implement Base Themes
+*Refactor Bottom Action Bar
+*Implement Base Themes
+*Put implementation into Library Project
+*More samples
+*Docs
 
 
 ## License
