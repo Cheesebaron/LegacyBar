@@ -21,12 +21,245 @@ namespace MonoDroid.ActionBar.Sample
 		
 		public static void UpdateIdValues()
 		{
+			MonoDroid.ActionBar.Library.Resource.Attribute.background = MonoDroid.ActionBar.Sample.Resource.Attribute.background;
+			MonoDroid.ActionBar.Library.Resource.Attribute.background_item = MonoDroid.ActionBar.Sample.Resource.Attribute.background_item;
+			MonoDroid.ActionBar.Library.Resource.Attribute.separator = MonoDroid.ActionBar.Sample.Resource.Attribute.separator;
+			MonoDroid.ActionBar.Library.Resource.Attribute.title = MonoDroid.ActionBar.Sample.Resource.Attribute.title;
+			MonoDroid.ActionBar.Library.Resource.Attribute.title_color = MonoDroid.ActionBar.Sample.Resource.Attribute.title_color;
+			MonoDroid.ActionBar.Library.Resource.Color.Red = MonoDroid.ActionBar.Sample.Resource.Color.Red;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_end = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_end;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_end_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_end_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_item_pressed_end = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_item_pressed_end;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_item_pressed_end_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_item_pressed_end_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_item_pressed_start = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_item_pressed_start;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_item_pressed_start_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_item_pressed_start_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_start = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_start;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_background_start_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_background_start_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_separator = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_separator;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_separator_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_separator_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_title = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_title;
+			MonoDroid.ActionBar.Library.Resource.Color.actionbar_title_alt = MonoDroid.ActionBar.Sample.Resource.Color.actionbar_title_alt;
+			MonoDroid.ActionBar.Library.Resource.Color.black = MonoDroid.ActionBar.Sample.Resource.Color.black;
+			MonoDroid.ActionBar.Library.Resource.Color.blue = MonoDroid.ActionBar.Sample.Resource.Color.blue;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_background_end = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_background_end;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_background_item_pressed_end = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_background_item_pressed_end;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_background_item_pressed_start = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_background_item_pressed_start;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_background_start = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_background_start;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_separator = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_separator;
+			MonoDroid.ActionBar.Library.Resource.Color.bottomactionbar_title = MonoDroid.ActionBar.Sample.Resource.Color.bottomactionbar_title;
+			MonoDroid.ActionBar.Library.Resource.Color.green = MonoDroid.ActionBar.Sample.Resource.Color.green;
+			MonoDroid.ActionBar.Library.Resource.Color.grey = MonoDroid.ActionBar.Sample.Resource.Color.grey;
+			MonoDroid.ActionBar.Library.Resource.Color.red = MonoDroid.ActionBar.Sample.Resource.Color.red;
+			MonoDroid.ActionBar.Library.Resource.Color.white = MonoDroid.ActionBar.Sample.Resource.Color.white;
+			MonoDroid.ActionBar.Library.Resource.Color.yellow = MonoDroid.ActionBar.Sample.Resource.Color.yellow;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_height = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_height;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_home_item_width = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_home_item_width;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_item_height = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_item_height;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_item_height_over = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_item_height_over;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_item_height_overflow = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_item_height_overflow;
+			MonoDroid.ActionBar.Library.Resource.Dimension.actionbar_item_width = MonoDroid.ActionBar.Sample.Resource.Dimension.actionbar_item_width;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_back_indicator = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_back_indicator;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_background = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_background;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_background_alt = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_background_alt;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn_alt = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn_alt;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn_normal = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn_normal;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn_normal_alt = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn_normal_alt;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn_pressed = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn_pressed;
+			MonoDroid.ActionBar.Library.Resource.Drawable.actionbar_btn_pressed_alt = MonoDroid.ActionBar.Sample.Resource.Drawable.actionbar_btn_pressed_alt;
+			MonoDroid.ActionBar.Library.Resource.Drawable.bottomactionbar_background = MonoDroid.ActionBar.Sample.Resource.Drawable.bottomactionbar_background;
+			MonoDroid.ActionBar.Library.Resource.Drawable.bottomactionbar_btn = MonoDroid.ActionBar.Sample.Resource.Drawable.bottomactionbar_btn;
+			MonoDroid.ActionBar.Library.Resource.Drawable.bottomactionbar_btn_normal = MonoDroid.ActionBar.Sample.Resource.Drawable.bottomactionbar_btn_normal;
+			MonoDroid.ActionBar.Library.Resource.Drawable.bottomactionbar_btn_pressed = MonoDroid.ActionBar.Sample.Resource.Drawable.bottomactionbar_btn_pressed;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_down = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_down;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_left = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_left;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_overflow_dark = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_overflow_dark;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_refresh_dark = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_refresh_dark;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_right = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_right;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_search_dark = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_search_dark;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_action_up = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_action_up;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_launcher = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_launcher;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_down = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_down;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_left = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_left;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_refresh = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_refresh;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_right = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_right;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_search = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_search;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_menu_up = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_menu_up;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_title_export_default = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_title_export_default;
+			MonoDroid.ActionBar.Library.Resource.Drawable.ic_title_share_default = MonoDroid.ActionBar.Sample.Resource.Drawable.ic_title_share_default;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_actions = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_actions;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_home = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_home;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_home_bg = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_home_bg;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_home_btn = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_home_btn;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_home_is_back = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_home_is_back;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_home_logo = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_home_logo;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_item = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_item;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_progress = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_progress;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_title = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_title;
+			MonoDroid.ActionBar.Library.Resource.Id.actionbar_title_layout = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_title_layout;
+			MonoDroid.ActionBar.Library.Resource.Id.overflow_spinner = MonoDroid.ActionBar.Sample.Resource.Id.overflow_spinner;
+			MonoDroid.ActionBar.Library.Resource.Id.screen = MonoDroid.ActionBar.Sample.Resource.Id.screen;
+			MonoDroid.ActionBar.Library.Resource.Layout.ActionBar = MonoDroid.ActionBar.Sample.Resource.Layout.ActionBar;
+			MonoDroid.ActionBar.Library.Resource.Layout.ActionBar_Item = MonoDroid.ActionBar.Sample.Resource.Layout.ActionBar_Item;
+			MonoDroid.ActionBar.Library.Resource.Layout.BlankSpinner = MonoDroid.ActionBar.Sample.Resource.Layout.BlankSpinner;
+			MonoDroid.ActionBar.Library.Resource.Layout.OverflowActionBar_Item = MonoDroid.ActionBar.Sample.Resource.Layout.OverflowActionBar_Item;
+			MonoDroid.ActionBar.Library.Resource.Layout.SpinnerItem = MonoDroid.ActionBar.Sample.Resource.Layout.SpinnerItem;
+			MonoDroid.ActionBar.Library.Resource.String.Hello = MonoDroid.ActionBar.Sample.Resource.String.Hello;
+			MonoDroid.ActionBar.Library.Resource.String.actionbar_activity_not_found = MonoDroid.ActionBar.Sample.Resource.String.actionbar_activity_not_found;
+			MonoDroid.ActionBar.Library.Resource.String.app_name = MonoDroid.ActionBar.Sample.Resource.String.app_name;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_down = MonoDroid.ActionBar.Sample.Resource.String.menu_string_down;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_left = MonoDroid.ActionBar.Sample.Resource.String.menu_string_left;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_refresh = MonoDroid.ActionBar.Sample.Resource.String.menu_string_refresh;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_right = MonoDroid.ActionBar.Sample.Resource.String.menu_string_right;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_search = MonoDroid.ActionBar.Sample.Resource.String.menu_string_search;
+			MonoDroid.ActionBar.Library.Resource.String.menu_string_up = MonoDroid.ActionBar.Sample.Resource.String.menu_string_up;
+			MonoDroid.ActionBar.Library.Resource.String.some_title = MonoDroid.ActionBar.Sample.Resource.String.some_title;
+			MonoDroid.ActionBar.Library.Resource.Style.ActionBar = MonoDroid.ActionBar.Sample.Resource.Style.ActionBar;
+			MonoDroid.ActionBar.Library.Resource.Style.ActionBarHomeItem = MonoDroid.ActionBar.Sample.Resource.Style.ActionBarHomeItem;
+			MonoDroid.ActionBar.Library.Resource.Style.ActionBarHomeLogo = MonoDroid.ActionBar.Sample.Resource.Style.ActionBarHomeLogo;
+			MonoDroid.ActionBar.Library.Resource.Style.ActionBarItem = MonoDroid.ActionBar.Sample.Resource.Style.ActionBarItem;
+			MonoDroid.ActionBar.Library.Resource.Style.ActionBarProgressBar = MonoDroid.ActionBar.Sample.Resource.Style.ActionBarProgressBar;
+			MonoDroid.ActionBar.Library.Resource.Style.ClearButton = MonoDroid.ActionBar.Sample.Resource.Style.ClearButton;
+			MonoDroid.ActionBar.Library.Resource.Style.MyTheme = MonoDroid.ActionBar.Sample.Resource.Style.MyTheme;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar_background = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar_background;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar_background_item = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar_background_item;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar_separator = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar_separator;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar_title = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar_title;
+			MonoDroid.ActionBar.Library.Resource.Styleable.ActionBar_title_color = MonoDroid.ActionBar.Sample.Resource.Styleable.ActionBar_title_color;
 		}
 		
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010003
+			public const int background = 2130771971;
+			
+			// aapt resource value: 0x7f010004
+			public const int background_item = 2130771972;
+			
+			// aapt resource value: 0x7f010002
+			public const int separator = 2130771970;
+			
+			// aapt resource value: 0x7f010000
+			public const int title = 2130771968;
+			
+			// aapt resource value: 0x7f010001
+			public const int title_color = 2130771969;
+			
 			private Attribute()
+			{
+			}
+		}
+		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040019
+			public const int Red = 2130968601;
+			
+			// aapt resource value: 0x7f040003
+			public const int actionbar_background_end = 2130968579;
+			
+			// aapt resource value: 0x7f040009
+			public const int actionbar_background_end_alt = 2130968585;
+			
+			// aapt resource value: 0x7f040005
+			public const int actionbar_background_item_pressed_end = 2130968581;
+			
+			// aapt resource value: 0x7f04000b
+			public const int actionbar_background_item_pressed_end_alt = 2130968587;
+			
+			// aapt resource value: 0x7f040004
+			public const int actionbar_background_item_pressed_start = 2130968580;
+			
+			// aapt resource value: 0x7f04000a
+			public const int actionbar_background_item_pressed_start_alt = 2130968586;
+			
+			// aapt resource value: 0x7f040002
+			public const int actionbar_background_start = 2130968578;
+			
+			// aapt resource value: 0x7f040008
+			public const int actionbar_background_start_alt = 2130968584;
+			
+			// aapt resource value: 0x7f040000
+			public const int actionbar_separator = 2130968576;
+			
+			// aapt resource value: 0x7f040006
+			public const int actionbar_separator_alt = 2130968582;
+			
+			// aapt resource value: 0x7f040001
+			public const int actionbar_title = 2130968577;
+			
+			// aapt resource value: 0x7f040007
+			public const int actionbar_title_alt = 2130968583;
+			
+			// aapt resource value: 0x7f040013
+			public const int black = 2130968595;
+			
+			// aapt resource value: 0x7f040016
+			public const int blue = 2130968598;
+			
+			// aapt resource value: 0x7f04000f
+			public const int bottomactionbar_background_end = 2130968591;
+			
+			// aapt resource value: 0x7f040010
+			public const int bottomactionbar_background_item_pressed_end = 2130968592;
+			
+			// aapt resource value: 0x7f040011
+			public const int bottomactionbar_background_item_pressed_start = 2130968593;
+			
+			// aapt resource value: 0x7f04000e
+			public const int bottomactionbar_background_start = 2130968590;
+			
+			// aapt resource value: 0x7f04000c
+			public const int bottomactionbar_separator = 2130968588;
+			
+			// aapt resource value: 0x7f04000d
+			public const int bottomactionbar_title = 2130968589;
+			
+			// aapt resource value: 0x7f040014
+			public const int green = 2130968596;
+			
+			// aapt resource value: 0x7f040017
+			public const int grey = 2130968599;
+			
+			// aapt resource value: 0x7f040015
+			public const int red = 2130968597;
+			
+			// aapt resource value: 0x7f040012
+			public const int white = 2130968594;
+			
+			// aapt resource value: 0x7f040018
+			public const int yellow = 2130968600;
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int actionbar_height = 2131034112;
+			
+			// aapt resource value: 0x7f050004
+			public const int actionbar_home_item_width = 2131034116;
+			
+			// aapt resource value: 0x7f050001
+			public const int actionbar_item_height = 2131034113;
+			
+			// aapt resource value: 0x7f050005
+			public const int actionbar_item_height_over = 2131034117;
+			
+			// aapt resource value: 0x7f050002
+			public const int actionbar_item_height_overflow = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int actionbar_item_width = 2131034115;
+			
+			private Dimension()
 			{
 			}
 		}
@@ -35,7 +268,94 @@ namespace MonoDroid.ActionBar.Sample
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int actionbar_back_indicator = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int actionbar_background = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int actionbar_background_alt = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int actionbar_btn = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int actionbar_btn_alt = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int actionbar_btn_normal = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int actionbar_btn_normal_alt = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int actionbar_btn_pressed = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int actionbar_btn_pressed_alt = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int bottomactionbar_background = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int bottomactionbar_btn = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int bottomactionbar_btn_normal = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int bottomactionbar_btn_pressed = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int ic_action_down = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int ic_action_left = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int ic_action_overflow_dark = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int ic_action_refresh_dark = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int ic_action_right = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int ic_action_search_dark = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int ic_action_up = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int ic_launcher = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int ic_menu_down = 2130837525;
+			
+			// aapt resource value: 0x7f020016
+			public const int ic_menu_left = 2130837526;
+			
+			// aapt resource value: 0x7f020017
+			public const int ic_menu_refresh = 2130837527;
+			
+			// aapt resource value: 0x7f020018
+			public const int ic_menu_right = 2130837528;
+			
+			// aapt resource value: 0x7f020019
+			public const int ic_menu_search = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int ic_menu_up = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int ic_title_export_default = 2130837531;
+			
+			// aapt resource value: 0x7f02001c
+			public const int ic_title_share_default = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int Icon = 2130837533;
 			
 			private Drawable()
 			{
@@ -45,8 +365,68 @@ namespace MonoDroid.ActionBar.Sample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int myButton = 2131034112;
+			// aapt resource value: 0x7f09000b
+			public const int actionbar = 2131296267;
+			
+			// aapt resource value: 0x7f090006
+			public const int actionbar_actions = 2131296262;
+			
+			// aapt resource value: 0x7f090001
+			public const int actionbar_home = 2131296257;
+			
+			// aapt resource value: 0x7f090003
+			public const int actionbar_home_bg = 2131296259;
+			
+			// aapt resource value: 0x7f090004
+			public const int actionbar_home_btn = 2131296260;
+			
+			// aapt resource value: 0x7f090005
+			public const int actionbar_home_is_back = 2131296261;
+			
+			// aapt resource value: 0x7f090002
+			public const int actionbar_home_logo = 2131296258;
+			
+			// aapt resource value: 0x7f09000a
+			public const int actionbar_item = 2131296266;
+			
+			// aapt resource value: 0x7f090008
+			public const int actionbar_progress = 2131296264;
+			
+			// aapt resource value: 0x7f090009
+			public const int actionbar_title = 2131296265;
+			
+			// aapt resource value: 0x7f090007
+			public const int actionbar_title_layout = 2131296263;
+			
+			// aapt resource value: 0x7f09000e
+			public const int fragment_text = 2131296270;
+			
+			// aapt resource value: 0x7f090012
+			public const int menu_down = 2131296274;
+			
+			// aapt resource value: 0x7f090010
+			public const int menu_left = 2131296272;
+			
+			// aapt resource value: 0x7f090014
+			public const int menu_refresh = 2131296276;
+			
+			// aapt resource value: 0x7f09000f
+			public const int menu_right = 2131296271;
+			
+			// aapt resource value: 0x7f090013
+			public const int menu_search = 2131296275;
+			
+			// aapt resource value: 0x7f090011
+			public const int menu_up = 2131296273;
+			
+			// aapt resource value: 0x7f09000d
+			public const int overflow_spinner = 2131296269;
+			
+			// aapt resource value: 0x7f09000c
+			public const int pager = 2131296268;
+			
+			// aapt resource value: 0x7f090000
+			public const int screen = 2131296256;
 			
 			private Id()
 			{
@@ -57,9 +437,44 @@ namespace MonoDroid.ActionBar.Sample
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int actionbar = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int actionbar_item = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int blankspinner = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int fragment_tabs = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int overflowactionbar_item = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int simple_fragment = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int spinneritem = 2130903046;
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int BottomActionBarMenus = 2131230720;
+			
+			// aapt resource value: 0x7f080001
+			public const int MainMenu = 2131230721;
+			
+			// aapt resource value: 0x7f080002
+			public const int OtherMainMenu = 2131230722;
+			
+			private Menu()
 			{
 			}
 		}
@@ -67,13 +482,100 @@ namespace MonoDroid.ActionBar.Sample
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			// aapt resource value: 0x7f060000
+			public const int Hello = 2131099648;
 			
-			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			// aapt resource value: 0x7f060002
+			public const int actionbar_activity_not_found = 2131099650;
+			
+			// aapt resource value: 0x7f060001
+			public const int app_name = 2131099649;
+			
+			// aapt resource value: 0x7f06000a
+			public const int hello = 2131099658;
+			
+			// aapt resource value: 0x7f060006
+			public const int menu_string_down = 2131099654;
+			
+			// aapt resource value: 0x7f060007
+			public const int menu_string_left = 2131099655;
+			
+			// aapt resource value: 0x7f060009
+			public const int menu_string_refresh = 2131099657;
+			
+			// aapt resource value: 0x7f060008
+			public const int menu_string_right = 2131099656;
+			
+			// aapt resource value: 0x7f060004
+			public const int menu_string_search = 2131099652;
+			
+			// aapt resource value: 0x7f060005
+			public const int menu_string_up = 2131099653;
+			
+			// aapt resource value: 0x7f060003
+			public const int some_title = 2131099651;
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int ActionBar = 2131165184;
+			
+			// aapt resource value: 0x7f070003
+			public const int ActionBarHomeItem = 2131165187;
+			
+			// aapt resource value: 0x7f070004
+			public const int ActionBarHomeLogo = 2131165188;
+			
+			// aapt resource value: 0x7f070001
+			public const int ActionBarItem = 2131165185;
+			
+			// aapt resource value: 0x7f070005
+			public const int ActionBarProgressBar = 2131165189;
+			
+			// aapt resource value: 0x7f070002
+			public const int ClearButton = 2131165186;
+			
+			// aapt resource value: 0x7f070006
+			public const int MyTheme = 2131165190;
+			
+			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] ActionBar = new int[]
+			{
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972};
+			
+			// aapt resource value: 3
+			public const int ActionBar_background = 3;
+			
+			// aapt resource value: 4
+			public const int ActionBar_background_item = 4;
+			
+			// aapt resource value: 2
+			public const int ActionBar_separator = 2;
+			
+			// aapt resource value: 0
+			public const int ActionBar_title = 0;
+			
+			// aapt resource value: 1
+			public const int ActionBar_title_color = 1;
+			
+			private Styleable()
 			{
 			}
 		}

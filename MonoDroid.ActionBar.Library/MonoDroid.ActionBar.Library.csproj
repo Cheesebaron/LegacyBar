@@ -57,9 +57,11 @@
     <Compile Include="ActionBarBase\ActionBarFragmentActivity.cs" />
     <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
     <Compile Include="TabsAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\actionbar_back_indicator.png" />
@@ -141,4 +143,7 @@
     <AndroidResource Include="Resources\Values-xlarge\Dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
 </Project>
