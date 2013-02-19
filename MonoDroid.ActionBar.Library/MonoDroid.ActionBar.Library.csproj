@@ -99,48 +99,48 @@
     <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow_dark.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow_dark.png" />
-    <AndroidResource Include="Resources\Layout\ActionBar.axml">
+    <AndroidResource Include="Resources\Layout\actionbar.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Layout\ActionBar_Item.axml">
+    <AndroidResource Include="Resources\Layout\actionbar_item.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Layout\OverflowActionBar_Item.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\Layout\BlankSpinner.axml">
+    <AndroidResource Include="Resources\Layout\blankspinner.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Layout\SpinnerItem.axml">
+    <AndroidResource Include="Resources\Layout\overflowactionbar_item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\spinneritem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Values\Styles.xml">
+    <AndroidResource Include="Resources\Values\attrs.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\strings.xml" />
+    <AndroidResource Include="Resources\Values\styles.xml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
-    <AndroidResource Include="Resources\Values\Dimens.xml">
+    <AndroidResource Include="Resources\Values\themes.xml" />
+    <AndroidResource Include="Resources\Values-land\dimens.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Values\Colors.xml">
+    <AndroidResource Include="Resources\Values-large-hdpi-1024x600\dimens.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Values\Attrs.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\Values\Themes.xml" />
-    <AndroidResource Include="Resources\Values-land\Dimens.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\Values-large-hdpi-1024x600\Dimens.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\Values-large-land\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-large-land-hdpi-1024x600\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-large-land-mdpi-1024x600\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-large-mdpi-1024x600\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-sw600dp\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-sw600dp-land\Dimens.xml" />
-    <AndroidResource Include="Resources\Values-xlarge\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land\dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land-hdpi-1024x600\dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land-mdpi-1024x600\dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-mdpi-1024x600\dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp\dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp-land\dimens.xml" />
+    <AndroidResource Include="Resources\Values-xlarge\dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

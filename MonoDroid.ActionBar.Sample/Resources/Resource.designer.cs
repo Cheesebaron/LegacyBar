@@ -99,11 +99,11 @@ namespace MonoDroid.ActionBar.Sample
 			MonoDroid.ActionBar.Library.Resource.Id.actionbar_title_layout = MonoDroid.ActionBar.Sample.Resource.Id.actionbar_title_layout;
 			MonoDroid.ActionBar.Library.Resource.Id.overflow_spinner = MonoDroid.ActionBar.Sample.Resource.Id.overflow_spinner;
 			MonoDroid.ActionBar.Library.Resource.Id.screen = MonoDroid.ActionBar.Sample.Resource.Id.screen;
-			MonoDroid.ActionBar.Library.Resource.Layout.ActionBar = MonoDroid.ActionBar.Sample.Resource.Layout.ActionBar;
-			MonoDroid.ActionBar.Library.Resource.Layout.ActionBar_Item = MonoDroid.ActionBar.Sample.Resource.Layout.ActionBar_Item;
-			MonoDroid.ActionBar.Library.Resource.Layout.BlankSpinner = MonoDroid.ActionBar.Sample.Resource.Layout.BlankSpinner;
-			MonoDroid.ActionBar.Library.Resource.Layout.OverflowActionBar_Item = MonoDroid.ActionBar.Sample.Resource.Layout.OverflowActionBar_Item;
-			MonoDroid.ActionBar.Library.Resource.Layout.SpinnerItem = MonoDroid.ActionBar.Sample.Resource.Layout.SpinnerItem;
+			MonoDroid.ActionBar.Library.Resource.Layout.actionbar = MonoDroid.ActionBar.Sample.Resource.Layout.actionbar;
+			MonoDroid.ActionBar.Library.Resource.Layout.actionbar_item = MonoDroid.ActionBar.Sample.Resource.Layout.actionbar_item;
+			MonoDroid.ActionBar.Library.Resource.Layout.blankspinner = MonoDroid.ActionBar.Sample.Resource.Layout.blankspinner;
+			MonoDroid.ActionBar.Library.Resource.Layout.overflowactionbar_item = MonoDroid.ActionBar.Sample.Resource.Layout.overflowactionbar_item;
+			MonoDroid.ActionBar.Library.Resource.Layout.spinneritem = MonoDroid.ActionBar.Sample.Resource.Layout.spinneritem;
 			MonoDroid.ActionBar.Library.Resource.String.Hello = MonoDroid.ActionBar.Sample.Resource.String.Hello;
 			MonoDroid.ActionBar.Library.Resource.String.actionbar_activity_not_found = MonoDroid.ActionBar.Sample.Resource.String.actionbar_activity_not_found;
 			MonoDroid.ActionBar.Library.Resource.String.app_name = MonoDroid.ActionBar.Sample.Resource.String.app_name;
@@ -466,13 +466,13 @@ namespace MonoDroid.ActionBar.Sample
 		{
 			
 			// aapt resource value: 0x7f080000
-			public const int BottomActionBarMenus = 2131230720;
+			public const int bottomactionbarmenus = 2131230720;
 			
 			// aapt resource value: 0x7f080001
-			public const int MainMenu = 2131230721;
+			public const int mainmenu = 2131230721;
 			
 			// aapt resource value: 0x7f080002
-			public const int OtherMainMenu = 2131230722;
+			public const int othermainmenu = 2131230722;
 			
 			private Menu()
 			{
@@ -490,9 +490,6 @@ namespace MonoDroid.ActionBar.Sample
 			
 			// aapt resource value: 0x7f060001
 			public const int app_name = 2131099649;
-			
-			// aapt resource value: 0x7f06000a
-			public const int hello = 2131099658;
 			
 			// aapt resource value: 0x7f060006
 			public const int menu_string_down = 2131099654;

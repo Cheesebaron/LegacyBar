@@ -297,19 +297,19 @@ namespace MonoDroid.ActionBar.Library
 		{
 			
 			// aapt resource value: 0x7f030000
-			public static int ActionBar = 2130903040;
+			public static int actionbar = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public static int ActionBar_Item = 2130903041;
+			public static int actionbar_item = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public static int BlankSpinner = 2130903042;
+			public static int blankspinner = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public static int OverflowActionBar_Item = 2130903043;
+			public static int overflowactionbar_item = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public static int SpinnerItem = 2130903044;
+			public static int spinneritem = 2130903044;
 			
 			private Layout()
 			{

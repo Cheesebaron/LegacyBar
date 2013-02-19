@@ -40,7 +40,7 @@ namespace MonoDroid.ActionBar.Sample
             base.OnCreate(bundle);
 
 
-            MenuId = Resource.Menu.MainMenu;
+            MenuId = Resource.Menu.mainmenu;
 
             SetContentView(Resource.Layout.fragment_tabs);
             m_TabHost = FindViewById<TabHost>(Android.Resource.Id.TabHost);
@@ -54,7 +54,7 @@ namespace MonoDroid.ActionBar.Sample
 			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
             ActionBar.CurrentActivity = this;
-            AddHomeAction();
+            AddHomeAction(typeof(HomeActivity));
          
 
             var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.menu_string_search);

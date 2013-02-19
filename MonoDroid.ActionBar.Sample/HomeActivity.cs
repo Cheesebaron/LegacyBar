@@ -36,7 +36,7 @@ namespace MonoDroid.ActionBar.Sample
             base.OnCreate(bundle);
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.main);
 
 			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
             ActionBar.CurrentActivity = this;

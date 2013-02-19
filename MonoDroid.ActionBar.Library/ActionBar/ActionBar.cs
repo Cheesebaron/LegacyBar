@@ -209,7 +209,7 @@ namespace MonoDroid.ActionBar.Library
             _context = context;
             _inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
 
-            _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.ActionBar, null);
+            _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.actionbar, null);
             AddView(_barView);
 
             _logoView = _barView.FindViewById<ImageView>(Resource.Id.actionbar_home_logo);
@@ -464,7 +464,7 @@ namespace MonoDroid.ActionBar.Library
         /// <returns>a view</returns>
         private View InflateAction(ActionBarAction action)
         {
-            var view = _inflater.Inflate(Resource.Layout.ActionBar_Item, _actionsView, false);
+            var view = _inflater.Inflate(Resource.Layout.actionbar_item, _actionsView, false);
 
             if (null != ItemBackgroundDrawable)
             {
@@ -491,7 +491,7 @@ namespace MonoDroid.ActionBar.Library
 
         private View InflateOverflowAction(ActionBarAction action)
         {
-            var view = _inflater.Inflate(Resource.Layout.OverflowActionBar_Item, _actionsView, false);
+            var view = _inflater.Inflate(Resource.Layout.overflowactionbar_item, _actionsView, false);
 
 
             var labelView =

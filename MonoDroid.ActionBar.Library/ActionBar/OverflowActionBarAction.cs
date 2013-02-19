@@ -125,10 +125,10 @@ namespace MonoDroid.ActionBar.Library
             View view;
             var item = _items.ElementAt(position);
             if (!string.IsNullOrEmpty(item))
-                view = _context.LayoutInflater.Inflate(Resource.Layout.SpinnerItem, parent, false);
+                view = _context.LayoutInflater.Inflate(Resource.Layout.spinneritem, parent, false);
             else
             {
-                view = _context.LayoutInflater.Inflate(Resource.Layout.BlankSpinner, parent, false);//hack to get first item blank.
+                view = _context.LayoutInflater.Inflate(Resource.Layout.blankspinner, parent, false);//hack to get first item blank.
                 return view;
             }
 
