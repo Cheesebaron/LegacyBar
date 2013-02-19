@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{371657B5-2C38-4D23-B7C1-6C053EB55FB8}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonoDroid.ActionBar.Library</RootNamespace>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AssemblyName>MonoDroid.ActionBar.Library</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Support.v4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="ActionBar\ActionBar.cs" />
+    <Compile Include="ActionBar\ActionBarAction.cs" />
+    <Compile Include="ActionBar\ActionBarUtils.cs" />
+    <Compile Include="ActionBar\IActionBarAction.cs" />
+    <Compile Include="ActionBar\MyActionBarAction.cs" />
+    <Compile Include="ActionBar\OverflowActionBarAction.cs" />
+    <Compile Include="ActionBar\ScrollingTextView.cs" />
+    <Compile Include="ActionBar\MenuItemActionBarAction.cs" />
+    <Compile Include="ActionBarBase\ActionBarActivity.cs" />
+    <Compile Include="ActionBarBase\ActionBarFragmentActivity.cs" />
+    <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
+    <Compile Include="TabsAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\actionbar_back_indicator.png" />
+    <AndroidResource Include="Resources\Drawable\actionbar_background.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_normal.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_background.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn_normal.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn_pressed.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_background_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_normal_alt.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed_alt.xml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\actionbar_back_indicator.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_title_export_default.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_title_share_default.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_refresh_dark.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_search_dark.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_refresh.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_search.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_down.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_left.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_right.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_up.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_down.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_left.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_right.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_up.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-ldpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow_dark.png" />
+    <AndroidResource Include="Resources\Layout\ActionBar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\ActionBar_Item.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\OverflowActionBar_Item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\BlankSpinner.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\SpinnerItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\Styles.xml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+    <AndroidResource Include="Resources\Values\Dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\Colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\Attrs.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values\Themes.xml" />
+    <AndroidResource Include="Resources\Values-land\Dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values-large-hdpi-1024x600\Dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Values-large-land\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land-hdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-land-mdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-large-mdpi-1024x600\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp-land\Dimens.xml" />
+    <AndroidResource Include="Resources\Values-xlarge\Dimens.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+</Project>
