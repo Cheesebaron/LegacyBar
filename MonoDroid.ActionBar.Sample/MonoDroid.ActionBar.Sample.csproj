@@ -57,7 +57,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\Menu\MainMenu.xml" />
     <AndroidResource Include="Resources\Menu\BottomActionBarMenus.xml" />
@@ -84,5 +83,8 @@
       <Project>{371657B5-2C38-4D23-B7C1-6C053EB55FB8}</Project>
       <Name>MonoDroid.ActionBar.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\values\" />
   </ItemGroup>
 </Project>

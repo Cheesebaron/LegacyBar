@@ -38,7 +38,7 @@ namespace MonoDroid.ActionBar.Sample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
             ActionBar.CurrentActivity = this;
             ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
             

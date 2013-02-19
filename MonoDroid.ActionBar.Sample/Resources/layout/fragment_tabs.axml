@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:orientation="vertical"
-     android:layout_width="match_parent"
-     android:layout_height="match_parent">
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
   <monodroid.actionbar.library.ActionBar
- android:id="@+id/actionbar"
- style="@style/ActionBar"/>
-
+ 	android:id="@+id/actionbar"
+ 	style="@style/ActionBar"/>
 
   <TabHost
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -20,16 +19,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <HorizontalScrollView android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                      android:fillViewport="true"
-                     android:scrollbars="none">
+      <HorizontalScrollView 
+      	android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+        
         <TabWidget
             android:id="@android:id/tabs"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"/>
+            
       </HorizontalScrollView>
 
       <FrameLayout

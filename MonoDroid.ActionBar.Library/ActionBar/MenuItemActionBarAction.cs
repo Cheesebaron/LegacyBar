@@ -204,7 +204,7 @@ namespace MonoDroid.ActionBar.Library
     /// <summary>
     /// MenuItemActionBarAction will call teh main activitiess "OnOptionsItemSelected", which allows us to re-use code.
     /// </summary>
-    class MenuItemActionBarAction: ActionBarAction
+    public class MenuItemActionBarAction: ActionBarAction
     {
         private Activity m_Activity;
         private ActionBarMenuItem m_MenuItem;

@@ -36,7 +36,7 @@ namespace MonoDroid.ActionBar.Sample
 
             MenuId = Resource.Menu.MainMenu;
 
-            ActionBar = FindViewById<ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
             ActionBar.Title = "Other Activity";
@@ -59,7 +59,7 @@ namespace MonoDroid.ActionBar.Sample
                                       {ActionType = ActionType.Never};
             ActionBar.AddAction(itemActionBarAction);
 
-            var bottomActionBar = FindViewById<ActionBar>(Resource.Id.bottomActionbar);
+			var bottomActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.bottomActionbar);
 
             var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down)
                              {

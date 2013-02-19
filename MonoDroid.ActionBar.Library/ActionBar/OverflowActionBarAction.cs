@@ -24,7 +24,7 @@ using Android.Widget;
 
 namespace MonoDroid.ActionBar.Library
 {
-    class OverflowActionBarAction : ActionBarAction, AdapterView.IOnItemSelectedListener
+    public class OverflowActionBarAction : ActionBarAction, AdapterView.IOnItemSelectedListener
     {
         public int MenuItemId;
         private readonly List<string> _stringIds;
@@ -106,7 +106,7 @@ namespace MonoDroid.ActionBar.Library
         }
     }
 
-    class OverflowSpinnerAdapter : BaseAdapter
+    public class OverflowSpinnerAdapter : BaseAdapter
     {
         private readonly Activity _context;
         private readonly IEnumerable<string> _items;
