@@ -59,7 +59,7 @@ namespace MonoDroid.ActionBar.Sample
                                       {ActionType = ActionType.Never};
             ActionBar.AddAction(itemActionBarAction);
 
-			var bottomActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.bottomActionbar);
+			var bottomActionBar = FindViewById<Library.ActionBar>(Resource.Id.bottomActionbar);
 
             var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down)
                              {

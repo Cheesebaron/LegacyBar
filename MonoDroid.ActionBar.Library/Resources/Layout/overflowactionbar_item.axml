@@ -19,7 +19,7 @@
     android:layout_height="match_parent">
   <ImageButton
       android:id="@+id/actionbar_item"
-      style="@style/ActionBarItem"
+      style="@style/actionbaritem"
       android:background="@drawable/actionbar_btn"
       android:layout_height="@dimen/actionbar_item_height_overflow"
       android:layout_centerVertical="true"

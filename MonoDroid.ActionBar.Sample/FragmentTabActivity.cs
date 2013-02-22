@@ -27,12 +27,12 @@ using MonoDroid.ActionBar.Library;
 
 namespace MonoDroid.ActionBar.Sample
 {
-      [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+    [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
     public class FragmentTabActivity : ActionBarFragmentActivity
     {
-        TabHost m_TabHost;
-        ViewPager m_ViewPager;
-        TabsAdapter m_TabsAdapter;
+        TabHost _tabHost;
+        ViewPager _viewPager;
+        TabsAdapter _tabsAdapter;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -43,12 +43,12 @@ namespace MonoDroid.ActionBar.Sample
             MenuId = Resource.Menu.mainmenu;
 
             SetContentView(Resource.Layout.fragment_tabs);
-            m_TabHost = FindViewById<TabHost>(Android.Resource.Id.TabHost);
-            m_TabHost.Setup();
+            _tabHost = FindViewById<TabHost>(Android.Resource.Id.TabHost);
+            _tabHost.Setup();
 
-            m_ViewPager = FindViewById<ViewPager>(Resource.Id.pager);
+            _viewPager = FindViewById<ViewPager>(Resource.Id.pager);
 
-            m_TabsAdapter = new TabsAdapter(this, m_TabHost, m_ViewPager);
+            _tabsAdapter = new TabsAdapter(this, _tabHost, _viewPager);
 
 
 			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
@@ -61,23 +61,23 @@ namespace MonoDroid.ActionBar.Sample
             ActionBar.AddAction(action);
 
 
-            var spec = m_TabHost.NewTabSpec("tv");
+            var spec = _tabHost.NewTabSpec("tv");
             spec.SetIndicator("Tab 1", Resources.GetDrawable(Resource.Drawable.ic_launcher));
-            m_TabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab1)), null);
+            _tabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab1)), null);
 
 
-            spec = m_TabHost.NewTabSpec("tab2");
+            spec = _tabHost.NewTabSpec("tab2");
             spec.SetIndicator("Tab 2", Resources.GetDrawable(Resource.Drawable.ic_launcher));
-            m_TabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab2)), null);
+            _tabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab2)), null);
 
             if (bundle != null)
             {
-                m_TabHost.SetCurrentTabByTag(bundle.GetString("tab"));
+                _tabHost.SetCurrentTabByTag(bundle.GetString("tab"));
             }
             else
             {
 
-                m_TabHost.CurrentTab = 0;
+                _tabHost.CurrentTab = 0;
             }
         }
 
@@ -85,7 +85,7 @@ namespace MonoDroid.ActionBar.Sample
         {
             base.OnSaveInstanceState(outState);
 
-            outState.PutString("tab", m_TabHost.CurrentTabTag);
+            outState.PutString("tab", _tabHost.CurrentTabTag);
 
         }
 

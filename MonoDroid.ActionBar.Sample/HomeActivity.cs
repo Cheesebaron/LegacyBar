@@ -38,28 +38,28 @@ namespace MonoDroid.ActionBar.Sample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 
-			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<Library.ActionBar>(Resource.Id.actionbar);
             ActionBar.CurrentActivity = this;
             ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
-            
+
 
             /*
              * You can also set the title of the ActionBar with: 
-             * actionBar.Title = "MyAwesomeTitle";
+             * ActionBar.Title = "MyAwesomeTitle";
              * 
              * or
              * 
-             * actionBar.Title = Resource.String.<yourStringId>;
+             * ActionBar.Title = Resource.String.<yourStringId>;
              * 
              * Title Color can be set with:
-             * actionBar.TitleColor = Color.Blue; //Or any other Color you want
+             * ActionBar.TitleColor = Color.Blue; //Or any other Color you want
              * 
              * The Separator between the Action Bar Items can be set with:
-             * actionBar.SeparatorColor = Color.Blue;
+             * ActionBar.SeparatorColor = Color.Blue;
              * 
              * and with a drawable:
              * 
-             * actionBar.SeparatorDrawable = myDrawable;
+             * ActionBar.SeparatorDrawable = myDrawable;
              */
 
             //always put these 2 in there since they are NOT in my menu.xml

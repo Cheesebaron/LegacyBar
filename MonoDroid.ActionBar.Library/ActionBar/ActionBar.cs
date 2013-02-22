@@ -227,25 +227,25 @@ namespace MonoDroid.ActionBar.Library
 
             //Custom Attributes (defined in Attrs.xml)
             var a = context.ObtainStyledAttributes(attrs,
-                    Resource.Styleable.ActionBar);
+                    Resource.Styleable.actionbar);
 
-            var title = a.GetString(Resource.Styleable.ActionBar_title);
+            var title = a.GetString(Resource.Styleable.actionbar_title);
             if (null != title)
                 Title = title;
 
-            var titleColor = a.GetColor(Resource.Styleable.ActionBar_title_color, Resources.GetColor(Resource.Color.actionbar_title));
+            var titleColor = a.GetColor(Resource.Styleable.actionbar_title_color, Resources.GetColor(Resource.Color.actionbar_title));
             TitleColor = titleColor;
 
-            var separatorColor = a.GetColor(Resource.Styleable.ActionBar_separator, Resources.GetColor(Resource.Color.actionbar_separator));
+            var separatorColor = a.GetColor(Resource.Styleable.actionbar_separator, Resources.GetColor(Resource.Color.actionbar_separator));
             _actionsView.SetBackgroundColor(separatorColor);
 
-            using (var background = a.GetDrawable(Resource.Styleable.ActionBar_background)) //recycling the drawable immediately
+            using (var background = a.GetDrawable(Resource.Styleable.actionbar_background)) //recycling the drawable immediately
             {
                 if (null != background)
                     BackgroundDrawable = background;
             }
 
-            var backgroundItem = a.GetDrawable(Resource.Styleable.ActionBar_background_item);
+            var backgroundItem = a.GetDrawable(Resource.Styleable.actionbar_background_item);
             if (null != backgroundItem)
                 ItemBackgroundDrawable = backgroundItem;
 

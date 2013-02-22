@@ -7,7 +7,7 @@
 
   <monodroid.actionbar.library.ActionBar
  	android:id="@+id/actionbar"
- 	style="@style/ActionBar"/>
+ 	style="@style/actionbar"/>
 
   <TabHost
     android:id="@android:id/tabhost"

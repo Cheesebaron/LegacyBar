@@ -3,14 +3,14 @@
 <!-- xmlns:ab must match your namespace -->
 <LinearLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ab="http://schemas.android.com/apk/res/monodroid.actionbar.sample"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
+  xmlns:ab="http://schemas.android.com/apk/res/monodroid.actionbar.sample"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
   <monodroid.actionbar.library.ActionBar
       android:id="@+id/actionbar"
-      style="@style/ActionBar"
+      style="@style/actionbar"
       ab:title="Hingst!"
       ab:separator="@color/actionbar_separator_alt"
       ab:background="@drawable/actionbar_background_alt"
