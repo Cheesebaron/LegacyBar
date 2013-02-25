@@ -51,7 +51,7 @@ namespace MonoDroid.ActionBar.Sample
             _tabsAdapter = new TabsAdapter(this, _tabHost, _viewPager);
 
 
-			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<Library.ActionBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
             ActionBar.CurrentActivity = this;
             AddHomeAction(typeof(HomeActivity));

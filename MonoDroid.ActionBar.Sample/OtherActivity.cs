@@ -36,7 +36,7 @@ namespace MonoDroid.ActionBar.Sample
 
             MenuId = Resource.Menu.mainmenu;
 
-			ActionBar = FindViewById<MonoDroid.ActionBar.Library.ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<Library.ActionBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
             ActionBar.Title = "Other Activity";
