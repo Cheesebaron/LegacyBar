@@ -32,7 +32,7 @@ using Android.Util;
 
 namespace MonoDroid.ActionBar.Library
 {
-    public class ActionBar : RelativeLayout, View.IOnClickListener, View.IOnLongClickListener
+    public sealed class ActionBar : RelativeLayout, View.IOnClickListener, View.IOnLongClickListener
     {
 
         #region Fields
@@ -207,7 +207,9 @@ namespace MonoDroid.ActionBar.Library
             : base(context, attrs)
         {
             _context = context;
-            _inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
+
+            _inflater = LayoutInflater.From(context);
+            //_inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
 
             _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.actionbar, null);
             AddView(_barView);
