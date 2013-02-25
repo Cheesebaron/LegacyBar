@@ -3,7 +3,7 @@
 <!-- xmlns:ab must match your namespace -->
 <LinearLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:ab="http://schemas.android.com/apk/res/monodroid.actionbar.sample"
+  xmlns:ab="http://schemas.android.com/apk/res/MonoDroid.ActionBar.Sample"
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
@@ -11,7 +11,7 @@
   <monodroid.actionbar.library.ActionBar
       android:id="@+id/actionbar"
       style="@style/actionbar"
-      ab:title="Hingst!"
+      ab:title="Awesome!"
       ab:separator="@color/actionbar_separator_alt"
       ab:background="@drawable/actionbar_background_alt"
       ab:background_item="@drawable/actionbar_btn_alt"
