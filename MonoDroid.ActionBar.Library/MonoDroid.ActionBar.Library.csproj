@@ -58,6 +58,7 @@
     <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
     <Compile Include="TabsAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceIdFix.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

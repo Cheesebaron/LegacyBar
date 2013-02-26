@@ -202,11 +202,12 @@ namespace MonoDroid.ActionBar.Library
         }
 
         #endregion
-
+		
         public ActionBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
             _context = context;
+			ResourceIdManager.UpdateIdValues();
 
             _inflater = LayoutInflater.From(context);
             //_inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
@@ -214,7 +215,7 @@ namespace MonoDroid.ActionBar.Library
             _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.actionbar, null);
             AddView(_barView);
 
-            _logoView = _barView.FindViewById<ImageView>(Resource.Id.actionbar_home_logo);
+            _logoView = _barView.FindViewById(Resource.Id.actionbar_home_logo) as ImageView;
             _homeLayout = _barView.FindViewById<RelativeLayout>(Resource.Id.actionbar_home_bg);
             _homeBtn = _barView.FindViewById<ImageButton>(Resource.Id.actionbar_home_btn);
             _backIndicator = _barView.FindViewById(Resource.Id.actionbar_home_is_back);
