@@ -8,6 +8,7 @@ Featured:
 * Integrates with current Menus
 * Overflow on API 11+ Devices
 * Dynamic Action Bar Item Count based on screen resolution
+* Importable library
 * Bottom Action Bar (beta)
 
 TO see a work in progress of a project that implements the MonoDroid Action Bar please see:
@@ -28,7 +29,6 @@ For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/Mo
 ## TODO
 * Refactor Bottom Action Bar
 * Implement Base Themes
-* Put implementation into Library Project
 * More samples
 * Docs
 
