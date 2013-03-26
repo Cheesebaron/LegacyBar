@@ -83,7 +83,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\MonoDroid.ActionBar.Library\LegacyBar.Library.csproj">
+    <ProjectReference Include="..\LegacyBar.Library\LegacyBar.Library.csproj">
       <Project>{371657B5-2C38-4D23-B7C1-6C053EB55FB8}</Project>
       <Name>LegacyBar.Library</Name>
     </ProjectReference>
