@@ -3,12 +3,12 @@
 <!-- xmlns:ab must match your namespace -->
 <LinearLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:ab="http://schemas.android.com/apk/res/MonoDroid.ActionBar.Sample"
+  xmlns:ab="http://schemas.android.com/apk/res/LegacyBar.Sample"
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
   
-  <monodroid.actionbar.library.ActionBar
+  <legacybar.library.bar.LegacyBar
       android:id="@+id/actionbar"
       style="@style/actionbar"
       ab:title="Awesome!"

@@ -17,29 +17,23 @@ using Android.App;
 using Android.Content;
 using Android.Support.V4.App;
 using Android.Views;
+using LegacyBar.Library.Bar;
 
-namespace MonoDroid.ActionBar.Library
+namespace LegacyBar.Library.BarBase
 {
     [Activity(Label = "")]
-    public class ActionBarFragmentActivity : FragmentActivity
+    public class LegacyBarFragmentActivity : FragmentActivity
     {
-        private ActionBar m_ActionBar;
-        public ActionBar ActionBar
-        {
-            get { return m_ActionBar; }
-            set { m_ActionBar = value; }
-        }
+        public new Bar.LegacyBar ActionBar { get; set; }
 
         public int MenuId { get; set; }
-
- 
 
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             if (ActionBar == null)
                 return base.OnPrepareOptionsMenu(menu);
 
-            for (int i = 0; i < menu.Size(); i++)
+            for (var i = 0; i < menu.Size(); i++)
             {
                 var menuItem = menu.GetItem(i);
                 menuItem.SetVisible(!ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
@@ -58,7 +52,7 @@ namespace MonoDroid.ActionBar.Library
 			var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new MyActionBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
+            ActionBar.SetHomeAction(new MyLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
             ActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 

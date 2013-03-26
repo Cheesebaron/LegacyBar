@@ -1,23 +1,20 @@
-ActionBar for Mono for Android
+LegacyBar an ActionBar for Xamarin.Android (Mono for Android)
 ===================
 
-This project is under rapid development by both Tomasz Cielecki and James Montemagno. Please hang with us while we get documentation ready and fully stablize the code.
+This was originally a port of [android-actionbar by Johan Nilson](https://github.com/johannilsson/android-actionbar) and project is under rapid development
+by Tomasz Cielecki and James Montemagno and is quickly moving away from the what the port initially was.
 
-Featured:
-* Fully customizeable Action Bar
+It now features:
+* A fully customizeable Action Bar
 * Integrates with current Menus
 * Overflow on API 11+ Devices
 * Dynamic Action Bar Item Count based on screen resolution
 * Importable library
 * Bottom Action Bar (beta)
 
-TO see a work in progress of a project that implements the MonoDroid Action Bar please see:
-https://github.com/jamesmontemagno/TasksSimplified
-
-
-This is a a port of https://github.com/johannilsson/android-actionbar
-
-For usage check the project this has been ported from README, there is a detailed description on how to use it.
+## Projects which use LegacyBar
+* [TasksSimplified](https://github.com/jamesmontemagno/TasksSimplified)
+* Want yours on the list? Open an issue :)
 
 ## Screenshots
 ![Bottom and Overflow](https://github.com/jamesmontemagno/MonoDroid.ActionBar/raw/master/Screenshots/BottomAction_Overflow.png)
@@ -30,8 +27,7 @@ For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/Mo
 * Refactor Bottom Action Bar
 * Implement Base Themes
 * More samples
-* Docs
-
+* More Docs
 
 ## License
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

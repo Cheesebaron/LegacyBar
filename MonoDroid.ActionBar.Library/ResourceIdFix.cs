@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Android.Runtime;
 
-namespace MonoDroid.ActionBar.Library
+namespace LegacyBar.Library
 {
 	//From http://forums.xamarin.com/discussion/comment/5816/#Comment_5816
 	public static class ResourceIdManager

@@ -22,7 +22,7 @@ using Android.Views;
 using Android.Widget;
 using Android.Util;
 
-namespace MonoDroid.ActionBar.Library
+namespace LegacyBar.Library.Bar
 {
     public class ScrollingTextView : TextView
     {

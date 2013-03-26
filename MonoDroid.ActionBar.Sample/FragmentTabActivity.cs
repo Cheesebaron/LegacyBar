@@ -23,12 +23,14 @@ using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
-using MonoDroid.ActionBar.Library;
+using LegacyBar.Library.Adapters;
+using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarBase;
 
-namespace MonoDroid.ActionBar.Sample
+namespace LegacyBar.Sample
 {
     [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
-    public class FragmentTabActivity : ActionBarFragmentActivity
+    public class FragmentTabActivity : LegacyBarFragmentActivity
     {
         TabHost _tabHost;
         ViewPager _viewPager;
@@ -51,13 +53,13 @@ namespace MonoDroid.ActionBar.Sample
             _tabsAdapter = new TabsAdapter(this, _tabHost, _viewPager);
 
 
-			ActionBar = FindViewById<Library.ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
             ActionBar.CurrentActivity = this;
             AddHomeAction(typeof(HomeActivity));
          
 
-            var action = new MenuItemActionBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.menu_string_search);
+            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.menu_string_search);
             ActionBar.AddAction(action);
 
 

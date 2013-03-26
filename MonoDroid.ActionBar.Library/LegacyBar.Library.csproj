@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,12 +8,12 @@
     <ProjectGuid>{371657B5-2C38-4D23-B7C1-6C053EB55FB8}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>MonoDroid.ActionBar.Library</RootNamespace>
+    <RootNamespace>LegacyBar.Library</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AssemblyName>MonoDroid.ActionBar.Library</AssemblyName>
+    <AssemblyName>LegacyBar.Library</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -45,18 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="ActionBar\ActionBar.cs" />
-    <Compile Include="ActionBar\ActionBarAction.cs" />
-    <Compile Include="ActionBar\ActionBarUtils.cs" />
-    <Compile Include="ActionBar\IActionBarAction.cs" />
-    <Compile Include="ActionBar\MyActionBarAction.cs" />
-    <Compile Include="ActionBar\OverflowActionBarAction.cs" />
-    <Compile Include="ActionBar\ScrollingTextView.cs" />
-    <Compile Include="ActionBar\MenuItemActionBarAction.cs" />
-    <Compile Include="ActionBarBase\ActionBarActivity.cs" />
-    <Compile Include="ActionBarBase\ActionBarFragmentActivity.cs" />
-    <Compile Include="ActionBarBase\ActionBarListActivity.cs" />
-    <Compile Include="TabsAdapter.cs" />
+    <Compile Include="Bar\LegacyBar.cs" />
+    <Compile Include="Bar\LegacyBarAction.cs" />
+    <Compile Include="Bar\LegacyBarUtils.cs" />
+    <Compile Include="Bar\IActionBarAction.cs" />
+    <Compile Include="Bar\MyLegacyBarAction.cs" />
+    <Compile Include="Bar\OverflowLegacyBarAction.cs" />
+    <Compile Include="Bar\ScrollingTextView.cs" />
+    <Compile Include="Bar\MenuItemLegacyBarAction.cs" />
+    <Compile Include="BarBase\LegacyBarActivity.cs" />
+    <Compile Include="BarBase\LegacyBarFragmentActivity.cs" />
+    <Compile Include="BarBase\LegacyBarListActivity.cs" />
+    <Compile Include="Adapters\TabsAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceIdFix.cs" />
   </ItemGroup>
@@ -144,7 +144,5 @@
     <AndroidResource Include="Resources\Values-xlarge\dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

@@ -7,8 +7,7 @@ using Android.Support.V4.App;
 using Java.Lang;
 using Android.Support.V4.View;
 
-
-namespace MonoDroid.ActionBar.Library
+namespace LegacyBar.Library.Adapters
 {
 
     /**
@@ -24,10 +23,10 @@ namespace MonoDroid.ActionBar.Library
          */
     public class TabsAdapter : FragmentPagerAdapter, TabHost.IOnTabChangeListener, ViewPager.IOnPageChangeListener
     {
-        private Context _context;
-        private TabHost _tabHost;
-        private ViewPager _viewPager;
-        private List<TabInfo> _tabs = new List<TabInfo>();
+        private readonly Context _context;
+        private readonly TabHost _tabHost;
+        private readonly ViewPager _viewPager;
+        private readonly List<TabInfo> _tabs = new List<TabInfo>();
 
         public class TabInfo
         {

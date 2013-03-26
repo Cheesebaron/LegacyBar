@@ -8,14 +8,17 @@
     <ProjectGuid>{B1EBAE8B-31B5-4BE3-8AD7-C15A1C7056A1}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>MonoDroid.ActionBar.Sample</RootNamespace>
+    <RootNamespace>LegacyBar.Sample</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
-    <AssemblyName>MonoDroid.ActionBar.Sample</AssemblyName>
+    <AssemblyName>LegacyBar.Sample</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidSupportedAbis>armeabi%3barmeabi-v7a%3bx86</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -71,7 +74,7 @@
     <AndroidResource Include="Resources\Values-v11\themes.xml" />
     <AndroidResource Include="Resources\Values-v14\themes.xml" />
     <AndroidResource Include="Resources\layout\fragment_tabs.axml">
-      <SubType>AndroidResource</SubType>
+      <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\main.axml" />
     <AndroidResource Include="Resources\layout\other.axml">
@@ -80,9 +83,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\MonoDroid.ActionBar.Library\MonoDroid.ActionBar.Library.csproj">
+    <ProjectReference Include="..\MonoDroid.ActionBar.Library\LegacyBar.Library.csproj">
       <Project>{371657B5-2C38-4D23-B7C1-6C053EB55FB8}</Project>
-      <Name>MonoDroid.ActionBar.Library</Name>
+      <Name>LegacyBar.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

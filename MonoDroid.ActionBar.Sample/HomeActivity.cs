@@ -23,12 +23,13 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using MonoDroid.ActionBar.Library;
+using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarBase;
 
-namespace MonoDroid.ActionBar.Sample
+namespace LegacyBar.Sample
 {
     [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
-    public class HomeActivity : ActionBarActivity
+    public class HomeActivity : LegacyBarActivity
     {
         
         protected override void OnCreate(Bundle bundle)
@@ -38,46 +39,45 @@ namespace MonoDroid.ActionBar.Sample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 
-			ActionBar = FindViewById<Library.ActionBar>(Resource.Id.actionbar);
+			ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.CurrentActivity = this;
             ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
 
-
             /*
-             * You can also set the title of the ActionBar with: 
-             * ActionBar.Title = "MyAwesomeTitle";
+             * You can also set the title of the LegacyBar with: 
+             * LegacyBar.Title = "MyAwesomeTitle";
              * 
              * or
              * 
-             * ActionBar.Title = Resource.String.<yourStringId>;
+             * LegacyBar.Title = Resource.String.<yourStringId>;
              * 
              * Title Color can be set with:
-             * ActionBar.TitleColor = Color.Blue; //Or any other Color you want
+             * LegacyBar.TitleColor = Color.Blue; //Or any other Color you want
              * 
              * The Separator between the Action Bar Items can be set with:
-             * ActionBar.SeparatorColor = Color.Blue;
+             * LegacyBar.SeparatorColor = Color.Blue;
              * 
              * and with a drawable:
              * 
-             * ActionBar.SeparatorDrawable = myDrawable;
+             * LegacyBar.SeparatorDrawable = myDrawable;
              */
 
             //always put these 2 in there since they are NOT in my menu.xml
-            ActionBarAction shareAction = new MyActionBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default)
+            LegacyBarAction shareAction = new MyLegacyBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default)
             {
                 ActionType = ActionType.Always
             };
             ActionBar.AddAction(shareAction);
-            
 
-            var otherAction = new MyActionBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default)
+
+            var otherAction = new MyLegacyBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default)
             {
                 ActionType = ActionType.Always
             };
             ActionBar.AddAction(otherAction);
 
             //only put in if there is room
-            var searchMenuItemAction = new MenuItemActionBarAction(
+            var searchMenuItemAction = new MenuItemLegacyBarAction(
                 this, this, Resource.Id.menu_search,
                 Resource.Drawable.ic_action_search_dark,
                 Resource.String.menu_string_search)
@@ -87,7 +87,7 @@ namespace MonoDroid.ActionBar.Sample
             ActionBar.AddAction(searchMenuItemAction);
             
             //never put this guy in there
-            searchMenuItemAction = new MenuItemActionBarAction(
+            searchMenuItemAction = new MenuItemLegacyBarAction(
                 this, this, Resource.Id.menu_refresh,
                 Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
@@ -119,7 +119,7 @@ namespace MonoDroid.ActionBar.Sample
             removeAction.Click += (s, e) =>
             {
                 ActionBar.RemoveActionAt(ActionBar.ActionCount - 1);
-                Toast.MakeText(this, "Removed action.", ToastLength.Short).Show();
+                Toast.MakeText(this, "Removed legacyBarAction.", ToastLength.Short).Show();
             };
 
             var otherActivity = FindViewById<Button>(Resource.Id.other_activity);
@@ -138,23 +138,23 @@ namespace MonoDroid.ActionBar.Sample
             };
         }
 
-        private class MyOtherActionBarAction : ActionBarAction
+        private class MyOtherActionBarAction : LegacyBarAction
         {
             public MyOtherActionBarAction(Context context, Intent intent, int drawable)
             {
-                mDrawable = drawable;
-                mContext = context;
-                mIntent = intent;
+                Drawable = drawable;
+                Context = context;
+                Intent = intent;
             }
 
             public override int GetDrawable()
             {
-                return mDrawable;
+                return Drawable;
             }
 
             public override void PerformAction(View view)
             {
-                Toast.MakeText(mContext, "Added action", ToastLength.Short).Show();
+                Toast.MakeText(Context, "Added legacyBarAction", ToastLength.Short).Show();
             }
         }
 
@@ -178,7 +178,7 @@ namespace MonoDroid.ActionBar.Sample
         {
             var intent = new Intent(Intent.ActionSend);
             intent.SetType("text/plain");
-            intent.PutExtra(Intent.ExtraText, "Shared from the ActionBar widget.");
+            intent.PutExtra(Intent.ExtraText, "Shared from the LegacyBar widget.");
             return Intent.CreateChooser(intent, "Share");
         }
     }
