@@ -17,9 +17,9 @@ It now features:
 * Want yours on the list? Open an issue :)
 
 ## Screenshots
-![Bottom and Overflow](https://github.com/jamesmontemagno/MonoDroid.ActionBar/raw/master/Screenshots/BottomAction_Overflow.png)
-![Home Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Home.png)
-![Other Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Other_Activity.png)
+![Bottom and Overflow](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/BottomAction_Overflow.png)
+![Home Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Home.png)
+![Other Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Other_Activity.png)
 
 For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
 
