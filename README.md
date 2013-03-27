@@ -14,6 +14,7 @@ It now features:
 
 ## Projects which use LegacyBar
 * [TasksSimplified](https://github.com/jamesmontemagno/TasksSimplified)
+* [My Media Center](https://play.google.com/store/apps/details?id=com.ceton.companion)
 * Want yours on the list? Open an issue :)
 
 ## Screenshots
