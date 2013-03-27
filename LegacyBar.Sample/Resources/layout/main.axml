@@ -3,7 +3,7 @@
 <!-- xmlns:ab must match your namespace -->
 <LinearLayout 
 	xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:ab="http://schemas.android.com/apk/res/LegacyBar.Sample"
+  xmlns:ab="http://schemas.android.com/apk/res/legacybar.sample"
   android:orientation="vertical"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
