@@ -33,59 +33,76 @@ namespace LegacyBar.Sample
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-
-            SetContentView(Resource.Layout.other);
+            
+            var theme = (LegacyBarTheme)Intent.GetIntExtra("Theme", 0);
+            switch (theme)
+            {
+                case LegacyBarTheme.HoloBlack:
+                    SetContentView(Resource.Layout.black_theme);
+                    break;
+                case LegacyBarTheme.HoloBlue:
+                    SetContentView(Resource.Layout.blue_theme);
+                    break;
+                case LegacyBarTheme.HoloGray:
+                    SetContentView(Resource.Layout.gray_theme);
+                    break;
+                case LegacyBarTheme.HoloLight:
+                    SetContentView(Resource.Layout.light_theme);
+                    break;
+                default:
+                    SetContentView(Resource.Layout.other);
+                    break;
+            }
+            
 
             MenuId = Resource.Menu.mainmenu;
 
-            ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+            LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
-            ActionBar.Title = "Other Activity";
+            LegacyBar.Title = "Other Activity";
             AddHomeAction(typeof (HomeActivity));
-            ActionBar.CurrentActivity = this;
+            LegacyBar.CurrentActivity = this;
 
             var itemActionBarAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_search,
-                Resource.Drawable.ic_action_search_dark,
+                this, this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_search : Resource.Drawable.ic_action_search_dark,
                 Resource.String.menu_string_search)
                                           {
                                               ActionType = ActionType.Always
                                           };
-            ActionBar.AddAction(itemActionBarAction);
+            LegacyBar.AddAction(itemActionBarAction);
 
             itemActionBarAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_refresh,
+                this, this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
                 Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
                                       {ActionType = ActionType.Never};
-            ActionBar.AddAction(itemActionBarAction);
+            LegacyBar.AddAction(itemActionBarAction);
 
             var bottomActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.bottomActionbar);
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up,
+            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_up, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_up : Resource.Drawable.ic_action_up_dark,
                                                      Resource.String.menu_string_down)
                              {
                                  ActionType = ActionType.Always
                              };
 
             bottomActionBar.AddAction(action);
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down,
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_down, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_down : Resource.Drawable.ic_action_down_dark,
                                                  Resource.String.menu_string_down)
                          {
                              ActionType = ActionType.Always
                          };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left,
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_left, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_left : Resource.Drawable.ic_action_left_dark,
                                                  Resource.String.menu_string_left)
                          {
                              ActionType = ActionType.Always
                          };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right,
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_right, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_right : Resource.Drawable.ic_action_right_dark,
                                                  Resource.String.menu_string_right)
                          {
                              ActionType = ActionType.Always

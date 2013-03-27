@@ -24,6 +24,15 @@ using Android.Views;
 
 namespace LegacyBar.Library.BarActions
 {
+    public enum LegacyBarTheme
+    {
+        Custom,
+        HoloLight,
+        HoloGray,
+        HoloBlack,
+        HoloBlue
+    }
+
     public enum ActionType
     {
         IfRoom,

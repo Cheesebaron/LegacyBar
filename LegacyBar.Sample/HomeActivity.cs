@@ -40,9 +40,9 @@ namespace LegacyBar.Sample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 
-            ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
-            ActionBar.CurrentActivity = this;
-            ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
+            LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+            LegacyBar.CurrentActivity = this;
+            LegacyBar.SetHomeLogo(Resource.Drawable.ic_launcher);
 
             /*
              * You can also set the title of the LegacyBar with: 
@@ -65,64 +65,61 @@ namespace LegacyBar.Sample
 
             //always put these 2 in there since they are NOT in my menu.xml
             LegacyBarAction shareAction = new DefaultLegacyBarAction(this, CreateShareIntent(),
-                                                                     Resource.Drawable.ic_title_share_default)
+                                                                     LegacyBar.LightIcons ? Resource.Drawable.ic_action_sort : Resource.Drawable.ic_action_sort_dark)
                                               {
                                                   ActionType = ActionType.Always
                                               };
-            ActionBar.AddAction(shareAction);
+            LegacyBar.AddAction(shareAction);
 
 
             var otherAction = new DefaultLegacyBarAction(this, new Intent(this, typeof (OtherActivity)),
-                                                         Resource.Drawable.ic_title_export_default)
+                                                         LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark)
                                   {
                                       ActionType = ActionType.Always
                                   };
-            ActionBar.AddAction(otherAction);
+            LegacyBar.AddAction(otherAction);
 
             //only put in if there is room
             var searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_search,
-                Resource.Drawable.ic_action_search_dark,
+                this, this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark,
                 Resource.String.menu_string_search)
                                            {
                                                ActionType = ActionType.IfRoom
                                            };
-            ActionBar.AddAction(searchMenuItemAction);
+            LegacyBar.AddAction(searchMenuItemAction);
 
             //never put this guy in there
             searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_refresh,
-                Resource.Drawable.ic_action_refresh_dark,
+                this, this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh : Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
                                        {
                                            ActionType = ActionType.Never
                                        };
-            ActionBar.AddAction(searchMenuItemAction);
+            LegacyBar.AddAction(searchMenuItemAction);
 
             var startProgress = FindViewById<Button>(Resource.Id.start_progress);
-            startProgress.Click += (s, e) => ActionBar.ProgressBarVisibility = ViewStates.Visible;
+            startProgress.Click += (s, e) => LegacyBar.ProgressBarVisibility = ViewStates.Visible;
 
             var stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
-            stopProgress.Click += (s, e) => ActionBar.ProgressBarVisibility = ViewStates.Gone;
+            stopProgress.Click += (s, e) => LegacyBar.ProgressBarVisibility = ViewStates.Gone;
 
             var removeActions = FindViewById<Button>(Resource.Id.remove_actions);
-            removeActions.Click += (s, e) => ActionBar.RemoveAllActions();
+            removeActions.Click += (s, e) => LegacyBar.RemoveAllActions();
 
             var removeShareAction = FindViewById<Button>(Resource.Id.remove_share_action);
-            removeShareAction.Click += (s, e) => ActionBar.RemoveAction(shareAction);
+            removeShareAction.Click += (s, e) => LegacyBar.RemoveAction(shareAction);
 
             var addAction = FindViewById<Button>(Resource.Id.add_action);
             addAction.Click += (s, e) =>
                                    {
-                                       var action = new MyOtherActionBarAction(this, null,
-                                                                               Resource.Drawable.ic_title_share_default);
-                                       ActionBar.AddAction(action);
+                                       var action = new MyOtherActionBarAction(this, null, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark);
+                                       LegacyBar.AddAction(action);
                                    };
 
             var removeAction = FindViewById<Button>(Resource.Id.remove_action);
             removeAction.Click += (s, e) =>
                                       {
-                                          ActionBar.RemoveActionAt(ActionBar.ActionCount - 1);
+                                          LegacyBar.RemoveActionAt(LegacyBar.ActionCount - 1);
                                           Toast.MakeText(this, "Removed legacyBarAction.", ToastLength.Short).Show();
                                       };
 
@@ -132,6 +129,38 @@ namespace LegacyBar.Sample
                                            var intent = new Intent(this, typeof (OtherActivity));
                                            StartActivity(intent);
                                        };
+
+            var black = FindViewById<Button>(Resource.Id.black_activity);
+            black.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(OtherActivity));
+                intent.PutExtra("Theme", (int)LegacyBarTheme.HoloBlack);
+                StartActivity(intent);
+            };
+
+            var blue = FindViewById<Button>(Resource.Id.blue_activity);
+            blue.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(OtherActivity));
+                intent.PutExtra("Theme", (int)LegacyBarTheme.HoloBlue);
+                StartActivity(intent);
+            };
+
+            var light = FindViewById<Button>(Resource.Id.light_activity);
+            light.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(OtherActivity));
+                intent.PutExtra("Theme", (int)LegacyBarTheme.HoloLight);
+                StartActivity(intent);
+            };
+
+            var gray = FindViewById<Button>(Resource.Id.gray_activity);
+            gray.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(OtherActivity));
+                intent.PutExtra("Theme", (int) LegacyBarTheme.HoloGray);
+                StartActivity(intent);
+            };
 
 
             var fragmentActivity = FindViewById<Button>(Resource.Id.fragment_activity);

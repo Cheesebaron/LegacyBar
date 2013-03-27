@@ -14,9 +14,9 @@
      limitations under the License.
 -->
 <resources>
-  <dimen name="actionbar_height">48dp</dimen>
-  <dimen name="actionbar_item_height">46dp</dimen>
-  <dimen name="actionbar_item_height_over">45dp</dimen>
-  <dimen name="actionbar_item_width">50dp</dimen>
-  <dimen name="actionbar_home_item_width">50dp</dimen>
+  <dimen name="actionbar_height">56dp</dimen>
+  <dimen name="actionbar_item_height">54dp</dimen>
+  <dimen name="actionbar_item_height_overflow">53dp</dimen>
+  <dimen name="actionbar_item_width">64dp</dimen>
+  <dimen name="actionbar_home_item_width">64dp</dimen>
 </resources>

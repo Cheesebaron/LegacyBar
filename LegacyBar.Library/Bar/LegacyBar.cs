@@ -76,6 +76,10 @@ namespace LegacyBar.Library.Bar
 
         public Activity CurrentActivity { get; set; }
 
+        public LegacyBarTheme Theme { get; set; }
+        public bool LightIcons { get; set; }
+        public bool IsBottom { get; set; }
+
         /// <summary>
         /// Set the color of the seperators between Action Items
         /// </summary>
@@ -230,6 +234,19 @@ namespace LegacyBar.Library.Bar
             var a = context.ObtainStyledAttributes(attrs,
                     Resource.Styleable.actionbar);
 
+            //grab theme attributes
+            Theme = (LegacyBarTheme)a.GetInt(Resource.Styleable.actionbar_theme, 0);
+            IsBottom = a.GetBoolean(Resource.Styleable.actionbar_is_bottom, false);
+            LightIcons = a.GetBoolean(Resource.Styleable.actionbar_light_icons, false);
+
+            //if we are not custom don't let them set it.
+            if (Theme != LegacyBarTheme.Custom)
+            {
+                LightIcons = Theme == LegacyBarTheme.HoloLight;
+            }
+
+            _overflowLegacyBarAction.SetIconColor(LightIcons);
+
             var title = a.GetString(Resource.Styleable.actionbar_title);
             if (null != title)
                 Title = title;
@@ -250,6 +267,15 @@ namespace LegacyBar.Library.Bar
             if (null != backgroundItem)
                 ItemBackgroundDrawable = backgroundItem;
 
+            if (IsBottom)
+            {
+                LegacyBarUtils.SetBottomLegacyBarTheme(this, Theme);
+            }
+            else
+            {
+                LegacyBarUtils.SetLegacyBarTheme(this, Theme);
+            }
+
             a.Recycle();
         }
 
@@ -259,6 +285,8 @@ namespace LegacyBar.Library.Bar
             _homeBtn.Tag = legacyBarAction;
             _homeBtn.SetImageResource(legacyBarAction.GetDrawable());
             _homeLayout.Visibility = ViewStates.Visible;
+            _backIndicator.SetBackgroundResource(LightIcons ? Resource.Drawable.actionbar_back_indicator : Resource.Drawable.actionbar_back_indicator_dark);
+            
 
             if (null != ItemBackgroundDrawable)
             {

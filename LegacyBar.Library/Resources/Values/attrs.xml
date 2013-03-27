@@ -21,5 +21,14 @@
     <attr name="separator" format="color" />
     <attr name="background" format="reference|color" />
     <attr name="background_item" format="reference|color" />
+    <attr name="theme">
+      <enum name="custom" value="0" />
+      <enum name="holo_light" value="1" />
+      <enum name="holo_gray" value="2" />
+      <enum name="holo_black" value="3" />
+      <enum name="holo_blue" value="4" />
+    </attr>
+    <attr name="is_bottom" format="boolean"></attr>
+    <attr name="light_icons" format="boolean"></attr>
   </declare-styleable>
 </resources>

@@ -70,6 +70,69 @@ namespace LegacyBar.Library.Bar
             return currentNumber < max;
         }
 
+
+        public static void SetLegacyBarTheme(LegacyBar legacyBar, LegacyBarTheme theme)
+        {
+            switch (theme)
+            {
+                case LegacyBarTheme.HoloLight: //light gray
+                    legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_lightgray;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_lightgray;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_lightgray;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_lightgray;
+                    break;
+                case LegacyBarTheme.HoloGray: //dark gray
+                    legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_darkgray;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_darkgray;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_darkgray;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_darkgray;
+                    break;
+                case LegacyBarTheme.HoloBlue://blue
+                    legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_blue;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_blue;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_blue;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_blue;
+                    break;
+                case LegacyBarTheme.HoloBlack: //black
+                    legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_black;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_black;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_black;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_black;
+                    break;
+            }
+        }
+
+        public static void SetBottomLegacyBarTheme(LegacyBar actionBar, LegacyBarTheme theme)
+        {
+            switch (theme)
+            {
+                case LegacyBarTheme.HoloLight: //light gray
+                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_lightgray;
+                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_lightgray;
+                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_lightgray;
+                    break;
+                case LegacyBarTheme.HoloGray: //dark gray
+                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_darkgray;
+                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_darkgray;
+                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_darkgray;
+                    break;
+                case LegacyBarTheme.HoloBlue://blue
+                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_blue;
+                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_blue;
+                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_blue;
+                    break;
+                case LegacyBarTheme.HoloBlack: //black
+                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    actionBar.TitleColorRaw = !actionBar.LightIcons ? Resource.Color.actionbar_title_black : Resource.Color.actionbar_title;
+                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_black;
+                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_black;
+                    break;
+            }
+        }
+
         /// <summary>
         /// A LinkedList that holds a list of Action.
         /// </summary>

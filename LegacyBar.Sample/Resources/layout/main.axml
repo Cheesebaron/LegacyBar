@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="20dip">
+        android:padding="20dip">
       <Button
           android:id="@+id/start_progress"
           android:layout_width="match_parent"
@@ -61,6 +61,26 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Bottom Action Bar and Themes" />
+      <Button
+          android:id="@+id/gray_activity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Gray Theme" />
+      <Button
+          android:id="@+id/light_activity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Light Theme" />
+      <Button
+          android:id="@+id/black_activity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Black Theme" />
+      <Button
+          android:id="@+id/blue_activity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Blue Theme" />
       <Button
           android:id="@+id/fragment_activity"
           android:layout_width="match_parent"

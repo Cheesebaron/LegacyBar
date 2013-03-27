@@ -24,12 +24,12 @@ namespace LegacyBar.Library.BarBase
     [Activity(Label = "")]
     public class LegacyBarActivity : Activity
     {
-        public new Bar.LegacyBar ActionBar { get; set; }
+        public new Bar.LegacyBar LegacyBar { get; set; }
         public int MenuId { get; set; }
 
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
-            if (ActionBar == null)
+            if (LegacyBar == null)
                 return base.OnPrepareOptionsMenu(menu);
 
             menu.Clear();
@@ -38,7 +38,7 @@ namespace LegacyBar.Library.BarBase
             for (var i = 0; i < menu.Size(); i++)
             {
                 var menuItem = menu.GetItem(i);
-                menuItem.SetVisible(!ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
+                menuItem.SetVisible(!LegacyBar.MenuItemsToHide.Contains(menuItem.ItemId));
             }
             return base.OnPrepareOptionsMenu(menu);
         }
@@ -54,8 +54,8 @@ namespace LegacyBar.Library.BarBase
             var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            LegacyBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
+            LegacyBar.SetDisplayHomeAsUpEnabled(true);
         }
 
         public void AddHomeAction(Action action)
@@ -65,8 +65,8 @@ namespace LegacyBar.Library.BarBase
 
         public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
         {
-            ActionBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
-            ActionBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
+            LegacyBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
+            LegacyBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
         }
     }
 }

@@ -37,6 +37,43 @@
   <color name="bottomactionbar_background_item_pressed_end">#FF7F00</color>
   <color name="bottomactionbar_background_item_pressed_start">#EE7600</color>
 
+  <!-- Default colors-->
+  <color name="actionbar_maincolor_lightgray">#FFDDDDDD</color>
+  <color name="actionbar_accentcolor_lightgray">#FFafafaf</color>
+  <color name="actionbar_pressedcolor_lightgray">#FF77c5e1</color>
+  <color name="actionbar_title_lightgray">#FF000000</color>
+  <color name="actionbar_separator_lightgray">#FFDDDDDD</color>
+  <color name="bottomactionbar_maincolor_lightgray">#FFDDDDDD</color>
+  <color name="bottomactionbar_pressedcolor_lightgray">#FF77c5e1</color>
+  <color name="pager_lightgray">#FF4c505b</color>
+
+  <color name="actionbar_maincolor_darkgray">#FF222222</color>
+  <color name="actionbar_accentcolor_darkgray">#FF1b1b1b</color>
+  <color name="actionbar_pressedcolor_darkgray">#FF3f8daa</color>
+  <color name="actionbar_title_darkgray">#FFFFFFFF</color>
+  <color name="actionbar_separator_darkgray">#FF212121</color>
+  <color name="bottomactionbar_maincolor_darkgray">#FF555555</color>
+  <color name="bottomactionbar_pressedcolor_darkgray">#FF3f8daa</color>
+  <color name="pager_darkgray">#FF206288</color>
+
+  <color name="actionbar_maincolor_black">#FF000000</color>
+  <color name="actionbar_accentcolor_black">#FF33b5e5</color>
+  <color name="actionbar_pressedcolor_black">#FF206e8a</color>
+  <color name="actionbar_title_black">#FFFFFFFF</color>
+  <color name="actionbar_separator_black">#FF000000</color>
+  <color name="bottomactionbar_maincolor_black">#00000000</color>
+  <color name="bottomactionbar_pressedcolor_black">#FF206e8a</color>
+  <color name="pager_black">#FF4c505b</color>
+
+  <color name="actionbar_maincolor_blue">#FF33b5e5</color>
+  <color name="actionbar_accentcolor_blue">#FF30acd9</color>
+  <color name="actionbar_pressedcolor_blue">#FF71cbed</color>
+  <color name="actionbar_title_blue">#FFFFFFFF</color>
+  <color name="actionbar_separator_blue">#FF33b5e5</color>
+  <color name="bottomactionbar_maincolor_blue">#FF555555</color>
+  <color name="bottomactionbar_pressedcolor_blue">#FF888888</color>
+  <color name="pager_blue">#FF4c505b</color>
+
   <color name="white">#FFFFFF</color>
   <color name="black">#000000</color>
   <color name="green">#00FF00</color>

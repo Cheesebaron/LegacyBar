@@ -40,6 +40,11 @@ namespace LegacyBar.Library.BarActions
             ActionType = ActionType.Always;
         }
 
+        public void SetIconColor(bool light)
+        {
+            Drawable = light ? Resource.Drawable.ic_action_overflow : Resource.Drawable.ic_action_overflow_dark;
+        }
+
         public List<LegacyBarAction> ActionList { get; set; }
 
         public Spinner OverflowSpinner
