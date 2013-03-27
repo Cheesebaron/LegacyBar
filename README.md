@@ -22,7 +22,7 @@ It now features:
 ![Home Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Home.png)
 ![Other Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Other_Activity.png)
 
-For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
+For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/LegacyBar/tree/master/Screenshots) folder
 
 ## TODO
 * Refactor Bottom Action Bar
