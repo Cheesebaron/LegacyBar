@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
+ * Copyright (C) 2013 LegacyBar - @Cheesebaron & @JamesMontemagno
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ namespace LegacyBar.Library.BarBase
     [Activity(Label = "")]
     public class LegacyBarActivity : Activity
     {
-        public new Bar.LegacyBar LegacyBar { get; set; }
+        public Bar.LegacyBar LegacyBar { get; set; }
         public int MenuId { get; set; }
 
         public override bool OnPrepareOptionsMenu(IMenu menu)

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 James Montemagno (http://www.montemagno.com)
+ * Copyright (C) 2013 LegacyBar - @Cheesebaron & @JamesMontemagno
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ namespace LegacyBar.Library.BarBase
     [Activity(Label = "")]
     public class LegacyBarFragmentActivity : FragmentActivity
     {
-        public new Bar.LegacyBar ActionBar { get; set; }
+        public Bar.LegacyBar ActionBar { get; set; }
 
         public int MenuId { get; set; }
 

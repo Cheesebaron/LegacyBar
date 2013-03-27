@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Tomasz Cielecki <tomasz@ostebaronen.dk>
+ * Copyright (C) 2013 LegacyBar - @Cheesebaron & @JamesMontemagno
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

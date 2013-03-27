@@ -1,16 +1,15 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using Android.App;
 
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("MonoDroid.LegacyBar.Sample")]
+[assembly: AssemblyTitle("LegacyBar.Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("LegacyBar")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("tcielecki")]
+[assembly: AssemblyCopyright("Tomasz Cielecki & James Montemagno")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,3 +25,8 @@ using Android.App;
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 
+#if DEBUG
+[assembly: Application(Debuggable = true, Icon = "@drawable/icon")]
+#else
+[assembly: Application(Debuggable = false, Icon = "@drawable/icon")] 
+#endif

@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2013 LegacyBar - @Cheesebaron & @JamesMontemagno
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ */
+
 using System.Collections.Generic;
 using Android.Content;
 using Android.OS;
@@ -30,22 +47,22 @@ namespace LegacyBar.Library.Adapters
 
         public class TabInfo
         {
-            public string tag;
-            public Class clss;
-            public Bundle args;
-            public Fragment fragment { get; set; }
+            public string Tag;
+            public Class Class;
+            public Bundle Args;
+            public Fragment Fragment { get; set; }
 
-            public TabInfo(string _tag, Class _class, Bundle _args)
+            public TabInfo(string tag, Class _class, Bundle args)
             {
-                tag = _tag;
-                clss = _class;
-                args = _args;
+                Tag = tag;
+                Class = _class;
+                Args = args;
             }
         }
 
-        public class DummyTabFactory : Java.Lang.Object, TabHost.ITabContentFactory
+        public class DummyTabFactory : Object, TabHost.ITabContentFactory
         {
-            private Context _context;
+            private readonly Context _context;
 
             public DummyTabFactory(Context context)
             {
@@ -96,12 +113,12 @@ namespace LegacyBar.Library.Adapters
         public override Fragment GetItem(int position)
         {
             var info = _tabs[position];
-            return Fragment.Instantiate(_context, info.clss.Name, info.args);
+            return Fragment.Instantiate(_context, info.Class.Name, info.Args);
         }
 
         public void OnTabChanged(string tabId)
         {
-            int position = _tabHost.CurrentTab;
+            var position = _tabHost.CurrentTab;
             _viewPager.CurrentItem = position;
         }
 
