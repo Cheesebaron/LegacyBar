@@ -1,8 +1,5 @@
 /*
- * Copyright (C) 2010 Johan Nilsson <http://markupartist.com>
- *
- * Original (https://github.com/johannilsson/android-actionbar) Ported to Mono for Android
- * Copyright (C) 2012 Tomasz Cielecki <tomasz@ostebaronen.dk>
+ * Copyright (C) 2013 Tomasz Cielecki <tomasz@ostebaronen.dk>
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,19 +14,21 @@
  * limitations under the License.
  */
 
+using System;
 using Android.Content;
 using Android.Views;
-using Android.Widget;
 
-namespace LegacyBar.Library.Bar
+namespace LegacyBar.Library.BarActions
 {
-    public class MyLegacyBarAction : LegacyBarAction
+    public class ActionLegacyBarAction : LegacyBarAction
     {
-        public MyLegacyBarAction(Context context, Intent intent, int drawable)
+        private readonly Action _action;
+
+        public ActionLegacyBarAction(Context context, Action action, int drawable)
         {
             Drawable = drawable;
             Context = context;
-            Intent = intent;
+            _action = action;
         }
 
         public override int GetDrawable()
@@ -39,16 +38,7 @@ namespace LegacyBar.Library.Bar
 
         public override void PerformAction(View view)
         {
-            try
-            {
-                Context.StartActivity(Intent);
-            }
-            catch (ActivityNotFoundException e)
-            {
-                Toast.MakeText(Context,
-                        Context.GetText(Resource.String.actionbar_activity_not_found),
-                        ToastLength.Short).Show();
-            }
+            _action.Invoke();
         }
     }
 }

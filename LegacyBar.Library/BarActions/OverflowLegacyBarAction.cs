@@ -22,7 +22,7 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 
-namespace LegacyBar.Library.Bar
+namespace LegacyBar.Library.BarActions
 {
     public class OverflowLegacyBarAction : LegacyBarAction, AdapterView.IOnItemSelectedListener
     {

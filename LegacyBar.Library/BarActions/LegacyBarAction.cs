@@ -23,13 +23,13 @@
 using Android.Content;
 using Android.Views;
 
-namespace LegacyBar.Library.Bar
+namespace LegacyBar.Library.BarActions
 {
     /**
          * Definition of an action that could be performed, along with a icon to
          * show.
          */
-    public abstract class LegacyBarAction : Java.Lang.Object, IActionBarAction
+    public abstract class LegacyBarAction : Java.Lang.Object, ILegacyBarAction
     {
         protected int Drawable;
         protected Context Context;

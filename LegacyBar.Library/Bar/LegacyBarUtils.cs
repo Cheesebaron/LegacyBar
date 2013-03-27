@@ -18,6 +18,7 @@
 
 using System.Collections.Generic;
 using Android.App;
+using LegacyBar.Library.BarActions;
 
 namespace LegacyBar.Library.Bar
 {

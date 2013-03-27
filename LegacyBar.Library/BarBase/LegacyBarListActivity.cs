@@ -13,10 +13,11 @@
  * limitations under the License.
 */
 
+using System;
 using Android.App;
 using Android.Content;
 using Android.Views;
-using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarActions;
 
 namespace LegacyBar.Library.BarBase
 {
@@ -26,18 +27,6 @@ namespace LegacyBar.Library.BarBase
         public new Bar.LegacyBar ActionBar { get; set; }
         public int MenuId { get; set; }
 
-        protected override void OnStart()
-        {
-            base.OnStart();
-            //FlurryAgent.OnStartSession(this, App.FlurryApiKeyValue);
-        }
-
-        protected override void OnStop()
-        {
-            base.OnStop();
-            //FlurryAgent.OnEndSession(this);
-        }
-
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             if (ActionBar == null)
@@ -46,7 +35,7 @@ namespace LegacyBar.Library.BarBase
             menu.Clear();
             MenuInflater.Inflate(MenuId, menu);
 
-            for (int i = 0; i < menu.Size(); i++)
+            for (var i = 0; i < menu.Size(); i++)
             {
                 var menuItem = menu.GetItem(i);
                 menuItem.SetVisible(!ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
@@ -60,13 +49,24 @@ namespace LegacyBar.Library.BarBase
             return base.OnCreateOptionsMenu(menu);
         }
 
-        public void AddHomeAction(System.Type activity)
+        public void AddHomeAction(Type activity)
         {
-			var homeIntent = new Intent(this, activity);
+            var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new MyLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
+            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
             ActionBar.SetDisplayHomeAsUpEnabled(true);
+        }
+
+        public void AddHomeAction(Action action)
+        {
+            AddHomeAction(action, Resource.Drawable.ic_launcher);
+        }
+
+        public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
+        {
+            ActionBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
+            ActionBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
         }
     }
 }

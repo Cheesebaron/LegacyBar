@@ -14,6 +14,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>LegacyBar.Library</AssemblyName>
+    <TargetFrameworkVersion>v2.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -44,15 +45,16 @@
     <Reference Include="Mono.Android.Support.v4" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarActions\ActionLegacyBarAction.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Bar\LegacyBar.cs" />
-    <Compile Include="Bar\LegacyBarAction.cs" />
+    <Compile Include="BarActions\LegacyBarAction.cs" />
     <Compile Include="Bar\LegacyBarUtils.cs" />
-    <Compile Include="Bar\IActionBarAction.cs" />
-    <Compile Include="Bar\MyLegacyBarAction.cs" />
-    <Compile Include="Bar\OverflowLegacyBarAction.cs" />
+    <Compile Include="BarActions\ILegacyBarAction.cs" />
+    <Compile Include="BarActions\DefaultLegacyBarAction.cs" />
+    <Compile Include="BarActions\OverflowLegacyBarAction.cs" />
     <Compile Include="Bar\ScrollingTextView.cs" />
-    <Compile Include="Bar\MenuItemLegacyBarAction.cs" />
+    <Compile Include="BarActions\MenuItemLegacyBarAction.cs" />
     <Compile Include="BarBase\LegacyBarActivity.cs" />
     <Compile Include="BarBase\LegacyBarFragmentActivity.cs" />
     <Compile Include="BarBase\LegacyBarListActivity.cs" />

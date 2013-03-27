@@ -19,20 +19,22 @@
  */
 
 using Android.App;
+using Android.Content.PM;
 using Android.OS;
-using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarActions;
 using LegacyBar.Library.BarBase;
 
 namespace LegacyBar.Sample
 {
-    [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
-    class OtherActivity : LegacyBarActivity
+    [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = LaunchMode.SingleTop,
+        Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+    internal class OtherActivity : LegacyBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            
+
             SetContentView(Resource.Layout.other);
 
             MenuId = Resource.Menu.mainmenu;
@@ -41,7 +43,7 @@ namespace LegacyBar.Sample
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
             ActionBar.Title = "Other Activity";
-            AddHomeAction(typeof(HomeActivity));
+            AddHomeAction(typeof (HomeActivity));
             ActionBar.CurrentActivity = this;
 
             var itemActionBarAction = new MenuItemLegacyBarAction(
@@ -60,32 +62,35 @@ namespace LegacyBar.Sample
                                       {ActionType = ActionType.Never};
             ActionBar.AddAction(itemActionBarAction);
 
-			var bottomActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.bottomActionbar);
+            var bottomActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.bottomActionbar);
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up, Resource.String.menu_string_down)
+            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_up, Resource.Drawable.ic_action_up,
+                                                     Resource.String.menu_string_down)
                              {
-                               ActionType = ActionType.Always
+                                 ActionType = ActionType.Always
                              };
 
             bottomActionBar.AddAction(action);
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down, Resource.String.menu_string_down)
-                            {
-                                ActionType = ActionType.Always
-                            };
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_down, Resource.Drawable.ic_action_down,
+                                                 Resource.String.menu_string_down)
+                         {
+                             ActionType = ActionType.Always
+                         };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left, Resource.String.menu_string_left)
-                            {
-                                ActionType = ActionType.Always
-                            };
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_left, Resource.Drawable.ic_action_left,
+                                                 Resource.String.menu_string_left)
+                         {
+                             ActionType = ActionType.Always
+                         };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right, Resource.String.menu_string_right)
-                            {
-                                ActionType = ActionType.Always
-                            };
+            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_right, Resource.Drawable.ic_action_right,
+                                                 Resource.String.menu_string_right)
+                         {
+                             ActionType = ActionType.Always
+                         };
             bottomActionBar.AddAction(action);
-
         }
     }
 }

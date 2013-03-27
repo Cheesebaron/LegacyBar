@@ -22,7 +22,7 @@
 
 using Android.Views;
 
-namespace LegacyBar.Library.Bar
+namespace LegacyBar.Library.BarActions
 {
     public enum ActionType
     {
@@ -32,7 +32,7 @@ namespace LegacyBar.Library.Bar
         Always,
         CollapseActionView
     }
-    public interface IActionBarAction
+    public interface ILegacyBarAction
     {
         int GetDrawable();
 

@@ -18,29 +18,30 @@
  */
 
 using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using LegacyBar.Library.Adapters;
-using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarActions;
 using LegacyBar.Library.BarBase;
 
 namespace LegacyBar.Sample
 {
-    [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+    [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = LaunchMode.SingleTop,
+        Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
     public class FragmentTabActivity : LegacyBarFragmentActivity
     {
-        TabHost _tabHost;
-        ViewPager _viewPager;
-        TabsAdapter _tabsAdapter;
+        private TabHost _tabHost;
+        private TabsAdapter _tabsAdapter;
+        private ViewPager _viewPager;
 
         protected override void OnCreate(Bundle bundle)
         {
-            
             base.OnCreate(bundle);
-
 
             MenuId = Resource.Menu.mainmenu;
 
@@ -53,24 +54,26 @@ namespace LegacyBar.Sample
             _tabsAdapter = new TabsAdapter(this, _tabHost, _viewPager);
 
 
-			ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+            ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
             ActionBar.CurrentActivity = this;
-            AddHomeAction(typeof(HomeActivity));
-         
+            AddHomeAction(typeof (HomeActivity));
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search, Resource.Drawable.ic_action_search_dark, Resource.String.menu_string_search);
+
+            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search,
+                                                     Resource.Drawable.ic_action_search_dark,
+                                                     Resource.String.menu_string_search);
             ActionBar.AddAction(action);
 
 
-            var spec = _tabHost.NewTabSpec("tv");
+            TabHost.TabSpec spec = _tabHost.NewTabSpec("tv");
             spec.SetIndicator("Tab 1", Resources.GetDrawable(Resource.Drawable.ic_launcher));
-            _tabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab1)), null);
+            _tabsAdapter.AddTab(spec, Class.FromType(typeof (FramgmentTab1)), null);
 
 
             spec = _tabHost.NewTabSpec("tab2");
             spec.SetIndicator("Tab 2", Resources.GetDrawable(Resource.Drawable.ic_launcher));
-            _tabsAdapter.AddTab(spec, Java.Lang.Class.FromType(typeof(FramgmentTab2)), null);
+            _tabsAdapter.AddTab(spec, Class.FromType(typeof (FramgmentTab2)), null);
 
             if (bundle != null)
             {
@@ -78,7 +81,6 @@ namespace LegacyBar.Sample
             }
             else
             {
-
                 _tabHost.CurrentTab = 0;
             }
         }
@@ -88,14 +90,12 @@ namespace LegacyBar.Sample
             base.OnSaveInstanceState(outState);
 
             outState.PutString("tab", _tabHost.CurrentTabTag);
-
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
-                
                 case Resource.Id.menu_refresh:
                     return true;
             }
@@ -114,7 +114,6 @@ namespace LegacyBar.Sample
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            
             var view = inflater.Inflate(Resource.Layout.simple_fragment, container, false);
 
 
@@ -125,7 +124,6 @@ namespace LegacyBar.Sample
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-
         }
     }
 
@@ -139,7 +137,6 @@ namespace LegacyBar.Sample
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-
             var view = inflater.Inflate(Resource.Layout.simple_fragment, container, false);
             view.FindViewById<TextView>(Resource.Id.fragment_text).Text = "Fragment 2";
             return view;
@@ -148,7 +145,6 @@ namespace LegacyBar.Sample
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-
         }
     }
 }

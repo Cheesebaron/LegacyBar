@@ -20,18 +20,19 @@
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Android.OS;
-using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarActions;
 using LegacyBar.Library.BarBase;
 
 namespace LegacyBar.Sample
 {
-    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop, Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+    [Activity(Label = "Action Bar", MainLauncher = true, LaunchMode = LaunchMode.SingleTop,
+        Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
     public class HomeActivity : LegacyBarActivity
     {
-        
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -39,7 +40,7 @@ namespace LegacyBar.Sample
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.main);
 
-			ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+            ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.CurrentActivity = this;
             ActionBar.SetHomeLogo(Resource.Drawable.ic_launcher);
 
@@ -63,17 +64,19 @@ namespace LegacyBar.Sample
              */
 
             //always put these 2 in there since they are NOT in my menu.xml
-            LegacyBarAction shareAction = new MyLegacyBarAction(this, CreateShareIntent(), Resource.Drawable.ic_title_share_default)
-            {
-                ActionType = ActionType.Always
-            };
+            LegacyBarAction shareAction = new DefaultLegacyBarAction(this, CreateShareIntent(),
+                                                                     Resource.Drawable.ic_title_share_default)
+                                              {
+                                                  ActionType = ActionType.Always
+                                              };
             ActionBar.AddAction(shareAction);
 
 
-            var otherAction = new MyLegacyBarAction(this, new Intent(this, typeof(OtherActivity)), Resource.Drawable.ic_title_export_default)
-            {
-                ActionType = ActionType.Always
-            };
+            var otherAction = new DefaultLegacyBarAction(this, new Intent(this, typeof (OtherActivity)),
+                                                         Resource.Drawable.ic_title_export_default)
+                                  {
+                                      ActionType = ActionType.Always
+                                  };
             ActionBar.AddAction(otherAction);
 
             //only put in if there is room
@@ -85,7 +88,7 @@ namespace LegacyBar.Sample
                                                ActionType = ActionType.IfRoom
                                            };
             ActionBar.AddAction(searchMenuItemAction);
-            
+
             //never put this guy in there
             searchMenuItemAction = new MenuItemLegacyBarAction(
                 this, this, Resource.Id.menu_refresh,
@@ -95,7 +98,7 @@ namespace LegacyBar.Sample
                                            ActionType = ActionType.Never
                                        };
             ActionBar.AddAction(searchMenuItemAction);
-            
+
             var startProgress = FindViewById<Button>(Resource.Id.start_progress);
             startProgress.Click += (s, e) => ActionBar.ProgressBarVisibility = ViewStates.Visible;
 
@@ -107,20 +110,21 @@ namespace LegacyBar.Sample
 
             var removeShareAction = FindViewById<Button>(Resource.Id.remove_share_action);
             removeShareAction.Click += (s, e) => ActionBar.RemoveAction(shareAction);
-            
+
             var addAction = FindViewById<Button>(Resource.Id.add_action);
             addAction.Click += (s, e) =>
-            {
-                var action = new MyOtherActionBarAction(this, null, Resource.Drawable.ic_title_share_default);
-                ActionBar.AddAction(action);
-            };
+                                   {
+                                       var action = new MyOtherActionBarAction(this, null,
+                                                                               Resource.Drawable.ic_title_share_default);
+                                       ActionBar.AddAction(action);
+                                   };
 
             var removeAction = FindViewById<Button>(Resource.Id.remove_action);
             removeAction.Click += (s, e) =>
-            {
-                ActionBar.RemoveActionAt(ActionBar.ActionCount - 1);
-                Toast.MakeText(this, "Removed legacyBarAction.", ToastLength.Short).Show();
-            };
+                                      {
+                                          ActionBar.RemoveActionAt(ActionBar.ActionCount - 1);
+                                          Toast.MakeText(this, "Removed legacyBarAction.", ToastLength.Short).Show();
+                                      };
 
             var otherActivity = FindViewById<Button>(Resource.Id.other_activity);
             otherActivity.Click += (s, e) =>
@@ -132,30 +136,10 @@ namespace LegacyBar.Sample
 
             var fragmentActivity = FindViewById<Button>(Resource.Id.fragment_activity);
             fragmentActivity.Click += (s, e) =>
-            {
-                var intent = new Intent(this, typeof(FragmentTabActivity));
-                StartActivity(intent);
-            };
-        }
-
-        private class MyOtherActionBarAction : LegacyBarAction
-        {
-            public MyOtherActionBarAction(Context context, Intent intent, int drawable)
-            {
-                Drawable = drawable;
-                Context = context;
-                Intent = intent;
-            }
-
-            public override int GetDrawable()
-            {
-                return Drawable;
-            }
-
-            public override void PerformAction(View view)
-            {
-                Toast.MakeText(Context, "Added legacyBarAction", ToastLength.Short).Show();
-            }
+                                          {
+                                              var intent = new Intent(this, typeof (FragmentTabActivity));
+                                              StartActivity(intent);
+                                          };
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -181,6 +165,29 @@ namespace LegacyBar.Sample
             intent.PutExtra(Intent.ExtraText, "Shared from the LegacyBar widget.");
             return Intent.CreateChooser(intent, "Share");
         }
+
+        #region Nested type: MyOtherActionBarAction
+
+        private class MyOtherActionBarAction : LegacyBarAction
+        {
+            public MyOtherActionBarAction(Context context, Intent intent, int drawable)
+            {
+                Drawable = drawable;
+                Context = context;
+                Intent = intent;
+            }
+
+            public override int GetDrawable()
+            {
+                return Drawable;
+            }
+
+            public override void PerformAction(View view)
+            {
+                Toast.MakeText(Context, "Added legacyBarAction", ToastLength.Short).Show();
+            }
+        }
+
+        #endregion
     }
 }
-

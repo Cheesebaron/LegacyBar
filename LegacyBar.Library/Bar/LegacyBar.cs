@@ -26,10 +26,10 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
+using LegacyBar.Library.BarActions;
 
 namespace LegacyBar.Library.Bar
 {

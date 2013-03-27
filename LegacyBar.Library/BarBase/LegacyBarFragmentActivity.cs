@@ -13,11 +13,12 @@
  * limitations under the License.
 */
 
+using System;
 using Android.App;
 using Android.Content;
 using Android.Support.V4.App;
 using Android.Views;
-using LegacyBar.Library.Bar;
+using LegacyBar.Library.BarActions;
 
 namespace LegacyBar.Library.BarBase
 {
@@ -47,13 +48,24 @@ namespace LegacyBar.Library.BarBase
             return base.OnCreateOptionsMenu(menu);
         }
 
-        public void AddHomeAction(System.Type activity)
+        public void AddHomeAction(Type activity)
         {
-			var homeIntent = new Intent(this, activity);
+            var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new MyLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
+            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
             ActionBar.SetDisplayHomeAsUpEnabled(true);
+        }
+
+        public void AddHomeAction(Action action)
+        {
+            AddHomeAction(action, Resource.Drawable.ic_launcher);
+        }
+
+        public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
+        {
+            ActionBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
+            ActionBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
         }
 
         /*TODO public override bool OnOptionsItemSelected(IMenuItem item)
