@@ -7,6 +7,7 @@ LegacyBar is under rapid development by Tomasz Cielecki ([@Cheesebaron](http://w
 
 It now features:
 * A fully customizeable Action Bar
+* 4 Built in base themes
 * Integrates with current Menus
 * Overflow on API 11+ Devices
 * Dynamic Action Bar Item Count based on screen resolution
