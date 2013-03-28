@@ -26,7 +26,7 @@
       android:state_focused="false"
       android:state_selected="true"
       android:state_pressed="false"
-      android:drawable="@color/actionbar_maincolor_darkgray"
+      android:drawable="@color/actionbar_pressedcolor_darkgray"
         />
 
   <!-- Focused states -->
@@ -34,18 +34,18 @@
       android:state_focused="true"
       android:state_selected="false"
       android:state_pressed="false"
-      android:drawable="@color/actionbar_maincolor_darkgray"
+      android:drawable="@color/actionbar_pressedcolor_darkgray"
         />
   <item
       android:state_focused="true"
       android:state_selected="true"
       android:state_pressed="false"
-      android:drawable="@color/actionbar_maincolor_darkgray"
+      android:drawable="@color/actionbar_pressedcolor_darkgray"
         />
 
   <!-- Pressed -->
   <item
       android:state_pressed="true"
-      android:drawable="@color/actionbar_maincolor_darkgray"
+      android:drawable="@color/actionbar_pressedcolor_darkgray"
         />
 </selector>
