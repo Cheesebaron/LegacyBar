@@ -24,6 +24,7 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Android.Util;
@@ -67,7 +68,8 @@ namespace LegacyBar.Library.Bar
 #elif __ANDROID_11__
                 return false;
 #else
-                return true;
+                //fallback
+                return ((int)Build.VERSION.SdkInt) < 11;
 #endif
             }
         }
