@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="Hello">Hello World!</string>
+  <string name="some_title">Some Title</string>
+  <string name="menu_string_search">Search</string>
+  <string name="menu_string_up">up</string>
+  <string name="menu_string_down">down</string>
+  <string name="menu_string_left">left</string>
+  <string name="menu_string_right">right</string>
+  <string name="menu_string_refresh">refresh</string>
+  <string name="menu_string_sort">Sort</string>
+</resources>

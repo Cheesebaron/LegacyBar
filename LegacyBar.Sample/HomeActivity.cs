@@ -39,7 +39,7 @@ namespace LegacyBar.Sample
 
             LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             LegacyBar.CurrentActivity = this;
-            LegacyBar.SetHomeLogo(Resource.Drawable.ic_launcher);
+            LegacyBar.SetHomeLogo(Resource.Drawable.icon);
 
             /*
              * You can also set the title of the LegacyBar with: 

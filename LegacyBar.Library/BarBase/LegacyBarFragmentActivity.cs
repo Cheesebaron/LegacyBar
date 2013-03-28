@@ -48,18 +48,13 @@ namespace LegacyBar.Library.BarBase
             return base.OnCreateOptionsMenu(menu);
         }
 
-        public void AddHomeAction(Type activity)
+        public void AddHomeAction(Type activity, int resId)
         {
             var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, Resource.Drawable.ic_launcher));
+            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, resId));
             ActionBar.SetDisplayHomeAsUpEnabled(true);
-        }
-
-        public void AddHomeAction(Action action)
-        {
-            AddHomeAction(action, Resource.Drawable.ic_launcher);
         }
 
         public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)

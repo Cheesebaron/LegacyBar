@@ -82,11 +82,7 @@
     <AndroidResource Include="Resources\Drawable\actionbar_btn_pressed_alt.xml" />
     <AndroidResource Include="Resources\Drawable-hdpi\actionbar_back_indicator.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_action_overflow_dark.png" />
-    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\Drawable-ldpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow_dark.png" />
-    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow_dark.png" />
     <AndroidResource Include="Resources\Layout\actionbar.axml">
       <SubType>Designer</SubType>

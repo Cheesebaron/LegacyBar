@@ -24,7 +24,7 @@ using LegacyBar.Library.BarBase;
 namespace LegacyBar.Sample
 {
     [Activity(Label = "OtherActivity", MainLauncher = false, LaunchMode = LaunchMode.SingleTop,
-        Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+        Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     internal class OtherActivity : LegacyBarActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -51,16 +51,20 @@ namespace LegacyBar.Sample
                     break;
             }
             
-
-            MenuId = Resource.Menu.mainmenu;
+            //First we will specify the menu we are using.
+            MenuId = Resource.Menu.othermainmenu;
 
             LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+
             // You can also assign the title programmatically by passing a
             // CharSequence or resource id.
             LegacyBar.Title = "Other Activity";
-            AddHomeAction(typeof (HomeActivity));
+
+            //Set the Up button to go home, also much set current activity on the Legacy Bar
+            AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
             LegacyBar.CurrentActivity = this;
 
+            //always show the search icon no matter what.
             var itemActionBarAction = new MenuItemLegacyBarAction(
                 this, this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_search : Resource.Drawable.ic_action_search_dark,
                 Resource.String.menu_string_search)
@@ -69,11 +73,32 @@ namespace LegacyBar.Sample
                                           };
             LegacyBar.AddAction(itemActionBarAction);
 
+
+            //the rest of them I will say NEVER show. now on devices with a menu button you can press it and it will show old menus with the icon you specifies in the menu.xml file
+            //on newer devices without a menu button an overflow will appear.
             itemActionBarAction = new MenuItemLegacyBarAction(
                 this, this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
                 Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
                                       {ActionType = ActionType.Never};
+            LegacyBar.AddAction(itemActionBarAction);
+
+            itemActionBarAction = new MenuItemLegacyBarAction(
+               this, this, Resource.Id.menu_test1, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+               Resource.Drawable.ic_action_refresh_dark,
+               Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
+            LegacyBar.AddAction(itemActionBarAction);
+
+            itemActionBarAction = new MenuItemLegacyBarAction(
+              this, this, Resource.Id.menu_test2, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+              Resource.Drawable.ic_action_refresh_dark,
+              Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
+            LegacyBar.AddAction(itemActionBarAction);
+
+            itemActionBarAction = new MenuItemLegacyBarAction(
+              this, this, Resource.Id.menu_test3, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+              Resource.Drawable.ic_action_refresh_dark,
+              Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
             LegacyBar.AddAction(itemActionBarAction);
 
             var bottomActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.bottomActionbar);

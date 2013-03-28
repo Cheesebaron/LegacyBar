@@ -20,4 +20,17 @@
   <item android:id="@+id/menu_refresh"
         android:icon="@drawable/ic_menu_refresh"
         android:title="@string/menu_string_refresh"/>
+
+  <item android:id="@+id/menu_test1"
+      android:icon="@drawable/ic_menu_refresh"
+      android:title="@string/menu_string_refresh"/>
+
+  <item android:id="@+id/menu_test2"
+    android:icon="@drawable/ic_menu_refresh"
+    android:title="@string/menu_string_refresh"/>
+
+  <item android:id="@+id/menu_test3"
+    android:icon="@drawable/ic_menu_refresh"
+    android:title="@string/menu_string_refresh"/>
+
 </menu>

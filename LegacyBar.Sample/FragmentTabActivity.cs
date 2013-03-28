@@ -31,7 +31,7 @@ using LegacyBar.Library.BarBase;
 namespace LegacyBar.Sample
 {
     [Activity(Label = "Fragment Demo", MainLauncher = false, LaunchMode = LaunchMode.SingleTop,
-        Icon = "@drawable/ic_launcher", Theme = "@style/MyTheme")]
+        Icon = "@drawable/icon", Theme = "@style/MyTheme")]
     public class FragmentTabActivity : LegacyBarFragmentActivity
     {
         private TabHost _tabHost;
@@ -56,7 +56,7 @@ namespace LegacyBar.Sample
             ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
             ActionBar.CurrentActivity = this;
-            AddHomeAction(typeof (HomeActivity));
+            AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
 
 
             var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search,
