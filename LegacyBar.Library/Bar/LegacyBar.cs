@@ -18,6 +18,7 @@
  * 
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.App;
@@ -204,7 +205,12 @@ namespace LegacyBar.Library.Bar
         }
 
         #endregion
-		
+
+        #region Events
+        public EventHandler TitleClick;
+        public EventHandler TitleLongClick;
+        #endregion
+
         public LegacyBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
@@ -277,6 +283,9 @@ namespace LegacyBar.Library.Bar
             }
 
             a.Recycle();
+
+            _titleView.Click += (s, e) => { if (null != TitleClick) TitleClick(s, e); };
+            _titleView.LongClick += (s, e) => { if (null != TitleLongClick) TitleLongClick(s, e); };
         }
 
         public void SetHomeAction(LegacyBarAction legacyBarAction)
@@ -550,15 +559,6 @@ namespace LegacyBar.Library.Bar
         }
 
         #region Android OnClick Listeners and Event handlers
-        /// <summary>
-        /// Function to set a click listener for Title TextView
-        /// </summary>
-        /// <param name="listener"></param>
-        public void SetOnTitleClickListener(IOnClickListener listener)
-        {
-            _titleView.SetOnClickListener(listener);
-        }
-
         public void OnClick(View v)
         {
             var tag = v.Tag;
