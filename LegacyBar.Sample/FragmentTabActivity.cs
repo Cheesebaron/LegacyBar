@@ -66,12 +66,12 @@ namespace LegacyBar.Sample
 
 
             TabHost.TabSpec spec = _tabHost.NewTabSpec("tv");
-            spec.SetIndicator("Tab 1", Resources.GetDrawable(Resource.Drawable.ic_launcher));
+            spec.SetIndicator("Tab 1", Resources.GetDrawable(Resource.Drawable.icon));
             _tabsAdapter.AddTab(spec, Class.FromType(typeof (FramgmentTab1)), null);
 
 
             spec = _tabHost.NewTabSpec("tab2");
-            spec.SetIndicator("Tab 2", Resources.GetDrawable(Resource.Drawable.ic_launcher));
+            spec.SetIndicator("Tab 2", Resources.GetDrawable(Resource.Drawable.icon));
             _tabsAdapter.AddTab(spec, Class.FromType(typeof (FramgmentTab2)), null);
 
             if (bundle != null)
