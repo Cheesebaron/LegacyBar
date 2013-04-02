@@ -65,7 +65,7 @@ namespace LegacyBar.Sample
 
             //always show the search icon no matter what.
             var itemActionBarAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_search : Resource.Drawable.ic_action_search_dark,
+                this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_search : Resource.Drawable.ic_action_search_dark,
                 Resource.String.menu_string_search)
                                           {
                                               ActionType = ActionType.Always
@@ -76,54 +76,54 @@ namespace LegacyBar.Sample
             //the rest of them I will say NEVER show. now on devices with a menu button you can press it and it will show old menus with the icon you specifies in the menu.xml file
             //on newer devices without a menu button an overflow will appear.
             itemActionBarAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+                this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
                 Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
                                       {ActionType = ActionType.Never};
             LegacyBar.AddAction(itemActionBarAction);
 
             itemActionBarAction = new MenuItemLegacyBarAction(
-               this, this, Resource.Id.menu_test1, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+               this, Resource.Id.menu_test1, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
                Resource.Drawable.ic_action_refresh_dark,
                Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
             LegacyBar.AddAction(itemActionBarAction);
 
             itemActionBarAction = new MenuItemLegacyBarAction(
-              this, this, Resource.Id.menu_test2, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+              this, Resource.Id.menu_test2, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
               Resource.Drawable.ic_action_refresh_dark,
               Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
             LegacyBar.AddAction(itemActionBarAction);
 
             itemActionBarAction = new MenuItemLegacyBarAction(
-              this, this, Resource.Id.menu_test3, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
+              this, Resource.Id.menu_test3, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh :
               Resource.Drawable.ic_action_refresh_dark,
               Resource.String.menu_string_refresh) { ActionType = ActionType.Never };
             LegacyBar.AddAction(itemActionBarAction);
 
             var bottomActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.bottomActionbar);
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_up, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_up : Resource.Drawable.ic_action_up_dark,
+            var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_up, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_up : Resource.Drawable.ic_action_up_dark,
                                                      Resource.String.menu_string_down)
                              {
                                  ActionType = ActionType.Always
                              };
 
             bottomActionBar.AddAction(action);
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_down, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_down : Resource.Drawable.ic_action_down_dark,
+            action = new MenuItemLegacyBarAction(this, Resource.Id.menu_down, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_down : Resource.Drawable.ic_action_down_dark,
                                                  Resource.String.menu_string_down)
                          {
                              ActionType = ActionType.Always
                          };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_left, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_left : Resource.Drawable.ic_action_left_dark,
+            action = new MenuItemLegacyBarAction(this, Resource.Id.menu_left, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_left : Resource.Drawable.ic_action_left_dark,
                                                  Resource.String.menu_string_left)
                          {
                              ActionType = ActionType.Always
                          };
             bottomActionBar.AddAction(action);
 
-            action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_right, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_right : Resource.Drawable.ic_action_right_dark,
+            action = new MenuItemLegacyBarAction(this, Resource.Id.menu_right, bottomActionBar.LightIcons ? Resource.Drawable.ic_action_right : Resource.Drawable.ic_action_right_dark,
                                                  Resource.String.menu_string_right)
                          {
                              ActionType = ActionType.Always

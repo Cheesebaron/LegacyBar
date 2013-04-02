@@ -9,20 +9,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("LegacyBar.Sample.Resource", IsApplication=true)]
+[assembly: Android.Runtime.ResourceDesignerAttribute("LegacyBar.Sample.Resource", IsApplication=true)]
 
 namespace LegacyBar.Sample
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("Novell.MonoDroid.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
-		
-		static Resource()
-		{
-			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-		}
 		
 		public static void UpdateIdValues()
 		{
@@ -154,7 +149,6 @@ namespace LegacyBar.Sample
 			LegacyBar.Library.Resource.Layout.overflowactionbar_item = LegacyBar.Sample.Resource.Layout.overflowactionbar_item;
 			LegacyBar.Library.Resource.Layout.spinneritem = LegacyBar.Sample.Resource.Layout.spinneritem;
 			LegacyBar.Library.Resource.String.actionbar_activity_not_found = LegacyBar.Sample.Resource.String.actionbar_activity_not_found;
-			LegacyBar.Library.Resource.Style.MyTheme = LegacyBar.Sample.Resource.Style.MyTheme;
 			LegacyBar.Library.Resource.Style.actionbar = LegacyBar.Sample.Resource.Style.actionbar;
 			LegacyBar.Library.Resource.Style.actionbarhomeitem = LegacyBar.Sample.Resource.Style.actionbarhomeitem;
 			LegacyBar.Library.Resource.Style.actionbarhomelogo = LegacyBar.Sample.Resource.Style.actionbarhomelogo;
@@ -198,11 +192,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f010001
 			public const int title_color = 2130771969;
-			
-			static Attribute()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Attribute()
 			{
@@ -386,11 +375,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f050038
 			public const int yellow = 2131034168;
 			
-			static Color()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Color()
 			{
 			}
@@ -419,11 +403,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f060004
 			public const int actionbar_item_width = 2131099652;
-			
-			static Dimension()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Dimension()
 			{
@@ -598,11 +577,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f020036
 			public const int icon = 2130837558;
 			
-			static Drawable()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Drawable()
 			{
 			}
@@ -737,11 +711,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f040014
 			public const int stop_progress = 2130968596;
 			
-			static Id()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Id()
 			{
 			}
@@ -789,11 +758,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f03000c
 			public const int spinneritem = 2130903052;
 			
-			static Layout()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Layout()
 			{
 			}
@@ -810,11 +774,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f090002
 			public const int othermainmenu = 2131296258;
-			
-			static Menu()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Menu()
 			{
@@ -854,11 +813,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f070002
 			public const int some_title = 2131165186;
 			
-			static String()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private String()
 			{
 			}
@@ -887,11 +841,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f080002
 			public const int clearbutton = 2131230722;
-			
-			static Style()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Style()
 			{
@@ -934,11 +883,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 1
 			public const int actionbar_title_color = 1;
-			
-			static Styleable()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Styleable()
 			{
