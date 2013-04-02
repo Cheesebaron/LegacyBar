@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarActions\ActionLegacyBarAction.cs" />
+    <Compile Include="BarBase\LegacyBarExpandableListActivity.cs" />
+    <Compile Include="BarBase\LegacyBarTabActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Bar\LegacyBar.cs" />
     <Compile Include="BarActions\LegacyBarAction.cs" />
