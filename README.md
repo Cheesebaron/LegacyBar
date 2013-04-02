@@ -1,34 +1,36 @@
-ActionBar for Mono for Android
+LegacyBar an ActionBar for Xamarin.Android (Mono for Android)
 ===================
 
-This project is under rapid development by both Tomasz Cielecki and James Montemagno. Please hang with us while we get documentation ready and fully stablize the code.
+This was originally a port of [android-actionbar by Johan Nilson](https://github.com/johannilsson/android-actionbar). 
 
-Featured:
-*Fully customizeable Action Bar
-*Integrates with current Menus
-*Overflow on API 11+ Devices
-*Dynamic Action Bar Item Count based on screen resolution
-*Bottom Action Bar (beta)
+LegacyBar is under rapid development by Tomasz Cielecki ([@Cheesebaron](http://www.twitter.com/Cheesebaron)) and James Montemagno ([@JamesMontemagno](http://www.twitter.com/jamesmontemagno)) and is quickly moving away from the what the port initially was.
 
-TO see a work in progress of a project that implements the MonoDroid Action Bar please see:
-https://github.com/jamesmontemagno/TasksSimplified
+It now features:
+* A fully customizeable Action Bar
+* 4 Built in base themes
+* Integrates with current Menus
+* Overflow on API 11+ Devices
+* Dynamic Action Bar Item Count based on screen resolution
+* Importable library
+* Bottom Action Bar (beta)
 
-
-This is a a port of https://github.com/johannilsson/android-actionbar
-
-For usage check the project this has been ported from README, there is a detailed description on how to use it.
+## Projects which use LegacyBar
+* [TasksSimplified](https://github.com/jamesmontemagno/TasksSimplified)
+* [My Media Center](https://play.google.com/store/apps/details?id=com.ceton.companion)
+* Want yours on the list? Open an issue :)
 
 ## Screenshots
-![Bottom and Overflow](https://github.com/jamesmontemagno/MonoDroid.ActionBar/raw/master/Screenshots/BottomAction_Overflow.png)
-![Home Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Home.png)
-![Other Activity](https://github.com/Cheesebaron/MonoDroid.ActionBar/raw/master/Screenshots/Other_Activity.png)
+![Bottom and Overflow](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/BottomAction_Overflow.png)
+![Home Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Home.png)
+![Other Activity](https://raw.github.com/Cheesebaron/LegacyBar/master/Screenshots/Other_Activity.png)
 
-For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/MonoDroid.ActionBar/tree/master/Screenshots) folder
+For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/LegacyBar/tree/master/Screenshots) folder
 
 ## TODO
-Refactor Bottom Action Bar
-Implement Base Themes
-
+* Refactor Bottom Action Bar
+* Implement Base Themes
+* More samples
+* More Docs
 
 ## License
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

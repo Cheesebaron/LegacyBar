@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 Johan Nilsson <http://markupartist.com>
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+     
+     *Modified by James Montemagno Copyright 2012 http://www.montemagno.com
+-->
+<resources>
+  <color name="actionbar_separator">#8B1A1A</color>
+  <color name="actionbar_title">#FFFFFF</color>
+  <color name="actionbar_background_start">#8B1A1A</color>
+  <color name="actionbar_background_end">#CD2626</color>
+  <color name="actionbar_background_item_pressed_start">#FF7F00</color>
+  <color name="actionbar_background_item_pressed_end">#EE7600</color>
+
+  <color name="actionbar_separator_alt">#366184</color>
+  <color name="actionbar_title_alt">#FFFFFF</color>
+  <color name="actionbar_background_start_alt">#6da2ca</color>
+  <color name="actionbar_background_end_alt">#366184</color>
+  <color name="actionbar_background_item_pressed_start_alt">#FF7F00</color>
+  <color name="actionbar_background_item_pressed_end_alt">#EE7600</color>
+
+  <color name="bottomactionbar_separator">#00000000</color>
+  <color name="bottomactionbar_title">#FFFFFF</color>
+  <color name="bottomactionbar_background_start">#CD2626</color>
+  <color name="bottomactionbar_background_end">#8B1A1A</color>
+  <color name="bottomactionbar_background_item_pressed_end">#FF7F00</color>
+  <color name="bottomactionbar_background_item_pressed_start">#EE7600</color>
+
+  <!-- Default colors-->
+  <color name="actionbar_maincolor_lightgray">#FFDDDDDD</color>
+  <color name="actionbar_accentcolor_lightgray">#FFafafaf</color>
+  <color name="actionbar_pressedcolor_lightgray">#FF77c5e1</color>
+  <color name="actionbar_title_lightgray">#FF000000</color>
+  <color name="actionbar_separator_lightgray">#FFDDDDDD</color>
+  <color name="bottomactionbar_maincolor_lightgray">#FFDDDDDD</color>
+  <color name="bottomactionbar_pressedcolor_lightgray">#FF77c5e1</color>
+  <color name="pager_lightgray">#FF4c505b</color>
+
+  <color name="actionbar_maincolor_darkgray">#FF222222</color>
+  <color name="actionbar_accentcolor_darkgray">#FF1b1b1b</color>
+  <color name="actionbar_pressedcolor_darkgray">#FF3f8daa</color>
+  <color name="actionbar_title_darkgray">#FFFFFFFF</color>
+  <color name="actionbar_separator_darkgray">#FF212121</color>
+  <color name="bottomactionbar_maincolor_darkgray">#FF555555</color>
+  <color name="bottomactionbar_pressedcolor_darkgray">#FF3f8daa</color>
+  <color name="pager_darkgray">#FF206288</color>
+
+  <color name="actionbar_maincolor_black">#FF000000</color>
+  <color name="actionbar_accentcolor_black">#FF33b5e5</color>
+  <color name="actionbar_pressedcolor_black">#FF206e8a</color>
+  <color name="actionbar_title_black">#FFFFFFFF</color>
+  <color name="actionbar_separator_black">#FF000000</color>
+  <color name="bottomactionbar_maincolor_black">#00000000</color>
+  <color name="bottomactionbar_pressedcolor_black">#FF206e8a</color>
+  <color name="pager_black">#FF4c505b</color>
+
+  <color name="actionbar_maincolor_blue">#FF33b5e5</color>
+  <color name="actionbar_accentcolor_blue">#FF30acd9</color>
+  <color name="actionbar_pressedcolor_blue">#FF71cbed</color>
+  <color name="actionbar_title_blue">#FFFFFFFF</color>
+  <color name="actionbar_separator_blue">#FF33b5e5</color>
+  <color name="bottomactionbar_maincolor_blue">#FF555555</color>
+  <color name="bottomactionbar_pressedcolor_blue">#FF888888</color>
+  <color name="pager_blue">#FF4c505b</color>
+
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+  <color name="green">#00FF00</color>
+  <color name="red">#FF0000</color>
+  <color name="blue">#0000FF</color>
+  <color name="grey">#CCCCCC</color>
+  <color name="yellow">#FFFF00</color>
+</resources>
