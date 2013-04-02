@@ -462,9 +462,6 @@ namespace LegacyBar.Library
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f080006
-			public static int MyTheme = 2131230726;
-			
 			// aapt resource value: 0x7f080000
 			public static int actionbar = 2131230720;
 			

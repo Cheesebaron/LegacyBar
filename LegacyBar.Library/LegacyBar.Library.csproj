@@ -114,7 +114,6 @@
     <AndroidResource Include="Resources\Values\styles.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\Values\themes.xml" />
     <AndroidResource Include="Resources\Values-land\dimens.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
