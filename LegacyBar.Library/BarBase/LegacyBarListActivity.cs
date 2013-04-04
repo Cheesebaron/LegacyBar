@@ -24,12 +24,12 @@ namespace LegacyBar.Library.BarBase
     [Activity(Label = "")]
     public class LegacyBarListActivity : ListActivity
     {
-        public Bar.LegacyBar ActionBar { get; set; }
+        public Bar.LegacyBar LegacyBar { get; set; }
         public int MenuId { get; set; }
 
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
-            if (ActionBar == null)
+            if (LegacyBar == null)
                 return base.OnPrepareOptionsMenu(menu);
 
             menu.Clear();
@@ -38,14 +38,16 @@ namespace LegacyBar.Library.BarBase
             for (var i = 0; i < menu.Size(); i++)
             {
                 var menuItem = menu.GetItem(i);
-                menuItem.SetVisible(!ActionBar.MenuItemsToHide.Contains(menuItem.ItemId));
+                menuItem.SetVisible(!LegacyBar.MenuItemsToHide.Contains(menuItem.ItemId));
             }
             return base.OnPrepareOptionsMenu(menu);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(MenuId, menu);
+            if(MenuId > 0)
+                MenuInflater.Inflate(MenuId, menu);
+
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -54,15 +56,15 @@ namespace LegacyBar.Library.BarBase
             var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            ActionBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent,  resId));
-            ActionBar.SetDisplayHomeAsUpEnabled(true);
+            LegacyBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, resId));
+            LegacyBar.SetDisplayHomeAsUpEnabled(true);
         }
 
 
         public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
         {
-            ActionBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
-            ActionBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
+            LegacyBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
+            LegacyBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
         }
     }
 }
