@@ -45,7 +45,9 @@ namespace LegacyBar.Library.BarBase
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(MenuId, menu);
+            if (MenuId > 0)
+                MenuInflater.Inflate(MenuId, menu);
+
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -54,9 +56,10 @@ namespace LegacyBar.Library.BarBase
             var homeIntent = new Intent(this, activity);
             homeIntent.AddFlags(ActivityFlags.ClearTop);
             homeIntent.AddFlags(ActivityFlags.NewTask);
-            LegacyBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, resId));
+            LegacyBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent,  resId));
             LegacyBar.SetDisplayHomeAsUpEnabled(true);
         }
+
 
         public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
         {
