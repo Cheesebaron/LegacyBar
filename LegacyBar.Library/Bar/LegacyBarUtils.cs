@@ -74,55 +74,73 @@ namespace LegacyBar.Library.Bar
                     legacyBar.TitleColorRaw = Resource.Color.actionbar_title_lightgray;
                     legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_lightgray;
                     legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_lightgray;
+
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_light;
                     break;
                 case LegacyBarTheme.HoloGray: //dark gray
                     legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_darkgray;
                     legacyBar.TitleColorRaw = Resource.Color.actionbar_title_darkgray;
                     legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_darkgray;
                     legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_darkgray;
+
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
                     break;
                 case LegacyBarTheme.HoloBlue://blue
                     legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_blue;
                     legacyBar.TitleColorRaw = Resource.Color.actionbar_title_blue;
                     legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_blue;
                     legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_blue;
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
                     break;
                 case LegacyBarTheme.HoloBlack: //black
                     legacyBar.SeparatorColorRaw = Resource.Color.actionbar_separator_black;
                     legacyBar.TitleColorRaw = Resource.Color.actionbar_title_black;
                     legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.actionbar_btn_black;
                     legacyBar.BackgroundDrawableRaw = Resource.Drawable.actionbar_background_black;
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
+                    break;
+                default:
+
+                    legacyBar.DropdownDrawableRaw = legacyBar.LightIcons ? Resource.Drawable.dropdown_btn_holo_light : Resource.Drawable.dropdown_btn_holo_dark;
                     break;
             }
         }
 
-        public static void SetBottomLegacyBarTheme(LegacyBar actionBar, LegacyBarTheme theme)
+        public static void SetBottomLegacyBarTheme(LegacyBar legacyBar, LegacyBarTheme theme)
         {
             switch (theme)
             {
                 case LegacyBarTheme.HoloLight: //light gray
-                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
-                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_lightgray;
-                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_lightgray;
-                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_lightgray;
+                    legacyBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_lightgray;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_lightgray;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_lightgray;
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_light;
                     break;
                 case LegacyBarTheme.HoloGray: //dark gray
-                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
-                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_darkgray;
-                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_darkgray;
-                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_darkgray;
+                    legacyBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_darkgray;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_darkgray;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_darkgray;
+
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
                     break;
                 case LegacyBarTheme.HoloBlue://blue
-                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
-                    actionBar.TitleColorRaw = Resource.Color.actionbar_title_blue;
-                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_blue;
-                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_blue;
+                    legacyBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    legacyBar.TitleColorRaw = Resource.Color.actionbar_title_blue;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_blue;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_blue;
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
                     break;
                 case LegacyBarTheme.HoloBlack: //black
-                    actionBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
-                    actionBar.TitleColorRaw = !actionBar.LightIcons ? Resource.Color.actionbar_title_black : Resource.Color.actionbar_title;
-                    actionBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_black;
-                    actionBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_black;
+                    legacyBar.SeparatorColorRaw = Resource.Color.bottomactionbar_separator;
+                    legacyBar.TitleColorRaw = !legacyBar.LightIcons ? Resource.Color.actionbar_title_black : Resource.Color.actionbar_title;
+                    legacyBar.ItemBackgroundDrawableRaw = Resource.Drawable.bottomactionbar_btn_black;
+                    legacyBar.BackgroundDrawableRaw = Resource.Drawable.bottomactionbar_background_black;
+                    legacyBar.DropdownDrawableRaw = Resource.Drawable.dropdown_btn_holo_dark;
+                    break;
+                default:
+                    legacyBar.DropdownDrawableRaw = legacyBar.LightIcons ? Resource.Drawable.dropdown_btn_holo_light : Resource.Drawable.dropdown_btn_holo_dark;
                     break;
             }
         }
