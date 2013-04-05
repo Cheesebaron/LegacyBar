@@ -356,10 +356,40 @@ namespace LegacyBar.Library
 			public static int bottomactionbar_btn_pressed = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public static int ic_action_overflow = 2130837534;
+			public static int dropdown_btn_holo_dark = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public static int ic_action_overflow_dark = 2130837535;
+			public static int dropdown_btn_holo_light = 2130837535;
+			
+			// aapt resource value: 0x7f020020
+			public static int dropdown_disabled_holo_dark = 2130837536;
+			
+			// aapt resource value: 0x7f020021
+			public static int dropdown_disabled_holo_light = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public static int dropdown_focused_holo_dark = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public static int dropdown_focused_holo_light = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public static int dropdown_normal_holo_dark = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public static int dropdown_normal_holo_light = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public static int dropdown_pressed_holo_dark = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public static int dropdown_pressed_holo_light = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public static int ic_action_overflow = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public static int ic_action_overflow_dark = 2130837545;
 			
 			private Drawable()
 			{
@@ -387,11 +417,14 @@ namespace LegacyBar.Library
 			// aapt resource value: 0x7f040007
 			public static int actionbar_home_logo = 2130968583;
 			
-			// aapt resource value: 0x7f04000f
-			public static int actionbar_item = 2130968591;
+			// aapt resource value: 0x7f040010
+			public static int actionbar_item = 2130968592;
 			
 			// aapt resource value: 0x7f04000d
 			public static int actionbar_progress = 2130968589;
+			
+			// aapt resource value: 0x7f04000f
+			public static int actionbar_spinner = 2130968591;
 			
 			// aapt resource value: 0x7f04000e
 			public static int actionbar_title = 2130968590;
@@ -414,8 +447,8 @@ namespace LegacyBar.Library
 			// aapt resource value: 0x7f040001
 			public static int holo_light = 2130968577;
 			
-			// aapt resource value: 0x7f040010
-			public static int overflow_spinner = 2130968592;
+			// aapt resource value: 0x7f040011
+			public static int overflow_spinner = 2130968593;
 			
 			// aapt resource value: 0x7f040005
 			public static int screen = 2130968581;
