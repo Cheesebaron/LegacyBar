@@ -62,7 +62,6 @@ namespace LegacyBar.Sample
 
             //Set the Up button to go home, also much set current activity on the Legacy Bar
             AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
-            LegacyBar.CurrentActivity = this;
 
             //always show the search icon no matter what.
             var itemActionBarAction = new MenuItemLegacyBarAction(

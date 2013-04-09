@@ -29,7 +29,6 @@ namespace LegacyBar.Library.BarActions
         public int MenuItemId;
         private readonly List<string> _stringIds;
         private Spinner _overflowSpinner;
-        public Activity Activity { get; set; }
         public int Index { get; set; }
         public OverflowLegacyBarAction(Context context)
         {
@@ -83,7 +82,7 @@ namespace LegacyBar.Library.BarActions
                 if(_overflowSpinner == null)
                     return;
 
-                _overflowSpinner.Adapter = new OverflowSpinnerAdapter(Activity, _stringIds);
+                _overflowSpinner.Adapter = new OverflowSpinnerAdapter(Context, _stringIds);
                 _firstClick = true;
                 _overflowSpinner.SetSelection(0);
                 _overflowSpinner.PerformClick();
@@ -91,6 +90,7 @@ namespace LegacyBar.Library.BarActions
             }
             catch (Exception ex)
             {
+                //Todo: do something about me being empty!
             }
         }
 
@@ -113,27 +113,32 @@ namespace LegacyBar.Library.BarActions
 
     public class OverflowSpinnerAdapter : BaseAdapter
     {
-        private readonly Activity _context;
+        private readonly Context _context;
         private readonly IEnumerable<string> _items;
 
-        public OverflowSpinnerAdapter(Activity context, IEnumerable<string> items)
+        public OverflowSpinnerAdapter(Context context, IEnumerable<string> items)
         {
+            ResourceIdManager.UpdateIdValues();
             _context = context;
             _items = items;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
+            
             if (position < 0)
                 return null;
 
             View view;
             var item = _items.ElementAt(position);
+
+            var layoutInflater = LayoutInflater.From(_context);
+
             if (!string.IsNullOrEmpty(item))
-                view = _context.LayoutInflater.Inflate(Resource.Layout.spinneritem, parent, false);
+                view = layoutInflater.Inflate(Resource.Layout.spinneritem, parent, false);
             else
             {
-                view = _context.LayoutInflater.Inflate(Resource.Layout.blankspinner, parent, false);//hack to get first item blank.
+                view = layoutInflater.Inflate(Resource.Layout.blankspinner, parent, false);//hack to get first item blank.
                 return view;
             }
 

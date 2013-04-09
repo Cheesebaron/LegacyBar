@@ -55,7 +55,6 @@ namespace LegacyBar.Sample
 
             ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
             ActionBar.Title = "Look Fragments";
-            ActionBar.CurrentActivity = this;
             AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
 
 

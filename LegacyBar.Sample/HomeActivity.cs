@@ -38,7 +38,6 @@ namespace LegacyBar.Sample
             SetContentView(Resource.Layout.main);
 
             LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
-            LegacyBar.CurrentActivity = this;
             LegacyBar.SetHomeLogo(Resource.Drawable.icon);
 
             /*
