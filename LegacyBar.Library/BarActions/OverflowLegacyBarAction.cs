@@ -115,37 +115,34 @@ namespace LegacyBar.Library.BarActions
     {
         private readonly Context _context;
         private readonly IEnumerable<string> _items;
+        private readonly LayoutInflater _inflater;
 
         public OverflowSpinnerAdapter(Context context, IEnumerable<string> items)
         {
             ResourceIdManager.UpdateIdValues();
             _context = context;
             _items = items;
+            _inflater = LayoutInflater.From(_context);
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            
             if (position < 0)
                 return null;
 
             View view;
             var item = _items.ElementAt(position);
 
-            var layoutInflater = LayoutInflater.From(_context);
-
             if (!string.IsNullOrEmpty(item))
-                view = layoutInflater.Inflate(Resource.Layout.spinneritem, parent, false);
+                view = _inflater.Inflate(Resource.Layout.spinneritem, parent, false);
             else
             {
-                view = layoutInflater.Inflate(Resource.Layout.blankspinner, parent, false);//hack to get first item blank.
+                view = _inflater.Inflate(Resource.Layout.blankspinner, parent, false);//hack to get first item blank.
                 return view;
             }
 
-
             if (view == null)
                 return null;
-
 
             var itemView = view.FindViewById<CheckedTextView>(Android.Resource.Id.Text1);
             itemView.Text = item;
