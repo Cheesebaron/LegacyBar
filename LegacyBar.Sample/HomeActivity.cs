@@ -60,6 +60,8 @@ namespace LegacyBar.Sample
              */
 
             //always put these 2 in there since they are NOT in my menu.xml
+            MenuId = Resource.Menu.mainmenu;
+
             LegacyBarAction shareAction = new DefaultLegacyBarAction(this, CreateShareIntent(),
                                                                      LegacyBar.LightIcons ? Resource.Drawable.ic_action_sort : Resource.Drawable.ic_action_sort_dark)
                                               {
