@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarActions\ActionLegacyBarAction.cs" />
+    <Compile Include="BarActions\LegacyBarMenuItem.cs" />
     <Compile Include="BarBase\LegacyBarExpandableListActivity.cs" />
     <Compile Include="BarBase\LegacyBarTabActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -66,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\actionbar_back_indicator.png" />

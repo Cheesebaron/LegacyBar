@@ -62,14 +62,13 @@ namespace LegacyBar.Library.Bar
         {
             get
             {
-#if __ANDROID_14__
-                return ViewConfiguration.Get(Context).HasPermanentMenuKey;
-#elif __ANDROID_11__
-                return false;
-#else
-                //fallback
-                return ((int)Build.VERSION.SdkInt) < 11;
+                if ((int) Build.VERSION.SdkInt >= 14)
+                {
+#if __ANDROID_14_
+                    return ViewConfiguration.Get(Context).HasPermanentMenuKey;
 #endif
+                }
+                return (int) Build.VERSION.SdkInt != 11;
             }
         }
 
