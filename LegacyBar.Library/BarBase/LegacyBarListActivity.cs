@@ -45,7 +45,9 @@ namespace LegacyBar.Library.BarBase
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(MenuId, menu);
+            if(MenuId > 0)
+                MenuInflater.Inflate(MenuId, menu);
+
             return base.OnCreateOptionsMenu(menu);
         }
 

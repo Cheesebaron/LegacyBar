@@ -79,7 +79,7 @@ namespace LegacyBar.Sample
 
             //only put in if there is room
             var searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark,
+                this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark,
                 Resource.String.menu_string_search)
                                            {
                                                ActionType = ActionType.IfRoom
@@ -88,7 +88,7 @@ namespace LegacyBar.Sample
 
             //never put this guy in there
             searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh : Resource.Drawable.ic_action_refresh_dark,
+                this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh : Resource.Drawable.ic_action_refresh_dark,
                 Resource.String.menu_string_refresh)
                                        {
                                            ActionType = ActionType.Never
@@ -167,6 +167,13 @@ namespace LegacyBar.Sample
                                               var intent = new Intent(this, typeof (FragmentTabActivity));
                                               StartActivity(intent);
                                           };
+
+            var spinnerActivity = FindViewById<Button>(Resource.Id.dropdown_activity);
+            spinnerActivity.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(SpinnerActivity));
+                StartActivity(intent);
+            };
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
