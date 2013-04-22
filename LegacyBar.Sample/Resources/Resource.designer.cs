@@ -9,20 +9,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("LegacyBar.Sample.Resource", IsApplication=true)]
+[assembly: Android.Runtime.ResourceDesignerAttribute("LegacyBar.Sample.Resource", IsApplication=true)]
 
 namespace LegacyBar.Sample
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("Novell.MonoDroid.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
-		
-		static Resource()
-		{
-			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-		}
 		
 		public static void UpdateIdValues()
 		{
@@ -129,6 +124,16 @@ namespace LegacyBar.Sample
 			LegacyBar.Library.Resource.Drawable.bottomactionbar_btn_lightgray = LegacyBar.Sample.Resource.Drawable.bottomactionbar_btn_lightgray;
 			LegacyBar.Library.Resource.Drawable.bottomactionbar_btn_normal = LegacyBar.Sample.Resource.Drawable.bottomactionbar_btn_normal;
 			LegacyBar.Library.Resource.Drawable.bottomactionbar_btn_pressed = LegacyBar.Sample.Resource.Drawable.bottomactionbar_btn_pressed;
+			LegacyBar.Library.Resource.Drawable.dropdown_btn_holo_dark = LegacyBar.Sample.Resource.Drawable.dropdown_btn_holo_dark;
+			LegacyBar.Library.Resource.Drawable.dropdown_btn_holo_light = LegacyBar.Sample.Resource.Drawable.dropdown_btn_holo_light;
+			LegacyBar.Library.Resource.Drawable.dropdown_disabled_holo_dark = LegacyBar.Sample.Resource.Drawable.dropdown_disabled_holo_dark;
+			LegacyBar.Library.Resource.Drawable.dropdown_disabled_holo_light = LegacyBar.Sample.Resource.Drawable.dropdown_disabled_holo_light;
+			LegacyBar.Library.Resource.Drawable.dropdown_focused_holo_dark = LegacyBar.Sample.Resource.Drawable.dropdown_focused_holo_dark;
+			LegacyBar.Library.Resource.Drawable.dropdown_focused_holo_light = LegacyBar.Sample.Resource.Drawable.dropdown_focused_holo_light;
+			LegacyBar.Library.Resource.Drawable.dropdown_normal_holo_dark = LegacyBar.Sample.Resource.Drawable.dropdown_normal_holo_dark;
+			LegacyBar.Library.Resource.Drawable.dropdown_normal_holo_light = LegacyBar.Sample.Resource.Drawable.dropdown_normal_holo_light;
+			LegacyBar.Library.Resource.Drawable.dropdown_pressed_holo_dark = LegacyBar.Sample.Resource.Drawable.dropdown_pressed_holo_dark;
+			LegacyBar.Library.Resource.Drawable.dropdown_pressed_holo_light = LegacyBar.Sample.Resource.Drawable.dropdown_pressed_holo_light;
 			LegacyBar.Library.Resource.Drawable.ic_action_overflow = LegacyBar.Sample.Resource.Drawable.ic_action_overflow;
 			LegacyBar.Library.Resource.Drawable.ic_action_overflow_dark = LegacyBar.Sample.Resource.Drawable.ic_action_overflow_dark;
 			LegacyBar.Library.Resource.Id.actionbar_actions = LegacyBar.Sample.Resource.Id.actionbar_actions;
@@ -139,6 +144,7 @@ namespace LegacyBar.Sample
 			LegacyBar.Library.Resource.Id.actionbar_home_logo = LegacyBar.Sample.Resource.Id.actionbar_home_logo;
 			LegacyBar.Library.Resource.Id.actionbar_item = LegacyBar.Sample.Resource.Id.actionbar_item;
 			LegacyBar.Library.Resource.Id.actionbar_progress = LegacyBar.Sample.Resource.Id.actionbar_progress;
+			LegacyBar.Library.Resource.Id.actionbar_spinner = LegacyBar.Sample.Resource.Id.actionbar_spinner;
 			LegacyBar.Library.Resource.Id.actionbar_title = LegacyBar.Sample.Resource.Id.actionbar_title;
 			LegacyBar.Library.Resource.Id.actionbar_title_layout = LegacyBar.Sample.Resource.Id.actionbar_title_layout;
 			LegacyBar.Library.Resource.Id.custom = LegacyBar.Sample.Resource.Id.custom;
@@ -154,7 +160,6 @@ namespace LegacyBar.Sample
 			LegacyBar.Library.Resource.Layout.overflowactionbar_item = LegacyBar.Sample.Resource.Layout.overflowactionbar_item;
 			LegacyBar.Library.Resource.Layout.spinneritem = LegacyBar.Sample.Resource.Layout.spinneritem;
 			LegacyBar.Library.Resource.String.actionbar_activity_not_found = LegacyBar.Sample.Resource.String.actionbar_activity_not_found;
-			LegacyBar.Library.Resource.Style.MyTheme = LegacyBar.Sample.Resource.Style.MyTheme;
 			LegacyBar.Library.Resource.Style.actionbar = LegacyBar.Sample.Resource.Style.actionbar;
 			LegacyBar.Library.Resource.Style.actionbarhomeitem = LegacyBar.Sample.Resource.Style.actionbarhomeitem;
 			LegacyBar.Library.Resource.Style.actionbarhomelogo = LegacyBar.Sample.Resource.Style.actionbarhomelogo;
@@ -198,11 +203,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f010001
 			public const int title_color = 2130771969;
-			
-			static Attribute()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Attribute()
 			{
@@ -386,11 +386,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f050038
 			public const int yellow = 2131034168;
 			
-			static Color()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Color()
 			{
 			}
@@ -419,11 +414,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f060004
 			public const int actionbar_item_width = 2131099652;
-			
-			static Dimension()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Dimension()
 			{
@@ -524,84 +514,109 @@ namespace LegacyBar.Sample
 			public const int bottomactionbar_btn_pressed = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int ic_action_down = 2130837534;
+			public const int dropdown_btn_holo_dark = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int ic_action_down_dark = 2130837535;
+			public const int dropdown_btn_holo_light = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int ic_action_left = 2130837536;
+			public const int dropdown_disabled_holo_dark = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int ic_action_left_dark = 2130837537;
+			public const int dropdown_disabled_holo_light = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int ic_action_overflow = 2130837538;
+			public const int dropdown_focused_holo_dark = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int ic_action_overflow_dark = 2130837539;
+			public const int dropdown_focused_holo_light = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int ic_action_refresh = 2130837540;
+			public const int dropdown_normal_holo_dark = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int ic_action_refresh_dark = 2130837541;
+			public const int dropdown_normal_holo_light = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int ic_action_right = 2130837542;
+			public const int dropdown_pressed_holo_dark = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int ic_action_right_dark = 2130837543;
+			public const int dropdown_pressed_holo_light = 2130837543;
 			
 			// aapt resource value: 0x7f020028
-			public const int ic_action_search = 2130837544;
+			public const int ic_action_down = 2130837544;
 			
 			// aapt resource value: 0x7f020029
-			public const int ic_action_search_dark = 2130837545;
+			public const int ic_action_down_dark = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int ic_action_share = 2130837546;
+			public const int ic_action_left = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int ic_action_share_dark = 2130837547;
+			public const int ic_action_left_dark = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int ic_action_sort = 2130837548;
+			public const int ic_action_overflow = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int ic_action_sort_dark = 2130837549;
+			public const int ic_action_overflow_dark = 2130837549;
 			
 			// aapt resource value: 0x7f02002e
-			public const int ic_action_up = 2130837550;
+			public const int ic_action_refresh = 2130837550;
 			
 			// aapt resource value: 0x7f02002f
-			public const int ic_action_up_dark = 2130837551;
+			public const int ic_action_refresh_dark = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int ic_menu_down = 2130837552;
+			public const int ic_action_right = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int ic_menu_left = 2130837553;
+			public const int ic_action_right_dark = 2130837553;
 			
 			// aapt resource value: 0x7f020032
-			public const int ic_menu_refresh = 2130837554;
+			public const int ic_action_search = 2130837554;
 			
 			// aapt resource value: 0x7f020033
-			public const int ic_menu_right = 2130837555;
+			public const int ic_action_search_dark = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int ic_menu_search = 2130837556;
+			public const int ic_action_share = 2130837556;
 			
 			// aapt resource value: 0x7f020035
-			public const int ic_menu_up = 2130837557;
+			public const int ic_action_share_dark = 2130837557;
 			
 			// aapt resource value: 0x7f020036
-			public const int icon = 2130837558;
+			public const int ic_action_sort = 2130837558;
 			
-			static Drawable()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
+			// aapt resource value: 0x7f020037
+			public const int ic_action_sort_dark = 2130837559;
+			
+			// aapt resource value: 0x7f020038
+			public const int ic_action_up = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int ic_action_up_dark = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int ic_menu_down = 2130837562;
+			
+			// aapt resource value: 0x7f02003b
+			public const int ic_menu_left = 2130837563;
+			
+			// aapt resource value: 0x7f02003c
+			public const int ic_menu_refresh = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int ic_menu_right = 2130837565;
+			
+			// aapt resource value: 0x7f02003e
+			public const int ic_menu_search = 2130837566;
+			
+			// aapt resource value: 0x7f02003f
+			public const int ic_menu_up = 2130837567;
+			
+			// aapt resource value: 0x7f020040
+			public const int icon = 2130837568;
 			
 			private Drawable()
 			{
@@ -611,8 +626,8 @@ namespace LegacyBar.Sample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040010
-			public const int actionbar = 2130968592;
+			// aapt resource value: 0x7f040011
+			public const int actionbar = 2130968593;
 			
 			// aapt resource value: 0x7f04000b
 			public const int actionbar_actions = 2130968587;
@@ -632,11 +647,14 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f040007
 			public const int actionbar_home_logo = 2130968583;
 			
-			// aapt resource value: 0x7f04000f
-			public const int actionbar_item = 2130968591;
+			// aapt resource value: 0x7f040010
+			public const int actionbar_item = 2130968592;
 			
 			// aapt resource value: 0x7f04000d
 			public const int actionbar_progress = 2130968589;
+			
+			// aapt resource value: 0x7f04000f
+			public const int actionbar_spinner = 2130968591;
 			
 			// aapt resource value: 0x7f04000e
 			public const int actionbar_title = 2130968590;
@@ -644,29 +662,32 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f04000c
 			public const int actionbar_title_layout = 2130968588;
 			
-			// aapt resource value: 0x7f040016
-			public const int add_action = 2130968598;
-			
-			// aapt resource value: 0x7f04001c
-			public const int black_activity = 2130968604;
+			// aapt resource value: 0x7f040017
+			public const int add_action = 2130968599;
 			
 			// aapt resource value: 0x7f04001d
-			public const int blue_activity = 2130968605;
+			public const int black_activity = 2130968605;
 			
-			// aapt resource value: 0x7f040011
-			public const int bottomActionbar = 2130968593;
+			// aapt resource value: 0x7f04001e
+			public const int blue_activity = 2130968606;
+			
+			// aapt resource value: 0x7f040012
+			public const int bottomActionbar = 2130968594;
 			
 			// aapt resource value: 0x7f040000
 			public const int custom = 2130968576;
 			
-			// aapt resource value: 0x7f04001e
-			public const int fragment_activity = 2130968606;
+			// aapt resource value: 0x7f04001f
+			public const int dropdown_activity = 2130968607;
 			
 			// aapt resource value: 0x7f040020
-			public const int fragment_text = 2130968608;
+			public const int fragment_activity = 2130968608;
 			
-			// aapt resource value: 0x7f04001a
-			public const int gray_activity = 2130968602;
+			// aapt resource value: 0x7f040022
+			public const int fragment_text = 2130968610;
+			
+			// aapt resource value: 0x7f04001b
+			public const int gray_activity = 2130968603;
 			
 			// aapt resource value: 0x7f040003
 			public const int holo_black = 2130968579;
@@ -680,67 +701,62 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f040001
 			public const int holo_light = 2130968577;
 			
-			// aapt resource value: 0x7f04001b
-			public const int light_activity = 2130968603;
-			
-			// aapt resource value: 0x7f040024
-			public const int menu_down = 2130968612;
-			
-			// aapt resource value: 0x7f040022
-			public const int menu_left = 2130968610;
+			// aapt resource value: 0x7f04001c
+			public const int light_activity = 2130968604;
 			
 			// aapt resource value: 0x7f040026
-			public const int menu_refresh = 2130968614;
+			public const int menu_down = 2130968614;
 			
-			// aapt resource value: 0x7f040021
-			public const int menu_right = 2130968609;
-			
-			// aapt resource value: 0x7f040025
-			public const int menu_search = 2130968613;
-			
-			// aapt resource value: 0x7f040027
-			public const int menu_test1 = 2130968615;
+			// aapt resource value: 0x7f040024
+			public const int menu_left = 2130968612;
 			
 			// aapt resource value: 0x7f040028
-			public const int menu_test2 = 2130968616;
-			
-			// aapt resource value: 0x7f040029
-			public const int menu_test3 = 2130968617;
+			public const int menu_refresh = 2130968616;
 			
 			// aapt resource value: 0x7f040023
-			public const int menu_up = 2130968611;
+			public const int menu_right = 2130968611;
 			
-			// aapt resource value: 0x7f040019
-			public const int other_activity = 2130968601;
+			// aapt resource value: 0x7f040027
+			public const int menu_search = 2130968615;
 			
-			// aapt resource value: 0x7f04001f
-			public const int overflow_spinner = 2130968607;
+			// aapt resource value: 0x7f040029
+			public const int menu_test1 = 2130968617;
 			
-			// aapt resource value: 0x7f040012
-			public const int pager = 2130968594;
+			// aapt resource value: 0x7f04002a
+			public const int menu_test2 = 2130968618;
 			
-			// aapt resource value: 0x7f040017
-			public const int remove_action = 2130968599;
+			// aapt resource value: 0x7f04002b
+			public const int menu_test3 = 2130968619;
 			
-			// aapt resource value: 0x7f040015
-			public const int remove_actions = 2130968597;
+			// aapt resource value: 0x7f040025
+			public const int menu_up = 2130968613;
+			
+			// aapt resource value: 0x7f04001a
+			public const int other_activity = 2130968602;
+			
+			// aapt resource value: 0x7f040021
+			public const int overflow_spinner = 2130968609;
+			
+			// aapt resource value: 0x7f040013
+			public const int pager = 2130968595;
 			
 			// aapt resource value: 0x7f040018
-			public const int remove_share_action = 2130968600;
+			public const int remove_action = 2130968600;
+			
+			// aapt resource value: 0x7f040016
+			public const int remove_actions = 2130968598;
+			
+			// aapt resource value: 0x7f040019
+			public const int remove_share_action = 2130968601;
 			
 			// aapt resource value: 0x7f040005
 			public const int screen = 2130968581;
 			
-			// aapt resource value: 0x7f040013
-			public const int start_progress = 2130968595;
-			
 			// aapt resource value: 0x7f040014
-			public const int stop_progress = 2130968596;
+			public const int start_progress = 2130968596;
 			
-			static Id()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
+			// aapt resource value: 0x7f040015
+			public const int stop_progress = 2130968597;
 			
 			private Id()
 			{
@@ -789,11 +805,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f03000c
 			public const int spinneritem = 2130903052;
 			
-			static Layout()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private Layout()
 			{
 			}
@@ -810,11 +821,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f090002
 			public const int othermainmenu = 2131296258;
-			
-			static Menu()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Menu()
 			{
@@ -854,11 +860,6 @@ namespace LegacyBar.Sample
 			// aapt resource value: 0x7f070002
 			public const int some_title = 2131165186;
 			
-			static String()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
 			private String()
 			{
 			}
@@ -887,11 +888,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 0x7f080002
 			public const int clearbutton = 2131230722;
-			
-			static Style()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Style()
 			{
@@ -934,11 +930,6 @@ namespace LegacyBar.Sample
 			
 			// aapt resource value: 1
 			public const int actionbar_title_color = 1;
-			
-			static Styleable()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
 			
 			private Styleable()
 			{
