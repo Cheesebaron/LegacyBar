@@ -21,7 +21,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
@@ -47,7 +46,6 @@ namespace LegacyBar.Library.Bar
         private RelativeLayout _homeLayout;
         private ProgressBar _progress;
         private RelativeLayout _titleLayout;
-        private Context _context;
         private OverflowLegacyBarAction _overflowLegacyBarAction;
         private Spinner _titleDropdown;
 
@@ -65,18 +63,15 @@ namespace LegacyBar.Library.Bar
         {
             get
             {
-#if __ANDROID_14__
-                return ViewConfiguration.Get(Context).HasPermanentMenuKey;
-#elif __ANDROID_11__
-                return false;
-#else
-                //fallback
-                return ((int)Build.VERSION.SdkInt) < 11;
+                if ((int) Build.VERSION.SdkInt >= 14)
+                {
+#if __ANDROID_14_
+                    return ViewConfiguration.Get(Context).HasPermanentMenuKey;
 #endif
+                }
+                return (int) Build.VERSION.SdkInt != 11;
             }
         }
-
-        public Activity CurrentActivity { get; set; }
 
         public LegacyBarTheme Theme { get; set; }
         public bool LightIcons { get; set; }
@@ -238,10 +233,9 @@ namespace LegacyBar.Library.Bar
         public LegacyBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
-            _context = context;
 			ResourceIdManager.UpdateIdValues();
 
-            _inflater = LayoutInflater.From(context);
+            _inflater = LayoutInflater.From(Context);
             //_inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
 
             _barView = (RelativeLayout)_inflater.Inflate(Resource.Layout.actionbar, null);
@@ -259,10 +253,10 @@ namespace LegacyBar.Library.Bar
             _titleLayout = _barView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
             _titleDropdown = _barView.FindViewById<Spinner>(Resource.Id.actionbar_spinner);
 
-            _overflowLegacyBarAction = new OverflowLegacyBarAction(context);
+            _overflowLegacyBarAction = new OverflowLegacyBarAction(Context);
 
             //Custom Attributes (defined in Attrs.xml)
-            var a = context.ObtainStyledAttributes(attrs,
+            var a = Context.ObtainStyledAttributes(attrs,
                     Resource.Styleable.actionbar);
 
             //grab theme attributes
@@ -335,7 +329,7 @@ namespace LegacyBar.Library.Bar
             ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
-        public int DropDownSelectedItemPosition
+ 		 public int DropDownSelectedItemPosition
         {
             get { return _titleDropdown.SelectedItemPosition; }
             set
@@ -350,8 +344,9 @@ namespace LegacyBar.Library.Bar
                 
             }
         }
-
-        public void SetDropDown(string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
+        
+        
+       public void SetDropDown(Context context, string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
         {
             if (items == null)
                 return;
@@ -365,7 +360,7 @@ namespace LegacyBar.Library.Bar
             {
                 var previousSelected = _titleDropdown.SelectedItemPosition;
                 _titleView.Visibility = ViewStates.Gone;
-                var adapter = new ArrayAdapter(_context, Android.Resource.Layout.SimpleSpinnerItem, items);
+                var adapter = new ArrayAdapter(context, Android.Resource.Layout.SimpleSpinnerItem, items);
                 adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
 
                 _titleDropdown.Visibility = ViewStates.Visible;
@@ -466,7 +461,8 @@ namespace LegacyBar.Library.Bar
             var addActionBar = false;
 
             var hideAction = false;
-            if (!LegacyBarUtils.ActionFits(CurrentActivity, index, HasMenuButton, legacyBarAction.ActionType))
+
+            if (!LegacyBarUtils.ActionFits(Context.Resources.DisplayMetrics.WidthPixels, Context.Resources.DisplayMetrics.Density, index, HasMenuButton, legacyBarAction.ActionType))
             {
                 if (!HasMenuButton)
                 {
@@ -626,7 +622,6 @@ namespace LegacyBar.Library.Bar
             labelView.SetOnClickListener(this);
             //view.SetOnLongClickListener(this);
 
-            _overflowLegacyBarAction.Activity = CurrentActivity;
             return view;
         }
 
@@ -650,10 +645,7 @@ namespace LegacyBar.Library.Bar
                 if (action.PopUpMessage == 0)
                     return true;
 
-                if (CurrentActivity == null)
-                    return false;
-
-                Toast.MakeText(_context, action.PopUpMessage, ToastLength.Short).Show();
+                Toast.MakeText(Context, action.PopUpMessage, ToastLength.Short).Show();
 
                 return false;
             }
@@ -683,7 +675,6 @@ namespace LegacyBar.Library.Bar
                 _homeLayout = null;
                 _progress = null;
                 _titleLayout = null;
-                _context = null;
                 _overflowLegacyBarAction = null;
             }
 
