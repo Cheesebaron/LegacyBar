@@ -15,14 +15,9 @@ namespace LegacyBar.Sample
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("Novell.MonoDroid.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
-		
-		Resource()
-		{
-			global::Android.Runtime.ResourceIdManager.UpdateIdValues ();
-		}
 		
 		public static void UpdateIdValues()
 		{
@@ -154,7 +149,6 @@ namespace LegacyBar.Sample
 			LegacyBar.Library.Resource.Layout.overflowactionbar_item = LegacyBar.Sample.Resource.Layout.overflowactionbar_item;
 			LegacyBar.Library.Resource.Layout.spinneritem = LegacyBar.Sample.Resource.Layout.spinneritem;
 			LegacyBar.Library.Resource.String.actionbar_activity_not_found = LegacyBar.Sample.Resource.String.actionbar_activity_not_found;
-			LegacyBar.Library.Resource.Style.MyTheme = LegacyBar.Sample.Resource.Style.MyTheme;
 			LegacyBar.Library.Resource.Style.actionbar = LegacyBar.Sample.Resource.Style.actionbar;
 			LegacyBar.Library.Resource.Style.actionbarhomeitem = LegacyBar.Sample.Resource.Style.actionbarhomeitem;
 			LegacyBar.Library.Resource.Style.actionbarhomelogo = LegacyBar.Sample.Resource.Style.actionbarhomelogo;

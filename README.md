@@ -32,5 +32,10 @@ For more screenshots look in the [Screenshots](https://github.com/Cheesebaron/Le
 * More samples
 * More Docs
 
+## Contributors
+* [aaronmix](https://github.com/aaronmix)
+
+Thanks!
+
 ## License
 Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

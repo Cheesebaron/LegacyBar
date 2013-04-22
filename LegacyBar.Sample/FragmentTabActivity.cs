@@ -53,16 +53,15 @@ namespace LegacyBar.Sample
             _tabsAdapter = new TabsAdapter(this, _tabHost, _viewPager);
 
 
-            ActionBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
-            ActionBar.Title = "Look Fragments";
-            ActionBar.CurrentActivity = this;
+            LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+            LegacyBar.Title = "Look Fragments";
             AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
 
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search,
+            var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_search,
                                                      Resource.Drawable.ic_action_search_dark,
                                                      Resource.String.menu_string_search);
-            ActionBar.AddAction(action);
+            LegacyBar.AddAction(action);
 
 
             TabHost.TabSpec spec = _tabHost.NewTabSpec("tv");

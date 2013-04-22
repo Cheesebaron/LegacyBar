@@ -31,7 +31,7 @@ namespace LegacyBar.Library.Bar
         /// <param name="hasMenuButton"></param>
         /// <param name="actionType"></param>
         /// <returns>If it will fit :)</returns>
-        public static bool ActionFits(Activity activity, int currentNumber, bool hasMenuButton, ActionType actionType)
+        public static bool ActionFits(int width, float density, int currentNumber, bool hasMenuButton, ActionType actionType)
         {
             if (actionType == ActionType.Always)
                 return true;
@@ -39,13 +39,9 @@ namespace LegacyBar.Library.Bar
             if (actionType == ActionType.Never)
                 return false;
 
-            if (activity == null)
+            if (density == 0.0)
                 return true;
-
-            var density = activity.Resources.DisplayMetrics.Density;
-            if (density == 0)
-                return true;
-            density = (int)(activity.Resources.DisplayMetrics.WidthPixels / density);//calculator DP of width.
+            density = (int)(width / density);//calculator DP of width.
 
 
             var max = 5;
