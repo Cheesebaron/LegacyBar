@@ -335,6 +335,22 @@ namespace LegacyBar.Library.Bar
             ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
+        public int DropDownSelectedItemPosition
+        {
+            get { return _titleDropdown.SelectedItemPosition; }
+            set
+            {
+                try
+                {
+                    _titleDropdown.SetSelection(value);
+                }
+                catch (Exception)
+                {
+                }
+                
+            }
+        }
+
         public void SetDropDown(string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
         {
             if (items == null)
