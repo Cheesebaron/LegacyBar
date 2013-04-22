@@ -40,11 +40,15 @@
     <item name="android:layout_height">@dimen/actionbar_item_height</item>
     <item name="android:layout_marginRight">1px</item>
     <item name="android:layout_marginLeft">0px</item>
-    <item name="android:padding">4dp</item>
+    <item name="android:padding">8dp</item>
   </style>
-  <style name="actionbarhomelogo">
+  <style name="actionbarhomelogo" parent="actionbaritem">
+    <item name="android:layout_width">@dimen/actionbar_home_item_width</item>
+    <item name="android:layout_height">@dimen/actionbar_item_height</item>
     <item name="android:layout_marginRight">1px</item>
-    <item name="android:layout_marginLeft">6dp</item>
+    <item name="android:layout_marginLeft">6px</item>
+    <item name="android:paddingTop">8dp</item>
+    <item name="android:padding">8dp</item>
   </style>
   <style name="actionbarprogressbar" parent="@android:style/Widget.ProgressBar.Small">
   </style>
