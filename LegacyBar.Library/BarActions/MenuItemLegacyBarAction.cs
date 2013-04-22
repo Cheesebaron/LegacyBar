@@ -18,9 +18,12 @@
  * 
  */
 
+using System;
 using Android.App;
 using Android.Content;
+using Android.Graphics.Drawables;
 using Android.Views;
+using Java.Lang;
 
 namespace LegacyBar.Library.BarActions
 {
@@ -32,10 +35,10 @@ namespace LegacyBar.Library.BarActions
         private readonly Activity _activity;
         private readonly LegacyBarMenuItem _menuItem;
         public int MenuItemId;
-        public MenuItemLegacyBarAction(Context context, Activity activity, int menuId, int drawable, int popupId)
+        public MenuItemLegacyBarAction(Activity activity, int menuId, int drawable, int popupId)
         {
             Drawable = drawable;
-            Context = context;
+            Context = activity;
             _activity = activity;
             MenuItemId = menuId;
             _menuItem = new LegacyBarMenuItem(menuId, Handle);
