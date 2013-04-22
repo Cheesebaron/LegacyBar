@@ -58,7 +58,7 @@ namespace LegacyBar.Sample
             AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
 
 
-            var action = new MenuItemLegacyBarAction(this, this, Resource.Id.menu_search,
+            var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_search,
                                                      Resource.Drawable.ic_action_search_dark,
                                                      Resource.String.menu_string_search);
             LegacyBar.AddAction(action);

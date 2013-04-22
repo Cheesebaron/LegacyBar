@@ -47,6 +47,7 @@ namespace LegacyBar.Library.Bar
         private ProgressBar _progress;
         private RelativeLayout _titleLayout;
         private OverflowLegacyBarAction _overflowLegacyBarAction;
+        private Spinner _titleDropdown;
 
         //Used to track what we need to hide in the pop up menu.
         public List<int> MenuItemsToHide = new List<int>();
@@ -109,12 +110,35 @@ namespace LegacyBar.Library.Bar
             }
         }
 
+
         public int SeparatorDrawableRaw
         {
             set
             {
                 _actionsView.SetBackgroundResource(value);
                 _homeLayout.SetBackgroundResource(value);
+            }
+        }
+
+        /// <summary>
+        /// Set the drawable of the dropdown
+        /// </summary>
+        public Drawable DropdownDrawable
+        {
+            set
+            {
+                _titleDropdown.SetBackgroundDrawable(value);
+            }
+        }
+
+        /// <summary>
+        /// Sets the raw background of the dropdown
+        /// </summary>
+        public int DropdownDrawableRaw
+        {
+            set
+            {
+                _titleDropdown.SetBackgroundResource(value);
             }
         }
 
@@ -227,6 +251,7 @@ namespace LegacyBar.Library.Bar
 
             _progress = _barView.FindViewById<ProgressBar>(Resource.Id.actionbar_progress);
             _titleLayout = _barView.FindViewById<RelativeLayout>(Resource.Id.actionbar_title_layout);
+            _titleDropdown = _barView.FindViewById<Spinner>(Resource.Id.actionbar_spinner);
 
             _overflowLegacyBarAction = new OverflowLegacyBarAction(Context);
 
@@ -303,6 +328,37 @@ namespace LegacyBar.Library.Bar
 
             ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
+
+        public void SetDropDown(string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
+        {
+            if (items == null)
+                return;
+            //if no items then show the title.
+            if (items.Length == 0)
+            {
+                _titleView.Visibility = ViewStates.Visible;
+                _titleDropdown.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                var previousSelected = _titleDropdown.SelectedItemPosition;
+                _titleView.Visibility = ViewStates.Gone;
+                var adapter = new ArrayAdapter(_context, Android.Resource.Layout.SimpleSpinnerItem, items);
+                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
+
+                _titleDropdown.Visibility = ViewStates.Visible;
+                _titleDropdown.Adapter = adapter;
+                if(eventHandler != null)
+                    _titleDropdown.ItemSelected += eventHandler;
+
+                if (previousSelected >= 0 && previousSelected < items.Length)
+                    _titleDropdown.SetSelection(previousSelected);
+
+
+            }
+        }
+
+
 
         public void ClearHomeAction()
         {
