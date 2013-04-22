@@ -329,7 +329,7 @@ namespace LegacyBar.Library.Bar
             ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
-        public void SetDropDown(string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
+        public void SetDropDown(Context context, string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
         {
             if (items == null)
                 return;
@@ -343,7 +343,7 @@ namespace LegacyBar.Library.Bar
             {
                 var previousSelected = _titleDropdown.SelectedItemPosition;
                 _titleView.Visibility = ViewStates.Gone;
-                var adapter = new ArrayAdapter(_context, Android.Resource.Layout.SimpleSpinnerItem, items);
+                var adapter = new ArrayAdapter(context, Android.Resource.Layout.SimpleSpinnerItem, items);
                 adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
 
                 _titleDropdown.Visibility = ViewStates.Visible;

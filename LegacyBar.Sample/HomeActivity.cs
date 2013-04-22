@@ -167,6 +167,13 @@ namespace LegacyBar.Sample
                                               var intent = new Intent(this, typeof (FragmentTabActivity));
                                               StartActivity(intent);
                                           };
+
+            var spinnerActivity = FindViewById<Button>(Resource.Id.dropdown_activity);
+            spinnerActivity.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(SpinnerActivity));
+                StartActivity(intent);
+            };
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

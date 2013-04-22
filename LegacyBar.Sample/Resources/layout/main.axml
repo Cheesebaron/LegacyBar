@@ -82,6 +82,11 @@
           android:layout_height="wrap_content"
           android:text="Blue Theme" />
       <Button
+         android:id="@+id/dropdown_activity"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="Dropdown spinner Demo" />
+      <Button
           android:id="@+id/fragment_activity"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
