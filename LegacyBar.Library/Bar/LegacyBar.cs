@@ -344,35 +344,57 @@ namespace LegacyBar.Library.Bar
                 
             }
         }
+
+
+        /// <summary>
+        /// Sets teh drop down list with a customer adapter and callback when items change
+        /// if adapter.Count == 0 then the spinner will NOT be shown and you will have to call this method again.
+        /// </summary>
+        /// <param name="adapter">Adapter to display</param>
+        /// <param name="eventHandler">Event handler to callback. (can be null)</param>
+         public void SetDropDown(BaseAdapter adapter, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
+         {
+             if (adapter == null)
+                 return;
+
+             
+
+             if (adapter.Count == 0)
+             {
+                 _titleView.Visibility = ViewStates.Visible;
+                 _titleDropdown.Visibility = ViewStates.Gone;
+             }
+             else
+             {
+                 var previousSelected = _titleDropdown.SelectedItemPosition;
+                 _titleView.Visibility = ViewStates.Gone;
+
+                 _titleDropdown.Visibility = ViewStates.Visible;
+                 _titleDropdown.Adapter = adapter;
+                 if (eventHandler != null)
+                     _titleDropdown.ItemSelected += eventHandler;
+
+                 if (previousSelected >= 0 && previousSelected < adapter.Count)
+                     _titleDropdown.SetSelection(previousSelected);
+             }
+        }
         
-        
+        /// <summary>
+        /// Sets the drop down items with a SimpleDropDownItem1Line Array Adapter
+         /// if items.Length == 0 then the spinner will NOT be shown and you will have to call this method again.
+        /// </summary>
+        /// <param name="context">context to create under for adapter</param>
+        /// <param name="items"> items to set</param>
+         /// <param name="eventHandler">event handler for item selected change (can be null)</param>
        public void SetDropDown(Context context, string[] items, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
         {
             if (items == null)
                 return;
-            //if no items then show the title.
-            if (items.Length == 0)
-            {
-                _titleView.Visibility = ViewStates.Visible;
-                _titleDropdown.Visibility = ViewStates.Gone;
-            }
-            else
-            {
-                var previousSelected = _titleDropdown.SelectedItemPosition;
-                _titleView.Visibility = ViewStates.Gone;
-                var adapter = new ArrayAdapter(context, Android.Resource.Layout.SimpleSpinnerItem, items);
-                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
 
-                _titleDropdown.Visibility = ViewStates.Visible;
-                _titleDropdown.Adapter = adapter;
-                if(eventHandler != null)
-                    _titleDropdown.ItemSelected += eventHandler;
+            var adapter = new ArrayAdapter(context, Android.Resource.Layout.SimpleSpinnerItem, items);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
 
-                if (previousSelected >= 0 && previousSelected < items.Length)
-                    _titleDropdown.SetSelection(previousSelected);
-
-
-            }
+           SetDropDown(adapter, eventHandler);
         }
 
 
