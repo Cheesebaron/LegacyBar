@@ -1,4 +1,4 @@
-LegacyBar is an open source and free ActionBar which works from Android 1.6 and up!
+LegacyBar is an open source and free ActionBar which works from Android 2.1 and up!
 
 It features:
 * A fully customizeable Action Bar
@@ -27,9 +27,18 @@ Add it easily to your Layout:
 </LinearLayout>
 ```
 
-<div>
-	<a href="https://github.com/Cheesebaron/LegacyBar">
-		Fork LegacyBar on GitHub!
-		<img src="http://junkafarian.github.com/build/html/_static/github.png" alt="GitHub logo" />
-	</a>
-</div>
+Interact with it in your Activity and add Actions:
+
+```csharp
+// Find it from the resource
+LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
+// Set a home logo
+LegacyBar.SetHomeLogo(Resource.Drawable.MyLogo);
+// Add an Action
+var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_search, Resource.Drawable.ic_action_search, "Search");
+LegacyBar.AddAction(action);
+```
+
+Fork it on [GitHub!](https://github.com/Cheesebaron/LegacyBar)
+
+Device screenshot made with [breezi's placeit](http://placeit.breezi.com/)
