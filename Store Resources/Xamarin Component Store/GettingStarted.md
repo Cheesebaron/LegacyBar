@@ -2,6 +2,7 @@ This guide assumes that you have loaded LegacyBar either through reference to th
 
 ## Creating the first Action Bar
 Start by creating a new Android Layout similar to this, lets call it `main.axml`:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 
