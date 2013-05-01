@@ -1,4 +1,4 @@
-This guide assumes that you have loaded LegacyBar either through reference to the DLL you have built or the project or by loading the xpkg from the Xamarin Component Store.
+This guide assumes that you have loaded LegacyBar either through reference to the DLL you have built or the project or by loading the component from the Xamarin Component Store. Also make sure to have Support.v4 referenced in your Application project.
 
 ## Creating the first Action Bar
 Start by creating a new Android Layout similar to this, lets call it `main.axml`:
