@@ -1,6 +1,7 @@
 LegacyBar is an open source and free ActionBar which works from Android 2.1 and up!
 
 It features:
+
 * A fully customizeable Action Bar
 * 4 Built in base themes
 * Integrates with current Menus
