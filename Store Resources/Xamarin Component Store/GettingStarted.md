@@ -1,6 +1,6 @@
 This guide assumes that you have loaded LegacyBar either through reference to the DLL you have built or the project or by loading the xpkg from the Xamarin Component Store.
 
-> After loading xpkg or adding reference to DLL ensure you also add a reference to Mono.Android.Support.v4 to your project that is using LegacyBar
+<blockquote><p>After loading xpkg or adding reference to DLL ensure you also add a reference to Mono.Android.Support.v4 to your project that is using LegacyBar</p></blockquote>
 
 ## Creating the first Action Bar
 Start by creating a new Android Layout similar to this, lets call it `main.axml`:
