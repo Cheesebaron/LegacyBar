@@ -65,7 +65,7 @@ namespace LegacyBar.Library.Bar
             {
                 if ((int) Build.VERSION.SdkInt >= 14)
                 {
-#if __ANDROID_14_
+#if __ANDROID_14__
                     return ViewConfiguration.Get(Context).HasPermanentMenuKey;
 #endif
                 }
