@@ -28,7 +28,8 @@ namespace LegacyBar.Library.BarActions
         HoloLight,
         HoloGray,
         HoloBlack,
-        HoloBlue
+        HoloBlue,
+		HoloDarkBlue
     }
 
     public enum ActionType

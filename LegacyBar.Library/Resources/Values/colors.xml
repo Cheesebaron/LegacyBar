@@ -74,6 +74,15 @@
   <color name="bottomactionbar_pressedcolor_blue">#FF888888</color>
   <color name="pager_blue">#FF4c505b</color>
 
+  <color name="actionbar_maincolor_darkblue">#FF00103f</color>
+  <color name="actionbar_accentcolor_darkblue">#FF000c31</color>
+  <color name="actionbar_pressedcolor_darkblue">#FF071d5e</color>
+  <color name="actionbar_title_darkblue">#FFFFFFFF</color>
+  <color name="actionbar_separator_darkblue">#FF0f266b</color>
+  <color name="bottomactionbar_maincolor_darkblue">#FF555555</color>
+  <color name="bottomactionbar_pressedcolor_darkblue">#FF888888</color>
+  <color name="pager_darkblue">#FF4c505b</color>
+
   <color name="white">#FFFFFF</color>
   <color name="black">#000000</color>
   <color name="green">#00FF00</color>

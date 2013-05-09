@@ -27,6 +27,7 @@
       <enum name="holo_gray" value="2" />
       <enum name="holo_black" value="3" />
       <enum name="holo_blue" value="4" />
+      <enum name="holo_darkblue" value="5" />
     </attr>
     <attr name="is_bottom" format="boolean"></attr>
     <attr name="light_icons" format="boolean"></attr>
