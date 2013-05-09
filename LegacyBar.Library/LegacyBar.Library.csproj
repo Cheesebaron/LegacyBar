@@ -14,7 +14,7 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AssemblyName>LegacyBar.Library</AssemblyName>
-    <TargetFrameworkVersion>v2.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -127,6 +127,10 @@
     <AndroidResource Include="Resources\Values-sw600dp\dimens.xml" />
     <AndroidResource Include="Resources\Values-sw600dp-land\dimens.xml" />
     <AndroidResource Include="Resources\Values-xlarge\dimens.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_btn_darkblue.xml" />
+    <AndroidResource Include="Resources\Drawable\actionbar_background_darkblue.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_btn_darkblue.xml" />
+    <AndroidResource Include="Resources\Drawable\bottomactionbar_background_darkblue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
