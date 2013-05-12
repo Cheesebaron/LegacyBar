@@ -14,6 +14,9 @@ It now features:
 * Importable library
 * Bottom Action Bar (beta)
 
+## Sample App
+* Download the sample app on [Google Play](https://play.google.com/store/apps/details?id=legacybar.sample)
+
 ## Projects which use LegacyBar
 * [TasksSimplified](https://github.com/jamesmontemagno/TasksSimplified)
 * [My Media Center](https://play.google.com/store/apps/details?id=com.ceton.companion)
