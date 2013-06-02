@@ -18,8 +18,6 @@
  * 
  */
 
-using Android.Views;
-
 namespace LegacyBar.Library.BarActions
 {
     public enum LegacyBarTheme
@@ -39,14 +37,23 @@ namespace LegacyBar.Library.BarActions
         Always,
         CollapseActionView
     }
+
+    public delegate void LegacyBarActionEventHandler(object sender, LegacyBarActionEventArgs e);
+
     public interface ILegacyBarAction
     {
-        int GetDrawable();
-
-        void PerformAction(View view);
+        /// <summary>
+        /// Sets or gets the drawable of the Action.
+        /// </summary>
+        int Drawable { get; set; }
 
         /// <summary>
-        /// Sets the current position to determine if it shoudl be put in the action bar or not.
+        /// Event for getting whether the Action was clicked.
+        /// </summary>
+        event LegacyBarActionEventHandler Clicked;
+
+        /// <summary>
+        /// Sets the current position to determine if it should be put in the action bar or not.
         /// </summary>
         int CurrentPosition { get; set;}
 
@@ -56,5 +63,7 @@ namespace LegacyBar.Library.BarActions
         /// Displays if user holds down action bar item.
         /// </summary>
         int PopUpMessage { get; set; }
+
+        void ActionClicked();
     }
 }

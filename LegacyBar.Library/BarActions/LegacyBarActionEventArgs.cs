@@ -12,33 +12,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
  */
 
 using System;
-using Android.Content;
-using Android.Views;
 
 namespace LegacyBar.Library.BarActions
 {
-    public class ActionLegacyBarAction : LegacyBarAction
+    public class LegacyBarActionEventArgs : EventArgs
     {
-        private readonly Action _action;
-
-        public ActionLegacyBarAction(Context context, Action action, int drawable)
-        {
-            Drawable = drawable;
-            Context = context;
-            _action = action;
-        }
-
-        public override int GetDrawable()
-        {
-            return Drawable;
-        }
-
-        public override void PerformAction(View view)
-        {
-            _action.Invoke();
-        }
+        public ActionType ActionType { get; set; }
+        public int CurrentPosition { get; set; }
     }
 }

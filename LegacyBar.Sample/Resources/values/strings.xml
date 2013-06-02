@@ -9,4 +9,8 @@
   <string name="menu_string_right">right</string>
   <string name="menu_string_refresh">refresh</string>
   <string name="menu_string_sort">Sort</string>
+  <string name="ab_string_share">Share</string>
+  <string name="ab_string_refresh">Refresh</string>
+  <string name="ab_string_search">Search</string>
+  <string name="ab_string_other">Other</string>
 </resources>

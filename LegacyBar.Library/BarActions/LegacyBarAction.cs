@@ -1,7 +1,4 @@
 /*
- * Copyright (C) 2010 Johan Nilsson <http://markupartist.com>
- *
- * Original (https://github.com/johannilsson/android-actionbar) Ported to Xamarin.Android
  * Copyright (C) 2013 LegacyBar - @Cheesebaron & @JamesMontemagno
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,28 +15,26 @@
  * 
  */
 
-using Android.Content;
-using Android.Views;
-
 namespace LegacyBar.Library.BarActions
 {
-    /**
-         * Definition of an action that could be performed, along with a icon to
-         * show.
-         */
-    public abstract class LegacyBarAction : Java.Lang.Object, ILegacyBarAction
+    public class LegacyBarAction : Java.Lang.Object, ILegacyBarAction
     {
-        protected int Drawable;
-        protected Context Context;
-        protected Intent Intent;
-
-        public abstract int GetDrawable();
-
-        public abstract void PerformAction(View view);
+        public int Drawable { get; set; }
+        public event LegacyBarActionEventHandler Clicked;
 
         public int CurrentPosition { get; set; }
         public int PopUpMessage { get; set; }
 
         public ActionType ActionType { get; set; }
+
+        public virtual void ActionClicked()
+        {
+            if (null != Clicked)
+                Clicked(this, new LegacyBarActionEventArgs
+                    {
+                        ActionType = ActionType,
+                        CurrentPosition = CurrentPosition
+                    });
+        }
     }
 }

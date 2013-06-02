@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Android.App;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
@@ -26,15 +24,33 @@ namespace LegacyBar.Library.BarActions
 {
     public class OverflowLegacyBarAction : LegacyBarAction, AdapterView.IOnItemSelectedListener
     {
-        public int MenuItemId;
+        #region ILegacyBarAction
+        private bool _firstClick;
+
+        public override void ActionClicked()
+        {
+            if (_overflowSpinner == null)
+                return;
+
+            _overflowSpinner.Adapter = new OverflowSpinnerAdapter(_context, _stringIds);
+            _firstClick = true;
+            _overflowSpinner.SetSelection(0);
+            _overflowSpinner.PerformClick();
+
+            base.ActionClicked();
+        }
+        #endregion
+
         private readonly List<string> _stringIds;
         private Spinner _overflowSpinner;
         public int Index { get; set; }
+        private readonly Context _context;
+
         public OverflowLegacyBarAction(Context context)
         {
+            _context = context;
             Drawable = Resource.Drawable.ic_action_overflow_dark;
-            Context = context;
-            ActionList = new List<LegacyBarAction>();
+            ActionList = new List<ILegacyBarAction>();
             _stringIds = new List<string> {string.Empty/*first one to hide*/};
             ActionType = ActionType.Always;
         }
@@ -44,7 +60,7 @@ namespace LegacyBar.Library.BarActions
             Drawable = light ? Resource.Drawable.ic_action_overflow : Resource.Drawable.ic_action_overflow_dark;
         }
 
-        public List<LegacyBarAction> ActionList { get; set; }
+        public List<ILegacyBarAction> ActionList { get; set; }
 
         public Spinner OverflowSpinner
         {
@@ -63,35 +79,11 @@ namespace LegacyBar.Library.BarActions
             _stringIds.Add(string.Empty);//add back in first one cause we have to.
         }
 
-        public override int GetDrawable()
-        {
-            return Drawable;
-        }
-
-        public void AddAction(LegacyBarAction legacyBarAction)
+        public void AddAction(ILegacyBarAction legacyBarAction)
         {
             ActionList.Add(legacyBarAction);
-            _stringIds.Add(legacyBarAction.PopUpMessage == 0 ? "ERROR" : Context.Resources.GetString(legacyBarAction.PopUpMessage));
-        }
-
-        private bool _firstClick;
-        public override void PerformAction(View view)
-        {
-            try
-            {
-                if(_overflowSpinner == null)
-                    return;
-
-                _overflowSpinner.Adapter = new OverflowSpinnerAdapter(Context, _stringIds);
-                _firstClick = true;
-                _overflowSpinner.SetSelection(0);
-                _overflowSpinner.PerformClick();
-                
-            }
-            catch (Exception ex)
-            {
-                //Todo: do something about me being empty!
-            }
+            _stringIds.Add(legacyBarAction.PopUpMessage == 0 ? "ERROR" :
+                _context.Resources.GetString(legacyBarAction.PopUpMessage));
         }
 
         public void OnItemSelected(AdapterView parent, View view, int position, long id)
@@ -102,7 +94,7 @@ namespace LegacyBar.Library.BarActions
                 return;
             }
 
-            ActionList[position-1].PerformAction(view);//subtract 1 for default.
+            ActionList[position-1].ActionClicked();//subtract 1 for default.
         }
 
         public void OnNothingSelected(AdapterView parent)

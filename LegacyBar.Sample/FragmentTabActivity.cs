@@ -57,14 +57,7 @@ namespace LegacyBar.Sample
             LegacyBar.Title = "Look Fragments";
             AddHomeAction(typeof (HomeActivity), Resource.Drawable.icon);
 
-
-            var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_search,
-                                                     Resource.Drawable.ic_action_search_dark,
-                                                     Resource.String.menu_string_search);
-            LegacyBar.AddAction(action);
-
-
-            TabHost.TabSpec spec = _tabHost.NewTabSpec("tv");
+            var spec = _tabHost.NewTabSpec("tv");
             spec.SetIndicator("Tab 1", Resources.GetDrawable(Resource.Drawable.icon));
             _tabsAdapter.AddTab(spec, Class.FromType(typeof (FramgmentTab1)), null);
 
@@ -97,6 +90,8 @@ namespace LegacyBar.Sample
                 case Resource.Id.menu_refresh:
                     return true;
             }
+
+          
 
             return base.OnOptionsItemSelected(item);
         }

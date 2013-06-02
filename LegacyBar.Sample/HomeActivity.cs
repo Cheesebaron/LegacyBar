@@ -62,37 +62,52 @@ namespace LegacyBar.Sample
             //always put these 2 in there since they are NOT in my menu.xml
             MenuId = Resource.Menu.mainmenu;
 
-            LegacyBarAction shareAction = new DefaultLegacyBarAction(this, CreateShareIntent(),
-                                                                     LegacyBar.LightIcons ? Resource.Drawable.ic_action_sort : Resource.Drawable.ic_action_sort_dark)
-                                              {
-                                                  ActionType = ActionType.Always
-                                              };
+            var shareAction = new LegacyBarAction
+                {
+                    ActionType = ActionType.Always,
+                    Drawable =
+                        LegacyBar.LightIcons
+                            ? Resource.Drawable.ic_action_share
+                            : Resource.Drawable.ic_action_share_dark,
+                    PopUpMessage = Resource.String.ab_string_share
+                };
+            shareAction.Clicked += delegate { StartActivity(CreateShareIntent()); };
             LegacyBar.AddAction(shareAction);
 
-
-            var otherAction = new DefaultLegacyBarAction(this, new Intent(this, typeof (OtherActivity)),
-                                                         LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark)
-                                  {
-                                      ActionType = ActionType.Always
-                                  };
+            var otherAction = new LegacyBarAction
+                {
+                    ActionType = ActionType.Always,
+                    Drawable =
+                        LegacyBar.LightIcons
+                            ? Resource.Drawable.ic_action_share
+                            : Resource.Drawable.ic_action_share_dark,
+                    PopUpMessage = Resource.String.ab_string_other
+                };
+            otherAction.Clicked += delegate { StartActivity(new Intent(this, typeof (OtherActivity))); };
             LegacyBar.AddAction(otherAction);
 
             //only put in if there is room
-            var searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, Resource.Id.menu_search, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark,
-                Resource.String.menu_string_search)
-                                           {
-                                               ActionType = ActionType.IfRoom
-                                           };
+            var searchMenuItemAction = new LegacyBarAction
+                {
+                    ActionType = ActionType.IfRoom,
+                    Drawable =
+                        LegacyBar.LightIcons
+                            ? Resource.Drawable.ic_action_search
+                            : Resource.Drawable.ic_action_search_dark,
+                    PopUpMessage = Resource.String.ab_string_search
+                };
             LegacyBar.AddAction(searchMenuItemAction);
 
             //never put this guy in there
-            searchMenuItemAction = new MenuItemLegacyBarAction(
-                this, Resource.Id.menu_refresh, LegacyBar.LightIcons ? Resource.Drawable.ic_action_refresh : Resource.Drawable.ic_action_refresh_dark,
-                Resource.String.menu_string_refresh)
-                                       {
-                                           ActionType = ActionType.Never
-                                       };
+            searchMenuItemAction = new LegacyBarAction
+            {
+                ActionType = ActionType.Never,
+                Drawable =
+                    LegacyBar.LightIcons
+                        ? Resource.Drawable.ic_action_search
+                        : Resource.Drawable.ic_action_search_dark,
+                PopUpMessage = Resource.String.ab_string_search
+            };
             LegacyBar.AddAction(searchMenuItemAction);
 
             var startProgress = FindViewById<Button>(Resource.Id.start_progress);
@@ -110,7 +125,15 @@ namespace LegacyBar.Sample
             var addAction = FindViewById<Button>(Resource.Id.add_action);
             addAction.Click += (s, e) =>
                                    {
-                                       var action = new MyOtherActionBarAction(this, null, LegacyBar.LightIcons ? Resource.Drawable.ic_action_share : Resource.Drawable.ic_action_share_dark);
+                                       var action = new LegacyBarAction
+                                       {
+                                           ActionType = ActionType.Never,
+                                           Drawable =
+                                               LegacyBar.LightIcons 
+                                                   ? Resource.Drawable.ic_action_share 
+                                                   : Resource.Drawable.ic_action_share_dark,
+                                           PopUpMessage = Resource.String.ab_string_share
+                                       };
                                        LegacyBar.AddAction(action);
                                    };
 
@@ -199,29 +222,5 @@ namespace LegacyBar.Sample
             intent.PutExtra(Intent.ExtraText, "Shared from the LegacyBar widget.");
             return Intent.CreateChooser(intent, "Share");
         }
-
-        #region Nested type: MyOtherActionBarAction
-
-        private class MyOtherActionBarAction : LegacyBarAction
-        {
-            public MyOtherActionBarAction(Context context, Intent intent, int drawable)
-            {
-                Drawable = drawable;
-                Context = context;
-                Intent = intent;
-            }
-
-            public override int GetDrawable()
-            {
-                return Drawable;
-            }
-
-            public override void PerformAction(View view)
-            {
-                Toast.MakeText(Context, "Added legacyBarAction", ToastLength.Short).Show();
-            }
-        }
-
-        #endregion
     }
 }

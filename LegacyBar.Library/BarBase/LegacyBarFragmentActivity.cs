@@ -15,10 +15,8 @@
 
 using System;
 using Android.App;
-using Android.Content;
 using Android.Support.V4.App;
 using Android.Views;
-using LegacyBar.Library.BarActions;
 
 namespace LegacyBar.Library.BarBase
 {
@@ -52,17 +50,12 @@ namespace LegacyBar.Library.BarBase
 
         public void AddHomeAction(Type activity, int resId)
         {
-            var homeIntent = new Intent(this, activity);
-            homeIntent.AddFlags(ActivityFlags.ClearTop);
-            homeIntent.AddFlags(ActivityFlags.NewTask);
-            LegacyBar.SetHomeAction(new DefaultLegacyBarAction(this, homeIntent, resId));
-            LegacyBar.SetDisplayHomeAsUpEnabled(true);
+            LegacyBarActivityUtils.AddHomeAction(LegacyBar, this, activity, resId);
         }
 
         public void AddHomeAction(Action action, int resId, bool isHomeAsUpEnabled = true)
         {
-            LegacyBar.SetHomeAction(new ActionLegacyBarAction(this, action, resId));
-            LegacyBar.SetDisplayHomeAsUpEnabled(isHomeAsUpEnabled);
+            LegacyBarActivityUtils.AddHomeAction(LegacyBar, action, resId, isHomeAsUpEnabled);
         }
 
         /*TODO public override bool OnOptionsItemSelected(IMenuItem item)

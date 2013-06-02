@@ -45,8 +45,8 @@
     <Reference Include="Mono.Android.Support.v4" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarActions\ActionLegacyBarAction.cs" />
-    <Compile Include="BarActions\LegacyBarMenuItem.cs" />
+    <Compile Include="BarActions\LegacyBarActionEventArgs.cs" />
+    <Compile Include="BarBase\LegacyBarActivityUtils.cs" />
     <Compile Include="BarBase\LegacyBarExpandableListActivity.cs" />
     <Compile Include="BarBase\LegacyBarTabActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -54,10 +54,8 @@
     <Compile Include="BarActions\LegacyBarAction.cs" />
     <Compile Include="Bar\LegacyBarUtils.cs" />
     <Compile Include="BarActions\ILegacyBarAction.cs" />
-    <Compile Include="BarActions\DefaultLegacyBarAction.cs" />
     <Compile Include="BarActions\OverflowLegacyBarAction.cs" />
     <Compile Include="Bar\ScrollingTextView.cs" />
-    <Compile Include="BarActions\MenuItemLegacyBarAction.cs" />
     <Compile Include="BarBase\LegacyBarActivity.cs" />
     <Compile Include="BarBase\LegacyBarFragmentActivity.cs" />
     <Compile Include="BarBase\LegacyBarListActivity.cs" />

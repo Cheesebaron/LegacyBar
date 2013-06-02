@@ -196,7 +196,7 @@ namespace LegacyBar.Library.Bar
 
         public int BackgroundDrawableRaw
         {
-            set { SetBackgroundResource(value);}   
+            set { SetBackgroundResource(value);}
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace LegacyBar.Library.Bar
         public LegacyBar(Context context, IAttributeSet attrs)
             : base(context, attrs)
         {
-			ResourceIdManager.UpdateIdValues();
+            ResourceIdManager.UpdateIdValues();
 
             _inflater = LayoutInflater.From(Context);
             //_inflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
@@ -311,7 +311,7 @@ namespace LegacyBar.Library.Bar
         {
             _homeBtn.SetOnClickListener(this);
             _homeBtn.Tag = legacyBarAction;
-            _homeBtn.SetImageResource(legacyBarAction.GetDrawable());
+            _homeBtn.SetImageResource(legacyBarAction.Drawable);
             _homeLayout.Visibility = ViewStates.Visible;
             _backIndicator.SetBackgroundResource(LightIcons ? Resource.Drawable.actionbar_back_indicator : Resource.Drawable.actionbar_back_indicator_dark);
             
@@ -329,7 +329,7 @@ namespace LegacyBar.Library.Bar
             ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_bg);
         }
 
- 		 public int DropDownSelectedItemPosition
+        public int DropDownSelectedItemPosition
         {
             get { return _titleDropdown.SelectedItemPosition; }
             set
@@ -354,10 +354,7 @@ namespace LegacyBar.Library.Bar
         /// <param name="eventHandler">Event handler to callback. (can be null)</param>
          public void SetDropDown(BaseAdapter adapter, EventHandler<AdapterView.ItemSelectedEventArgs> eventHandler)
          {
-             if (adapter == null)
-                 return;
-
-             
+             if (adapter == null) return;
 
              if (adapter.Count == 0)
              {
@@ -394,7 +391,7 @@ namespace LegacyBar.Library.Bar
             var adapter = new ArrayAdapter(context, Android.Resource.Layout.SimpleSpinnerItem, items);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
 
-           SetDropDown(adapter, eventHandler);
+            SetDropDown(adapter, eventHandler);
         }
 
 
@@ -484,7 +481,8 @@ namespace LegacyBar.Library.Bar
 
             var hideAction = false;
 
-            if (!LegacyBarUtils.ActionFits(Context.Resources.DisplayMetrics.WidthPixels, Context.Resources.DisplayMetrics.Density, index, HasMenuButton, legacyBarAction.ActionType))
+            if (!LegacyBarUtils.ActionFits(Context.Resources.DisplayMetrics.WidthPixels,
+                Context.Resources.DisplayMetrics.Density, index, HasMenuButton, legacyBarAction.ActionType))
             {
                 if (!HasMenuButton)
                 {
@@ -504,9 +502,10 @@ namespace LegacyBar.Library.Bar
             }
 
             //simply put it in the menu items to hide if we are a menu item.
-            var taskAction = legacyBarAction as MenuItemLegacyBarAction;
-            if (taskAction != null && hideAction)
-                MenuItemsToHide.Add(taskAction.MenuItemId);
+            //TODO rip this out?
+            //var taskAction = legacyBarAction as MenuItemLegacyBarAction;
+            //if (taskAction != null && hideAction)
+            //    MenuItemsToHide.Add(taskAction.MenuItemId);
 
             if (addActionBar)
                 AddOverflowAction(_overflowLegacyBarAction);
@@ -530,9 +529,10 @@ namespace LegacyBar.Library.Bar
         {
             if (index < 1) return;
 
-            var menuItemAction = _actionsView.GetChildAt(index).Tag as MenuItemLegacyBarAction;
-            if (menuItemAction != null)
-                MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+            //TODO rip this out?
+            //var menuItemAction = _actionsView.GetChildAt(index).Tag as MenuItemLegacyBarAction;
+            //if (menuItemAction != null)
+            //    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
             _actionsView.RemoveViewAt(index);
         }
@@ -549,12 +549,13 @@ namespace LegacyBar.Library.Bar
                 
                 if (view == null) continue;
 
-                var tag = view.Tag;
-                var actionBarAction = tag as MenuItemLegacyBarAction;
+                //TODO
+                //var tag = view.Tag;
+                //var actionBarAction = tag as MenuItemLegacyBarAction;
                 
-                if (actionBarAction == null || id != actionBarAction.MenuItemId) continue;
+                //if (actionBarAction == null || id != actionBarAction.MenuItemId) continue;
 
-                MenuItemsToHide.Remove(actionBarAction.MenuItemId);
+                //MenuItemsToHide.Remove(actionBarAction.MenuItemId);
 
                 _actionsView.RemoveView(view);
             }
@@ -577,9 +578,10 @@ namespace LegacyBar.Library.Bar
 
                 if (actionBarAction == null || !actionBarAction.Equals(legacyBarAction)) continue;
 
-                var menuItemAction = tag as MenuItemLegacyBarAction;
-                if (menuItemAction != null)
-                    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
+                //TODO rip out?
+                //var menuItemAction = tag as MenuItemLegacyBarAction;
+                //if (menuItemAction != null)
+                //    MenuItemsToHide.Remove(menuItemAction.MenuItemId);
 
                 _actionsView.RemoveView(view);
             }
@@ -605,7 +607,7 @@ namespace LegacyBar.Library.Bar
 
             var labelView =
                 view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
-            labelView.SetImageResource(legacyBarAction.GetDrawable());
+            labelView.SetImageResource(legacyBarAction.Drawable);
 
             view.Tag = legacyBarAction;
             view.SetOnClickListener(this);
@@ -635,7 +637,7 @@ namespace LegacyBar.Library.Bar
                 labelView.SetBackgroundResource(ItemBackgroundDrawableRaw);
             }
 
-            labelView.SetImageResource(legacyBarAction.GetDrawable());
+            labelView.SetImageResource(legacyBarAction.Drawable);
 
             var spinner = view.FindViewById<Spinner>(Resource.Id.overflow_spinner);
             _overflowLegacyBarAction.OverflowSpinner = spinner;
@@ -654,7 +656,7 @@ namespace LegacyBar.Library.Bar
             var action = tag as LegacyBarAction;
             if (action != null)
             {
-                action.PerformAction(v);
+                action.ActionClicked();
             }
         }
 
