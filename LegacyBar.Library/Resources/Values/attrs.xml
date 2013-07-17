@@ -28,7 +28,8 @@
       <enum name="holo_black" value="3" />
       <enum name="holo_blue" value="4" />
     </attr>
-    <attr name="is_bottom" format="boolean"></attr>
-    <attr name="light_icons" format="boolean"></attr>
+    <attr name="is_bottom" format="boolean"/>
+    <attr name="light_icons" format="boolean"/>
+    <attr name="home_logo" format="reference"/>
   </declare-styleable>
 </resources>

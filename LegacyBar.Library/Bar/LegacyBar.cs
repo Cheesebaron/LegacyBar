@@ -301,6 +301,12 @@ namespace LegacyBar.Library.Bar
                 LegacyBarUtils.SetLegacyBarTheme(this, Theme);
             }
 
+            using (var homeLogo = a.GetDrawable(Resource.Styleable.actionbar_home_logo))
+            {
+                if(null != homeLogo)
+                    SetHomeLogoFromDrawable(homeLogo);
+            }
+
             a.Recycle();
 
             _titleView.Click += (s, e) => { if (null != TitleClick) TitleClick(s, e); };
@@ -420,6 +426,32 @@ namespace LegacyBar.Library.Bar
                 _logoView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
             }
             else if(ItemBackgroundDrawableRaw > 0)
+            {
+                _logoView.SetBackgroundResource(ItemBackgroundDrawableRaw);
+            }
+
+            ((LayoutParams)_titleLayout.LayoutParameters).AddRule(LayoutRules.RightOf, Resource.Id.actionbar_home_logo);
+        }
+
+        /// <summary>
+        /// Shows the provided logo to the left in the legacyBarAction bar.
+        /// 
+        /// This is ment to be used instead of the setHomeAction and does not draw
+        /// a divider to the left of the provided logo.
+        /// </summary>
+        /// <param name="drawable">The drawable resource</param>
+        public void SetHomeLogoFromDrawable(Drawable drawable)
+        {
+            // TODO: Add possibility to add an IntentAction as well.
+            _logoView.SetImageDrawable(drawable);
+            _logoView.Visibility = ViewStates.Visible;
+            _homeLayout.Visibility = ViewStates.Gone;
+
+            if (null != ItemBackgroundDrawable)
+            {
+                _logoView.SetBackgroundDrawable(ItemBackgroundDrawable.GetConstantState().NewDrawable());
+            }
+            else if (ItemBackgroundDrawableRaw > 0)
             {
                 _logoView.SetBackgroundResource(ItemBackgroundDrawableRaw);
             }
