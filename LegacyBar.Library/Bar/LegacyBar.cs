@@ -281,6 +281,7 @@ namespace LegacyBar.Library.Bar
 
             var separatorColor = a.GetColor(Resource.Styleable.actionbar_separator, Resources.GetColor(Resource.Color.actionbar_separator));
             _actionsView.SetBackgroundColor(separatorColor);
+            _homeLayout.SetBackgroundColor(separatorColor);
 
             using (var background = a.GetDrawable(Resource.Styleable.actionbar_background)) //recycling the drawable immediately
             {
