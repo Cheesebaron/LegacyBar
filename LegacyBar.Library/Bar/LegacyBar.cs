@@ -619,6 +619,29 @@ namespace LegacyBar.Library.Bar
                 _actionsView.RemoveView(view);
             }
         }
+
+        /// <summary>
+        /// Method to check if Action is displayed in the ActionBar
+        /// </summary>
+        /// <param name="legacyBarAction">Action to check if is displayed in ActionBar</param>
+        /// <returns>true if Action is displayed in the ActionBar</returns>
+        public bool ContainsAction(LegacyBarAction legacyBarAction)
+        {
+            for(var i = 0; i < _actionsView.ChildCount; i++)
+            {
+                var view = _actionsView.GetChildAt(i);
+                
+                if (view == null) continue;
+
+                var tag = view.Tag;
+                var actionBarAction = tag as LegacyBarAction;
+
+                if (actionBarAction == null || !actionBarAction.Equals(legacyBarAction)) continue;
+
+                return true;
+            }
+            return false;
+        }
         
         /// <summary>
         /// Inflates a View with the given Action.
