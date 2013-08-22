@@ -4,10 +4,9 @@ It features:
 
 * A fully customizeable Action Bar
 * 4 Built in base themes
-* Integrates with current Menus
 * Overflow on API 11+ Devices
 * Dynamic Action Bar Item Count based on screen resolution
-* Bottom Action Bar (beta)
+* Bottom Action Bar
 
 Add it easily to your Layout:
 
@@ -36,8 +35,19 @@ LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
 // Set a home logo
 LegacyBar.SetHomeLogo(Resource.Drawable.MyLogo);
 // Add an Action
-var action = new MenuItemLegacyBarAction(this, Resource.Id.menu_search, Resource.Drawable.ic_action_search, "Search");
-LegacyBar.AddAction(action);
+var search = new LegacyBarAction
+{
+    ActionType = ActionType.IfRoom,
+    Drawable =
+        LegacyBar.LightIcons
+            ? Resource.Drawable.ic_action_search
+            : Resource.Drawable.ic_action_search_dark,
+    PopUpMessage = Resource.String.ab_string_search
+};
+// Assign a click action
+search.Clicked += delegate { /* do an action when clicked */ };
+// Add it to the bar
+LegacyBar.AddAction(search);
 ```
 
 Fork it on [GitHub!](https://github.com/Cheesebaron/LegacyBar)
