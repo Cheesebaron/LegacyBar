@@ -1,9 +1,9 @@
 :: Grab xpkg from http://components.xamarin.com/submit/xpkg and put contents of the zip into xpkg
 
-xpkg\xpkg.exe create legacybar-1.2.xam ^
+xpkg\xpkg.exe create legacybar-2.0.xam ^
 	--name="LegacyBar" ^
 	--summary="A backward compatible ActionBar, which supports Android 2.1 and up." ^
-	--website="https://github.com/Cheesebaron/LegacyBar" ^
+	--website="https://github.com/Cheesebaron/LegacyBar/tree/eventmenu" ^
 	--details="Details.md" ^
 	--license="License.md" ^
 	--getting-started="GettingStarted.md" ^

@@ -42,8 +42,6 @@ public class HomeActivity : LegacyBarActivity
         SetContentView(Resource.Layout.main);
         // Find LegacyBar and assign the value to the LegacyBar property
         LegacyBar = FindViewById<Library.Bar.LegacyBar>(Resource.Id.actionbar);
-        // Needs to be assigned to be able to calculate screen values
-        LegacyBar.CurrentActivity = this;
         // Set a nice home logo
         LegacyBar.SetHomeLogo(Resource.Drawable.MyLogo);
     }
@@ -82,48 +80,25 @@ AddHomeAction(() =>
 The `true` argument indicates that the arrow for the Home Action is shown.
 
 ### Actions
-If you want to support devices with menu buttons, you will want to create a menu resource with definitions of the Actions, which will be represented in a old style menu, when pressing the menu button. This is the behavior of LegacyBar when it detects a hardware menu button on the device. Lets call the menu resource `mymenu.xml` with the following contents:
-
-```
-<?xml version="1.0" encoding="utf-8" ?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@+id/menu_search"
-      android:icon="@drawable/ic_menu_search"
-      android:title="@string/menu_string_search"/>
-</menu>
-```
-
-This defines a menu item with the ID `menu_search`, using the Drawable `ic_menu_search` as an icon and the string `menu_string_search` from `Strings.xml`. The most important part here is the ID, as we are going to use that for the Action we are going to add to the LegacyBar.
-
-Now in your Activity to add an Action to the LegacyBar we use the following code:
+In your Activity to add an Action to the LegacyBar we use the following code:
 
 ```csharp
-var itemActionBarAction = new MenuItemLegacyBarAction(this, this, 
-	Resource.Id.menu_search, 
-	LegacyBar.LightIcons ? Resource.Drawable.ic_action_search : Resource.Drawable.ic_action_search_dark,
-	Resource.String.menu_string_search)
-						{
-							ActionType = ActionType.Always
-						};
-LegacyBar.AddAction(itemActionBarAction);
-```
-
-Now note that we reuse the ID, which we defined for the menu item we just created. This is due to in the code behind, when activating an Action, `MenuItemLegacyBarAction` calls the `Activity`s `OnOptionsItemSelected` method, which allows the user to do whatever they want on that activation, by overriding `OnOptionsItemSelected`:
-
-```csharp
-public override bool OnOptionsItemSelected(IMenuItem item)
+var search = new LegacyBarAction
 {
-	switch (item.ItemId)
-	{
-		case Resource.Id.menu_search: 
-			//Whatever you want here
-			return true;
-	}
-	return base.OnOptionsItemSelected(item); 
-}
+    ActionType = ActionType.IfRoom,
+    Drawable =
+        LegacyBar.LightIcons
+            ? Resource.Drawable.ic_action_search
+            : Resource.Drawable.ic_action_search_dark,
+    PopUpMessage = Resource.String.ab_string_search
+};
+// Assign a click action
+search.Clicked += delegate { /* do an action when clicked */ };
+// Add it to the bar
+LegacyBar.AddAction(search);
 ```
 
-You will also need to specify the Icon for the Action item, where you can check whether to use a Light or Dark version of the icon by checking `LegacyBar.LightIcons`, and also set the text representation for the item when it is shown in the overflow drop down.
+You will need to specify the Icon for the Action item, where you can check whether to use a Light or Dark version of the icon by checking `LegacyBar.LightIcons`, and also set the text representation for the item when it is shown in the overflow drop down or as a toast when long-pressed.
 
 The `ActionType` defined is an `Enum` and the different enumerations are described as follows:
 
@@ -131,7 +106,7 @@ The `ActionType` defined is an `Enum` and the different enumerations are describ
 * Always - Force it in the action bar no matter what
 * Never - Always put it in overflow (3.0+) or leave it in the old school menu bar.
 
-The Action is then simply added with: `LegacyBar.AddAction(itemActionBarAction);`.
+The Action is then simply added with: `LegacyBar.AddAction(myItem);`.
 
 ## Other Resources
 
