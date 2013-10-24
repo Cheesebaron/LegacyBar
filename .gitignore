@@ -49,3 +49,6 @@ _ReSharper*/
 
 # xpkg
 xpkg/
+
+# Xamarin.Android designer file
+Resource.Designer.cs
