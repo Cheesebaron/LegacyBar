@@ -320,7 +320,6 @@ namespace LegacyBar.Library.Bar
             _homeBtn.Tag = legacyBarAction;
             _homeBtn.SetImageResource(legacyBarAction.Drawable);
             _homeLayout.Visibility = ViewStates.Visible;
-            _logoView.Visibility = ViewStates.Gone;
             _backIndicator.SetBackgroundResource(LightIcons ? Resource.Drawable.actionbar_back_indicator : Resource.Drawable.actionbar_back_indicator_dark);
             
 

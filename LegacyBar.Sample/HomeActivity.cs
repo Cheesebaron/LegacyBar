@@ -110,11 +110,11 @@ namespace LegacyBar.Sample
             };
             LegacyBar.AddAction(searchMenuItemAction);
 
-            var startProgress = FindViewById<Button>(Resource.Id.start_progress);
-            startProgress.Click += (s, e) => LegacyBar.ProgressBarVisibility = ViewStates.Visible;
-
-            var stopProgress = FindViewById<Button>(Resource.Id.stop_progress);
-            stopProgress.Click += (s, e) => LegacyBar.ProgressBarVisibility = ViewStates.Gone;
+            var toggleProgress = FindViewById<Button>(Resource.Id.toggle_progress);
+            toggleProgress.Click += (s, e) =>
+            {
+                LegacyBar.ProgressBarVisibility = LegacyBar.ProgressBarVisibility == ViewStates.Visible ? ViewStates.Gone : ViewStates.Visible;
+            };
 
             var removeActions = FindViewById<Button>(Resource.Id.remove_actions);
             removeActions.Click += (s, e) => LegacyBar.RemoveAllActions();
@@ -195,6 +195,13 @@ namespace LegacyBar.Sample
             spinnerActivity.Click += (s, e) =>
             {
                 var intent = new Intent(this, typeof(SpinnerActivity));
+                StartActivity(intent);
+            };
+
+            var testHomeActionActivity = FindViewById<Button>(Resource.Id.test_home_action_activity);
+            testHomeActionActivity.Click += (s, e) =>
+            {
+                var intent = new Intent(this, typeof(TestHomeActionActivity));
                 StartActivity(intent);
             };
         }
