@@ -64,7 +64,7 @@ namespace LegacyBar.Sample
 
             var shareAction = new LegacyBarAction
                 {
-                    ActionType = ActionType.Always,
+                    ActionType = ActionType.WithText,
                     Drawable =
                         LegacyBar.LightIcons
                             ? Resource.Drawable.ic_action_share
@@ -89,7 +89,7 @@ namespace LegacyBar.Sample
             //only put in if there is room
             var searchMenuItemAction = new LegacyBarAction
                 {
-                    ActionType = ActionType.IfRoom,
+                    ActionType = ActionType.WithText,
                     Drawable =
                         LegacyBar.LightIcons
                             ? Resource.Drawable.ic_action_search

@@ -662,8 +662,25 @@ namespace LegacyBar.Library.Bar
             }
 
             var labelView =
-                view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
-            labelView.SetImageResource(legacyBarAction.Drawable);
+                view.FindViewById<Button>(Resource.Id.actionbar_item);
+
+            if (legacyBarAction.ActionType == ActionType.WithText)
+            {
+                labelView.Text = Context.GetString(legacyBarAction.PopUpMessage);
+                labelView.Gravity = GravityFlags.Left | GravityFlags.CenterVertical;
+                labelView.SetPadding(labelView.PaddingLeft, labelView.PaddingTop, labelView.PaddingRight + 2,
+                    labelView.PaddingBottom);
+            }
+            else
+            {
+                labelView.Gravity = GravityFlags.Center;
+            }
+
+
+            if (legacyBarAction.Drawable > -1)
+            {
+                labelView.SetCompoundDrawablesWithIntrinsicBounds(legacyBarAction.Drawable, 0, 0, 0);
+            }
 
             view.Tag = legacyBarAction;
             view.SetOnClickListener(this);
