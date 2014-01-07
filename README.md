@@ -1,6 +1,10 @@
 LegacyBar an ActionBar for Xamarin.Android (Mono for Android)
 ===================
 
+> NOTE: This project was originally made, because there was no official Google backwards compatible ActionBar implementation. Since then one has appeared in the [Android Support V7 package](http://developer.android.com/tools/support-library/features.html#v7), which is now also [available for Xamarin.Android](http://components.xamarin.com/view/xamandroidsupportv7appcompat).
+
+
+
 This was originally a port of [android-actionbar by Johan Nilson](https://github.com/johannilsson/android-actionbar). 
 
 LegacyBar is under rapid development by [Tomasz Cielecki](https://github.com/Cheesebaron) ([@Cheesebaron](http://www.twitter.com/Cheesebaron)) and [James Montemagno](https://github.com/JamesMontemagno) ([@JamesMontemagno](http://www.twitter.com/jamesmontemagno)) and is quickly moving away from the what the port initially was.
